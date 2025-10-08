@@ -152,12 +152,29 @@ body.dark-mode {
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .usp-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 16px var(--card-shadow);
   border-color: var(--gradient-start);
+}
+
+.usp-card:active {
+  animation: pulse 0.4s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .usp-icon {
@@ -243,11 +260,31 @@ body.dark-mode {
   border-radius: 12px;
   box-shadow: 0 4px 6px var(--card-shadow);
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px var(--card-shadow);
+}
+
+.service-card:active {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
 }
 
 .service-card h3 {
@@ -316,6 +353,24 @@ body.dark-mode {
   max-width: 600px;
   margin: 0 auto;
   border: 2px solid var(--gradient-start);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hosting-card:active {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
 }
 
 .hosting-price {
@@ -386,6 +441,22 @@ body.dark-mode {
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px var(--card-shadow);
+}
+
+.project-card:active {
+  animation: flip 0.6s ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+  50% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0);
+  }
 }
 
 .project-card h3 {
