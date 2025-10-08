@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd Webdesign/artist-portfolio && npm install && npm run build",
+  "outputDirectory": "Webdesign/artist-portfolio/dist",
+  "installCommand": "cd Webdesign/artist-portfolio && npm install"
+}
