@@ -1,23 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
   const [language, setLanguage] = useState('de')
   const [darkMode, setDarkMode] = useState(false)
 
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode')
+    } else {
+      document.body.classList.remove('dark-mode')
+    }
+  }, [darkMode])
+
   const translations = {
     de: {
-      title: 'Artist Webdesign',
+      title: 'Ich code deinen Auftritt',
       tagline: 'schlank, schnell, mobil.',
-      uspTitle: 'Warum handgemacht?',
+      uspTitle: 'Dein React Code',
+      uspSubtitle: 'React nutzen Facebook, Instagram & Co. – das stärkste Tool für moderne Websites.',
       usp1Title: 'Wirklich gecoded – kein Baukasten',
-      usp1Text: 'Jede Seite ist handgeschrieben und individuell aufgebaut.',
+      usp1Text: 'Du bekommst eine individuelle Website, die genau auf deine Bedürfnisse zugeschnitten ist – keine Standard-Templates.',
       usp2Title: 'Extrem performant',
-      usp2Text: 'Beste Ladezeiten, selbst mit vielen Bildern und Videos.',
+      usp2Text: 'Deine Besucher erleben blitzschnelle Ladezeiten und bleiben länger – das steigert deine Conversion.',
       usp3Title: 'Interaktiv',
-      usp3Text: 'Kleine Animationen und Bewegung sorgen für Lebendigkeit.',
+      usp3Text: 'Animationen und Interaktionen schaffen ein einzigartiges Erlebnis, das deine Marke unvergesslich macht.',
       usp4Title: 'Aus einem Guss',
-      usp4Text: 'Design, Struktur und Technik passen perfekt zusammen.',
+      usp4Text: 'Du erhältst eine professionelle Website, bei der Design und Technik perfekt harmonieren – ohne Kompromisse.',
+      whyCodeTitle: 'Warum ich code',
+      whyCodeText1: 'Seit November 2024 beschäftige ich mich täglich mindestens 6 Stunden mit Webentwicklung.',
+      whyCodeText2: 'Coden ist für mich das beste und effizienteste Werkzeug für Ideen – es gibt mir die Power, Projekte eigenständig umzusetzen.',
+      whyCodeText3: 'Ich liebe es, wenn aus einem Gedanken in kurzer Zeit etwas Reales, Klickbares entsteht und die Menschen es auch checken und nutzen',
       servicesTitle: 'Angebot',
       basicTitle: 'Basic',
       basicPrice: '200€',
@@ -49,24 +62,29 @@ function App() {
       project4Desc: 'Festivalseite mit Programm, Bildern und Call-to-Action.',
       contactTitle: 'Kontakt',
       contactIntro: 'Lust auf einen Auftritt im Web?\nSchreib mir kurz, was du brauchst – ich melde mich fix mit einem Vorschlag.',
-      contactEmail: 'E-Mail: hello@dein-domain.de',
-      contactInstagram: 'Instagram: @dein.handle',
-      contactWhatsApp: 'WhatsApp: Nachricht senden',
-      contactFooter: 'Oder schick mir einfach deine Idee per Mail oder DM.',
+      contactEmail: '📧 E-Mail schreiben',
+      contactInstagram: '📱 Instagram Message',
+      contactWhatsApp: '💬 WhatsApp Message',
+      contactFooter: 'Oder schick mir einfach deine Idee per Mail oder DM – ich antworte schnell!',
       footerText: 'Artist Webdesign – schlank, schnell, mobil.'
     },
     en: {
-      title: 'Artist Web Design',
+      title: 'I code your presence',
       tagline: 'lean, fast, mobile.',
-      uspTitle: 'Why Handcrafted?',
+      uspTitle: 'Your React Code',
+      uspSubtitle: 'React is used by Facebook, Instagram & Co. – the most powerful tool for modern websites.',
       usp1Title: 'Actually Coded – No Website Builder',
-      usp1Text: 'Every page is hand-written and individually built.',
+      usp1Text: 'You get a custom website tailored exactly to your needs – no standard templates.',
       usp2Title: 'Extremely Performant',
-      usp2Text: 'Best loading times, even with lots of images and videos.',
+      usp2Text: 'Your visitors experience lightning-fast load times and stay longer – boosting your conversion rates.',
       usp3Title: 'Interactive',
-      usp3Text: 'Small animations and movement create vibrancy.',
+      usp3Text: 'Animations and interactions create a unique experience that makes your brand unforgettable.',
       usp4Title: 'Unified Design',
-      usp4Text: 'Design, structure, and technology perfectly aligned.',
+      usp4Text: 'You receive a professional website where design and technology harmonize perfectly – without compromises.',
+      whyCodeTitle: 'Why I Code',
+      whyCodeText1: 'Since November 2024, I\'ve been dedicating at least 6 hours daily to web development.',
+      whyCodeText2: 'Coding is the best and most efficient tool for my ideas – it gives me the power to implement projects independently.',
+      whyCodeText3: 'I love it when a thought becomes something real and clickable in a short time, and people actually check it out and use it',
       servicesTitle: 'Services',
       basicTitle: 'Basic',
       basicPrice: '€200',
@@ -98,10 +116,10 @@ function App() {
       project4Desc: 'Festival site with program, images, and call-to-action.',
       contactTitle: 'Contact',
       contactIntro: 'Ready for your web presence?\nJust drop me a message with what you need – I\'ll get back to you quickly with a proposal.',
-      contactEmail: 'Email: hello@dein-domain.de',
-      contactInstagram: 'Instagram: @dein.handle',
-      contactWhatsApp: 'WhatsApp: Send Message',
-      contactFooter: 'Or simply send me your idea via email or DM.',
+      contactEmail: '📧 Send Email',
+      contactInstagram: '📱 Instagram Message',
+      contactWhatsApp: '💬 WhatsApp Message',
+      contactFooter: 'Or simply send me your idea via email or DM – I respond fast!',
       footerText: 'Artist Web Design – lean, fast, mobile.'
     }
   }
@@ -159,6 +177,7 @@ function App() {
         {/* USP Section */}
         <section className="section usp">
           <h2>{t.uspTitle}</h2>
+          <p className="usp-subtitle">{t.uspSubtitle}</p>
           <div className="usp-grid">
             <div className="usp-card">
               <div className="usp-icon">⚡</div>
@@ -180,6 +199,16 @@ function App() {
               <h3>{t.usp4Title}</h3>
               <p>{t.usp4Text}</p>
             </div>
+          </div>
+        </section>
+
+        {/* Why I Code Section */}
+        <section className="section why-code">
+          <h2>{t.whyCodeTitle}</h2>
+          <div className="why-code-content">
+            <p>{t.whyCodeText1}</p>
+            <p>{t.whyCodeText2}</p>
+            <p>{t.whyCodeText3}</p>
           </div>
         </section>
 
@@ -254,14 +283,14 @@ function App() {
               <span key={i}>{line}{i === 0 && <br />}</span>
             ))}</p>
             <div className="contact-links">
-              <a href="mailto:hello@dein-domain.de" className="contact-button">
+              <a href="mailto:chris.hermann9397@gmail.com?subject=Webdesign%20Anfrage&body=Hallo%20Chris%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20deine%20Webdesign-Services.%0A%0AMein%20Projekt%3A%20" className="contact-button">
                 {t.contactEmail}
               </a>
-              <a href="https://instagram.com/dein.handle" target="_blank" rel="noopener noreferrer" className="contact-button">
-                {t.contactInstagram}
-              </a>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="contact-button">
+              <a href="https://wa.me/4915904891419?text=Hallo%20Chris%2C%20ich%20interessiere%20mich%20f%C3%BCr%20deine%20Webdesign-Services!" target="_blank" rel="noopener noreferrer" className="contact-button">
                 {t.contactWhatsApp}
+              </a>
+              <a href="https://instagram.com/chriiiiis_h" target="_blank" rel="noopener noreferrer" className="contact-button">
+                {t.contactInstagram}
               </a>
             </div>
             <p className="contact-footer">{t.contactFooter}</p>

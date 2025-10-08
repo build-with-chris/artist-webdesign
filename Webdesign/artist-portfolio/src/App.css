@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7fafc;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1a202c;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -118,6 +129,15 @@
   margin-bottom: 3rem;
 }
 
+.usp-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
 .usp-grid {
   display: grid;
   gap: 1.5rem;
@@ -182,6 +202,32 @@
   color: var(--text-secondary);
   line-height: 1.6;
   font-size: 0.95rem;
+}
+
+/* Why I Code Section */
+.why-code {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--gradient-start);
+}
+
+.why-code-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-code-content p {
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.why-code-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* Services Section */
