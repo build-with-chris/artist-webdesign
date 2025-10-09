@@ -15,6 +15,10 @@ function App() {
 
   const translations = {
     de: {
+      heroTitle: 'Performance meets Code.',
+      heroSubtitle: 'Websites, die wirken – wie dein Auftritt auf der Bühne.',
+      ctaPrimary: 'Angebot ansehen',
+      ctaSecondary: 'Kontakt aufnehmen',
       title: 'Ich code deinen Auftritt',
       tagline: 'schlank, schnell, mobil.',
       uspTitle: 'Dein React Code',
@@ -31,6 +35,13 @@ function App() {
       whyCodeText1: 'Seit November 2024 beschäftige ich mich täglich mindestens 6 Stunden mit Webentwicklung.',
       whyCodeText2: 'Coden ist für mich das beste und effizienteste Werkzeug für Ideen – es gibt mir die Power, Projekte eigenständig umzusetzen.',
       whyCodeText3: 'Ich liebe es, wenn aus einem Gedanken in kurzer Zeit etwas Reales, Klickbares entsteht und die Menschen es auch checken und nutzen',
+      aboutMeTitle: 'Über mich',
+      aboutMeText1: 'Ich bin ein leidenschaftlicher Macher, der Projekte liebt – von der Almhütte bis zur Web-App.',
+      aboutMeText2Part1: 'Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte ab- und wiederaufgebaut – das Projekt kannst du dir auf Instagram unter ',
+      aboutMeText2Link: '@cabin.kingdome',
+      aboutMeText2Part2: ' ansehen.',
+      aboutMeText3: 'Diese Liebe zum Handwerk und zur Struktur fließt auch in meine Websites:',
+      aboutMeText4: 'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist – deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich einzigartig macht.',
       servicesTitle: 'Angebot',
       basicTitle: 'Basic',
       basicPrice: '200€',
@@ -69,6 +80,10 @@ function App() {
       footerText: 'Artist Webdesign – schlank, schnell, mobil.'
     },
     en: {
+      heroTitle: 'Performance Meets Code.',
+      heroSubtitle: 'Websites that work – like your stage performance.',
+      ctaPrimary: 'View Services',
+      ctaSecondary: 'Get in Touch',
       title: 'I code your presence',
       tagline: 'lean, fast, mobile.',
       uspTitle: 'Your React Code',
@@ -85,6 +100,13 @@ function App() {
       whyCodeText1: 'Since November 2024, I\'ve been dedicating at least 6 hours daily to web development.',
       whyCodeText2: 'Coding is the best and most efficient tool for my ideas – it gives me the power to implement projects independently.',
       whyCodeText3: 'I love it when a thought becomes something real and clickable in a short time, and people actually check it out and use it',
+      aboutMeTitle: 'About Me',
+      aboutMeText1: 'I\'m a passionate maker who loves projects – from mountain cabins to web apps.',
+      aboutMeText2Part1: 'One of my favorite experiences: I dismantled and rebuilt an old alpine cabin – you can check out the project on Instagram at ',
+      aboutMeText2Link: '@cabin.kingdome',
+      aboutMeText2Part2: '.',
+      aboutMeText3: 'This love for craftsmanship and structure flows into my websites:',
+      aboutMeText4: 'As an artist, I know how important a strong first impression is – that\'s why I build sites that load fast, look great, and show what makes you unique.',
       servicesTitle: 'Services',
       basicTitle: 'Basic',
       basicPrice: '€200',
@@ -159,9 +181,22 @@ function App() {
 
   return (
     <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-      <header className="header">
-        <h1>{t.title}</h1>
-        <p className="tagline">{t.tagline}</p>
+      <header className="header hero">
+        <div className="hero-image-container">
+          <img
+            src="/Purple Modern Futuristic Technology Presentation_batcheditor_fotor.webp"
+            alt="Artist Performance"
+            className="hero-image"
+          />
+        </div>
+        <div className="hero-content">
+          <h1>{t.heroTitle}</h1>
+          <p className="hero-subtitle">{t.heroSubtitle}</p>
+          <div className="hero-cta">
+            <a href="#services" className="cta-button cta-primary">{t.ctaPrimary}</a>
+            <a href="#contact" className="cta-button cta-secondary">{t.ctaSecondary}</a>
+          </div>
+        </div>
       </header>
 
       <div className="controls-bar">
@@ -202,18 +237,52 @@ function App() {
           </div>
         </section>
 
-        {/* Why I Code Section */}
-        <section className="section why-code">
-          <h2>{t.whyCodeTitle}</h2>
-          <div className="why-code-content">
-            <p>{t.whyCodeText1}</p>
-            <p>{t.whyCodeText2}</p>
-            <p>{t.whyCodeText3}</p>
+        {/* Profile Image Section */}
+        <section className="section profile-section">
+          <div className="profile-image-wrapper">
+            <img
+              src="/Chris.webp"
+              alt="Chris Hermann"
+              className="profile-image"
+            />
           </div>
         </section>
 
+        {/* Why I Code & About Me Section */}
+        <div className="two-column-section">
+          <section className="section why-code">
+            <h2>{t.whyCodeTitle}</h2>
+            <div className="why-code-content">
+              <p>{t.whyCodeText1}</p>
+              <p>{t.whyCodeText2}</p>
+              <p>{t.whyCodeText3}</p>
+            </div>
+          </section>
+
+          <section className="section about-me">
+            <h2>⚡ {t.aboutMeTitle}</h2>
+            <div className="about-me-content">
+              <p>{t.aboutMeText1}</p>
+              <p>
+                {t.aboutMeText2Part1}
+                <a
+                  href="https://instagram.com/cabin.kingdome"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="instagram-link"
+                >
+                  {t.aboutMeText2Link}
+                </a>
+                {t.aboutMeText2Part2}
+              </p>
+              <p>{t.aboutMeText3}</p>
+              <p>{t.aboutMeText4}</p>
+            </div>
+          </section>
+        </div>
+
         {/* Services Section */}
-        <section className="section services">
+        <section id="services" className="section services">
           <h2>{t.servicesTitle}</h2>
           <div className="services-grid">
             <div className="service-card">
@@ -276,7 +345,7 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section className="section contact">
+        <section id="contact" className="section contact">
           <h2>{t.contactTitle}</h2>
           <div className="contact-info">
             <p className="contact-intro">{t.contactIntro.split('\n').map((line, i) => (
