@@ -38,7 +38,7 @@ function App() {
       aboutMeTitle: 'Über mich',
       aboutMeText1: 'Ich bin ein leidenschaftlicher Macher, der Projekte liebt – von der Almhütte bis zur Web-App.',
       aboutMeText2Part1: 'Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte ab- und wiederaufgebaut – das Projekt kannst du dir auf Instagram unter ',
-      aboutMeText2Link: '@cabin.kingdome',
+      aboutMeText2Link: '@cabin.kingdom',
       aboutMeText2Part2: ' ansehen.',
       aboutMeText3: 'Diese Liebe zum Handwerk und zur Struktur fließt auch in meine Websites:',
       aboutMeText4: 'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist – deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich einzigartig macht.',
@@ -103,7 +103,7 @@ function App() {
       aboutMeTitle: 'About Me',
       aboutMeText1: 'I\'m a passionate maker who loves projects – from mountain cabins to web apps.',
       aboutMeText2Part1: 'One of my favorite experiences: I dismantled and rebuilt an old alpine cabin – you can check out the project on Instagram at ',
-      aboutMeText2Link: '@cabin.kingdome',
+      aboutMeText2Link: '@cabin.kingdom',
       aboutMeText2Part2: '.',
       aboutMeText3: 'This love for craftsmanship and structure flows into my websites:',
       aboutMeText4: 'As an artist, I know how important a strong first impression is – that\'s why I build sites that load fast, look great, and show what makes you unique.',
@@ -185,7 +185,7 @@ function App() {
         <div className="hero-image-container">
           <img
             src="/Purple Modern Futuristic Technology Presentation_batcheditor_fotor.webp"
-            alt="Artist Performance"
+            alt="Modernes futuristisches Webdesign mit Performance-Fokus für Artists und Künstler"
             className="hero-image"
           />
         </div>
@@ -242,7 +242,7 @@ function App() {
           <div className="profile-image-wrapper">
             <img
               src="/Chris.webp"
-              alt="Chris Hermann"
+              alt="Chris Hermann - Webdesigner und Developer für Artists, spezialisiert auf React-Entwicklung"
               className="profile-image"
             />
           </div>
@@ -266,7 +266,7 @@ function App() {
               <p>
                 {t.aboutMeText2Part1}
                 <a
-                  href="https://instagram.com/cabin.kingdome"
+                  href="https://instagram.com/cabin.kingdom"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="instagram-link"
