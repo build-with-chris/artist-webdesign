@@ -97,14 +97,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SEO Intro Section */}
-      <section className="py-20 px-6 bg-dark-surface">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-dark-text/80 leading-relaxed text-center">
-            {t.seoIntro}
-          </p>
-        </div>
-      </section>
+      {/* SEO Intro Section entfernt */}
 
       {/* Free Design Teaser */}
       <section className="py-20 px-6 bg-black relative overflow-hidden">

@@ -23,6 +23,22 @@ function Navigation({ language, onLanguageToggle }) {
     _s();
     const [mobileMenuOpen, setMobileMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
+    // Prevent background scrolling when mobile menu is open
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Navigation.useEffect": ()=>{
+            if (mobileMenuOpen) {
+                const originalOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+                return ({
+                    "Navigation.useEffect": ()=>{
+                        document.body.style.overflow = originalOverflow;
+                    }
+                })["Navigation.useEffect"];
+            }
+        }
+    }["Navigation.useEffect"], [
+        mobileMenuOpen
+    ]);
     const translations = {
         de: {
             home: 'Home',
@@ -73,7 +89,7 @@ function Navigation({ language, onLanguageToggle }) {
         return pathname.startsWith(path);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-zinc-800",
+        className: "fixed top-0 left-0 right-0 z-50 bg-black/80 md:backdrop-blur-lg border-b border-zinc-800",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto px-6 py-4",
             children: [
@@ -86,7 +102,7 @@ function Navigation({ language, onLanguageToggle }) {
                             children: "Artist Webdesign"
                         }, void 0, false, {
                             fileName: "[project]/components/Navigation.tsx",
-                            lineNumber: 60,
+                            lineNumber: 71,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -97,12 +113,12 @@ function Navigation({ language, onLanguageToggle }) {
                                     children: link.label
                                 }, link.href, false, {
                                     fileName: "[project]/components/Navigation.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 78,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/Navigation.tsx",
-                            lineNumber: 65,
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -114,7 +130,7 @@ function Navigation({ language, onLanguageToggle }) {
                                     children: language === 'de' ? 'EN' : 'DE'
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navigation.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -123,13 +139,13 @@ function Navigation({ language, onLanguageToggle }) {
                                     children: t.cta
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navigation.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Navigation.tsx",
-                            lineNumber: 82,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -148,12 +164,12 @@ function Navigation({ language, onLanguageToggle }) {
                                     d: "M6 18L18 6M6 6l12 12"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navigation.tsx",
-                                    lineNumber: 105,
+                                    lineNumber: 116,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
-                                lineNumber: 104,
+                                lineNumber: 115,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-6 h-6",
@@ -167,23 +183,23 @@ function Navigation({ language, onLanguageToggle }) {
                                     d: "M4 6h16M4 12h16M4 18h16"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navigation.tsx",
-                                    lineNumber: 109,
+                                    lineNumber: 120,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
-                                lineNumber: 108,
+                                lineNumber: 119,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/Navigation.tsx",
-                            lineNumber: 98,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/Navigation.tsx",
-                    lineNumber: 58,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -201,7 +217,7 @@ function Navigation({ language, onLanguageToggle }) {
                             duration: 0.3,
                             ease: 'easeInOut'
                         },
-                        className: "md:hidden fixed inset-0 z-[100]",
+                        className: "md:hidden fixed inset-0 z-[9999]",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                 initial: {
@@ -217,7 +233,7 @@ function Navigation({ language, onLanguageToggle }) {
                                 onClick: ()=>setMobileMenuOpen(false)
                             }, void 0, false, {
                                 fileName: "[project]/components/Navigation.tsx",
-                                lineNumber: 126,
+                                lineNumber: 137,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -255,22 +271,22 @@ function Navigation({ language, onLanguageToggle }) {
                                                     d: "M6 18L18 6M6 6l12 12"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/Navigation.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 158,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Navigation.tsx",
-                                                lineNumber: 146,
+                                                lineNumber: 157,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navigation.tsx",
-                                            lineNumber: 138,
+                                            lineNumber: 149,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navigation.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 148,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -301,17 +317,11 @@ function Navigation({ language, onLanguageToggle }) {
                                                             onClick: ()=>setMobileMenuOpen(false),
                                                             className: `group relative block py-4 text-center text-2xl font-semibold transition-all duration-300 ${isActive(link.href) ? 'text-white' : 'text-zinc-500 hover:text-white'}`,
                                                             children: [
-                                                                isActive(link.href) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].span, {
-                                                                    layoutId: "activeGlow",
-                                                                    className: "absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg -z-10",
-                                                                    transition: {
-                                                                        type: 'spring',
-                                                                        bounce: 0.2,
-                                                                        duration: 0.6
-                                                                    }
+                                                                isActive(link.href) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg -z-10 pointer-events-none"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/Navigation.tsx",
-                                                                    lineNumber: 174,
+                                                                    lineNumber: 185,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -319,36 +329,36 @@ function Navigation({ language, onLanguageToggle }) {
                                                                     children: link.label
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/Navigation.tsx",
-                                                                    lineNumber: 180,
+                                                                    lineNumber: 187,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/Navigation.tsx",
-                                                            lineNumber: 163,
+                                                            lineNumber: 174,
                                                             columnNumber: 25
                                                         }, this),
                                                         idx < navLinks.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "h-px bg-zinc-800/50 mt-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/Navigation.tsx",
-                                                            lineNumber: 184,
+                                                            lineNumber: 191,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, link.href, true, {
                                                     fileName: "[project]/components/Navigation.tsx",
-                                                    lineNumber: 156,
+                                                    lineNumber: 167,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navigation.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 165,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navigation.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 164,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -378,12 +388,12 @@ function Navigation({ language, onLanguageToggle }) {
                                                     children: language === 'de' ? 'EN' : 'DE'
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/Navigation.tsx",
-                                                    lineNumber: 200,
+                                                    lineNumber: 207,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Navigation.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 206,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -393,45 +403,45 @@ function Navigation({ language, onLanguageToggle }) {
                                                 children: t.cta
                                             }, void 0, false, {
                                                 fileName: "[project]/components/Navigation.tsx",
-                                                lineNumber: 207,
+                                                lineNumber: 214,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/Navigation.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 199,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Navigation.tsx",
-                                lineNumber: 135,
+                                lineNumber: 146,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Navigation.tsx",
-                        lineNumber: 118,
+                        lineNumber: 129,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/Navigation.tsx",
-                    lineNumber: 116,
+                    lineNumber: 127,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/Navigation.tsx",
-            lineNumber: 57,
+            lineNumber: 68,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/Navigation.tsx",
-        lineNumber: 56,
+        lineNumber: 67,
         columnNumber: 5
     }, this);
 }
-_s(Navigation, "KADE5PjneK6DK0cZuBQ7cRY3Jnk=", false, function() {
+_s(Navigation, "7bqOh/SOPTZWYJAsf66TjC1Awo8=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
     ];

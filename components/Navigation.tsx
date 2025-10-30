@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -13,6 +13,17 @@ interface NavigationProps {
 export default function Navigation({ language, onLanguageToggle }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [mobileMenuOpen])
 
   const translations = {
     de: {
@@ -53,7 +64,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 md:backdrop-blur-lg border-b border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -120,7 +131,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden fixed inset-0 z-[100]"
+              className="md:hidden fixed inset-0 z-[9999]"
             >
               {/* Backdrop with blur */}
               <motion.div
@@ -169,13 +180,9 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
                               : 'text-zinc-500 hover:text-white'
                           }`}
                         >
-                          {/* Glow effect for active item */}
+                          {/* Statischer Glow hinter aktivem Link (bleibt dauerhaft sichtbar) */}
                           {isActive(link.href) && (
-                            <motion.span
-                              layoutId="activeGlow"
-                              className="absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg -z-10"
-                              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                            />
+                            <span className="absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg -z-10 pointer-events-none" />
                           )}
                           <span className="relative">{link.label}</span>
                         </Link>
