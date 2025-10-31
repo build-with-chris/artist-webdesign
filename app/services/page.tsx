@@ -20,11 +20,11 @@ export default function ServicesPage() {
       service2Point1: 'Klare Timeline von Anfang an',
       service2Point2: 'Regelmäßige Updates während der Entwicklung',
       service2Point3: 'Pünktlicher Launch',
-      service3Title: 'Pflege auf Wunsch',
-      service3Benefit: 'Nach dem Launch kannst du entspannen – ich kümmere mich um Updates und Änderungen.',
-      service3Point1: 'Content-Updates innerhalb von 24h',
-      service3Point2: 'Technische Wartung inklusive',
-      service3Point3: 'Hosting & SSL-Zertifikat',
+      service3Title: 'Pflege & Betreuung',
+      service3Benefit: 'Nach dem Launch kannst du entspannen – ich pflege deine Website und setze Änderungen innerhalb von 24h um (Urlaub ausgenommen, wird vorher kommuniziert).',
+      service3Point1: 'Änderungen innerhalb von 24h umgesetzt',
+      service3Point2: 'Technische Wartung & Updates',
+      service3Point3: 'Hosting & SSL-Zertifikat inklusive',
       // Pricing packages
       basicTitle: 'Basic',
       basicPrice: '250€',
@@ -77,11 +77,11 @@ export default function ServicesPage() {
       service2Point1: 'Clear timeline from the start',
       service2Point2: 'Regular updates during development',
       service2Point3: 'On-time launch',
-      service3Title: 'Maintenance on Demand',
-      service3Benefit: 'After launch, you can relax – I take care of updates and changes.',
-      service3Point1: 'Content updates within 24 hours',
-      service3Point2: 'Technical maintenance included',
-      service3Point3: 'Hosting & SSL certificate',
+      service3Title: 'Maintenance & Support',
+      service3Benefit: 'After launch, you can relax – I maintain your website and implement changes within 24 hours (except during vacation, which will be communicated in advance).',
+      service3Point1: 'Changes implemented within 24 hours',
+      service3Point2: 'Technical maintenance & updates',
+      service3Point3: 'Hosting & SSL certificate included',
       // Pricing packages
       basicTitle: 'Basic',
       basicPrice: '€250',
@@ -174,10 +174,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Packages */}
-      <section className="max-w-7xl mx-auto mb-32">
+      <section className="max-w-7xl mx-auto mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">{t.pricingTitle}</h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 relative z-10">
           {/* Basic Package */}
           <div className="group relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300">
             <div className="mb-6">
@@ -255,8 +255,27 @@ export default function ServicesPage() {
       {/* Free Design Highlight */}
       {/* Entfällt! Entfernt, da doppelt. */}
 
+      {/* Image Break Section - Smooth Transition with Overlap */}
+      <section className="max-w-7xl mx-auto -mt-16 mb-16 relative z-0">
+        <div className="relative rounded-3xl overflow-hidden">
+          {/* Background Image - Maintains original aspect ratio */}
+          <div className="relative w-full overflow-hidden">
+            <img
+              src="/service.webp"
+              alt="Services"
+              className="w-full h-auto object-contain"
+            />
+            {/* Gradient overlay for smooth transition */}
+            <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/20 to-zinc-950/60 pointer-events-none"></div>
+            
+            {/* Subtle grid pattern overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Features */}
-      <section className="max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto -mt-16 relative z-10">
         <div className="grid md:grid-cols-3 gap-8">
           {[1, 2, 3].map((num) => (
             <div key={num} className="group relative bg-gradient-to-b from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300">

@@ -64,7 +64,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 md:backdrop-blur-lg border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black md:bg-black/50 md:backdrop-blur-lg border-b border-zinc-800 md:border-zinc-800/50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -127,23 +127,33 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden fixed inset-0 z-[9999]"
+              className="md:hidden fixed inset-0 z-[99999]"
+              style={{ 
+                backgroundColor: '#000000',
+                backdropFilter: 'none',
+                WebkitBackdropFilter: 'none',
+                opacity: 1,
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%'
+              }}
             >
-              {/* Backdrop with blur */}
-              <motion.div
-                initial={{ backdropFilter: 'blur(0px)' }}
-                animate={{ backdropFilter: 'blur(0px)' }}
-                exit={{ backdropFilter: 'blur(0px)' }}
-                className="absolute inset-0 bg-black"
-                onClick={() => setMobileMenuOpen(false)}
-              />
-
               {/* Menu Content */}
-              <div className="relative h-full flex flex-col">
+              <div 
+                className="relative h-full w-full flex flex-col" 
+                style={{ 
+                  backgroundColor: '#000000',
+                  opacity: 1
+                }}
+              >
                 {/* Close Button */}
                 <div className="flex justify-end p-6">
                   <motion.button
@@ -182,9 +192,9 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
                         >
                           {/* Statischer Glow hinter aktivem Link (bleibt dauerhaft sichtbar) */}
                           {isActive(link.href) && (
-                            <span className="absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg -z-10 pointer-events-none" />
+                            <span className="absolute inset-0 bg-[#f97316]/20 blur-xl rounded-lg z-0 pointer-events-none" />
                           )}
-                          <span className="relative">{link.label}</span>
+                          <span className="relative z-10">{link.label}</span>
                         </Link>
                         {/* Divider */}
                         {idx < navLinks.length - 1 && (

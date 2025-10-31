@@ -31,13 +31,33 @@ export default function ProcessPage() {
   }[language]
 
   return (
-    <div className="min-h-screen bg-black text-white py-32 px-6">
-      <div className="max-w-6xl mx-auto mb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t.title}</h1>
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto">{t.subtitle}</p>
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section with Background Image */}
+      <div className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center px-6 py-20 md:py-24 mb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/ablauf-hero.webp"
+            alt="Process Hero"
+            className="w-full h-full object-cover object-center opacity-50"
+          />
+        </div>
+
+        {/* Gradient overlay - lighter for better image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">{t.title}</h1>
+          <p className="text-xl text-zinc-300 max-w-2xl mx-auto drop-shadow-md">{t.subtitle}</p>
+        </div>
       </div>
 
-      <div className="max-w-5xl mx-auto space-y-12">
+      {/* Steps Section */}
+      <div className="max-w-5xl mx-auto space-y-12 px-6 pb-32">
         {t.steps.map((step, idx) => (
           <div key={idx} className="group relative flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-shrink-0">

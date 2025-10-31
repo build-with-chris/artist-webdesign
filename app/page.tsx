@@ -41,31 +41,54 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section - Dark & Elegant */}
-      <header className="relative min-h-screen flex items-center justify-center px-6 py-32">
-        {/* Subtle background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black"></div>
+      <header className="relative min-h-screen md:min-h-[90vh] md:flex md:items-center md:justify-center md:px-6 md:py-32">
+        {/* Background Images - Responsive */}
+        <div className="absolute inset-0">
+          {/* Mobile - Portrait Format */}
+          <div className="absolute inset-0 md:hidden">
+            <img
+              src="/Hero LP mobile.webp"
+              alt="Hero Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Tablet - 3:2 Format */}
+          <div className="absolute inset-0 hidden md:block lg:hidden">
+            <img
+              src="/Hero 3:2.webp"
+              alt="Hero Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Desktop - 16:9 Format */}
+          <div className="absolute inset-0 hidden lg:block">
+            <img
+              src="/Hero 16:9.webp"
+              alt="Hero Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
 
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-12">
-          {/* Headline */}
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+        {/* Mobile Layout - Title at top, CTA at bottom */}
+        <div className="md:hidden relative z-10 w-full h-screen flex flex-col justify-between px-6 pt-16 pb-24">
+          {/* Headline at very top */}
+          <div className="flex justify-center pt-4">
+            <h1 className="text-4xl font-bold tracking-tight text-center">
               {t.heroTitle1}
               <br />
               <span className="text-zinc-400">{t.heroTitle2}</span>
             </h1>
-
-            {/* Subline */}
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-              {t.heroSubtitle}
-            </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          {/* CTA at bottom */}
+          <div className="flex justify-center pb-8">
             <a
               href="/contact"
               className="group px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition-all duration-300 flex items-center gap-2"
@@ -73,19 +96,48 @@ export default function Home() {
               {t.ctaPrimary}
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
-            <a
-              href="/services"
-              className="px-8 py-4 bg-transparent border border-zinc-700 text-white rounded-full font-medium hover:border-zinc-500 hover:bg-zinc-900 transition-all duration-300"
-            >
-              {t.ctaSecondary}
-            </a>
           </div>
+        </div>
 
-          {/* Trust indicator - subtle */}
-          <div className="pt-16">
-            <p className="text-sm text-zinc-600 uppercase tracking-wider">
-              {t.trustIndicator}
-            </p>
+        {/* Desktop/Tablet Layout */}
+        <div className="hidden md:flex relative z-10 w-full h-full max-w-5xl mx-auto">
+          <div className="flex flex-col w-full h-full justify-between py-20">
+            {/* Upper section - empty space */}
+            <div className="flex-1"></div>
+
+            {/* Middle section - Centered Subtitle */}
+            <div className="flex items-center justify-center py-8">
+              <p className="text-xl md:text-2xl text-zinc-200 max-w-3xl mx-auto leading-relaxed text-center font-medium">
+                {t.heroSubtitle}
+              </p>
+            </div>
+
+            {/* Lower section - CTA Buttons and Trust Indicator */}
+            <div className="flex flex-col items-center space-y-6 pb-8">
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="/contact"
+                  className="group px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition-all duration-300 flex items-center gap-2"
+                >
+                  {t.ctaPrimary}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a
+                  href="/services"
+                  className="px-8 py-4 bg-transparent border border-zinc-700 text-white rounded-full font-medium hover:border-zinc-500 hover:bg-zinc-900 transition-all duration-300"
+                >
+                  {t.ctaSecondary}
+                </a>
+              </div>
+
+              {/* Trust indicator */}
+              <div>
+                <p className="text-sm text-zinc-600 uppercase tracking-wider">
+                  {t.trustIndicator}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

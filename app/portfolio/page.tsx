@@ -23,6 +23,7 @@ export default function PortfolioPage() {
         ? 'Portfolio-Website für einen vielseitigen Artist – minimalistisch, bildstark, schnell.' 
         : 'Portfolio website for a versatile artist – minimalist, image-focused, fast.',
       tags: ['Portfolio', 'React', 'Vite'],
+      image: '/PepeArts.webp',
     },
     {
       name: 'Pepe Dome',
@@ -31,14 +32,16 @@ export default function PortfolioPage() {
         ? 'Event-Location-Website mit Fokus auf Atmosphäre und Buchungsanfragen.'
         : 'Event location website focusing on atmosphere and booking inquiries.',
       tags: ['Event', 'Location', 'Booking'],
+      image: '/PepeDome.webp',
     },
     {
       name: 'No Roots Truck',
-      url: 'https://no-roots-truck.vercel.app',
+      url: 'https://www.no-roots-truck.de/',
       description: language === 'de'
-        ? 'Food Truck Website – mobil, frisch, mit Standort-Infos und Menu.'
-        : 'Food truck website – mobile, fresh, with location info and menu.',
-      tags: ['Food', 'Mobile', 'Business'],
+        ? 'Mobiles Showcase-Konzept, das Storytelling mit edlem Design und interaktiven React-Elementen verbindet.'
+        : 'Mobile showcase concept that combines storytelling with elegant design and interactive React elements.',
+      tags: ['Showcase', 'React', 'Storytelling'],
+      image: '/NoRootsProject.webp',
     },
   ]
 
@@ -58,8 +61,18 @@ export default function PortfolioPage() {
             rel="noopener noreferrer"
             className="group bg-dark-surface rounded-2xl overflow-hidden border border-dark-text/10 hover:border-dark-accent/50 transition-all duration-300 shadow-dark hover:shadow-dark-lg"
           >
-            <div className="aspect-video bg-gradient-to-br from-dark-accent/20 to-dark-bg flex items-center justify-center border-b border-dark-text/10">
-              <span className="text-4xl opacity-50">🌐</span>
+            <div className="aspect-video bg-gradient-to-br from-dark-accent/20 to-dark-bg overflow-hidden border-b border-dark-text/10 relative">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-4xl opacity-50">🌐</span>
+                </div>
+              )}
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-dark-text mb-2 group-hover:text-dark-accent transition-colors">

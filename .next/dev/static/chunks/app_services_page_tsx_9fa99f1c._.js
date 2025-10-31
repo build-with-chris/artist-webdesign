@@ -31,11 +31,11 @@ function ServicesPage() {
             service2Point1: 'Klare Timeline von Anfang an',
             service2Point2: 'Regelmäßige Updates während der Entwicklung',
             service2Point3: 'Pünktlicher Launch',
-            service3Title: 'Pflege auf Wunsch',
-            service3Benefit: 'Nach dem Launch kannst du entspannen – ich kümmere mich um Updates und Änderungen.',
-            service3Point1: 'Content-Updates innerhalb von 24h',
-            service3Point2: 'Technische Wartung inklusive',
-            service3Point3: 'Hosting & SSL-Zertifikat',
+            service3Title: 'Pflege & Betreuung',
+            service3Benefit: 'Nach dem Launch kannst du entspannen – ich pflege deine Website und setze Änderungen innerhalb von 24h um (Urlaub ausgenommen, wird vorher kommuniziert).',
+            service3Point1: 'Änderungen innerhalb von 24h umgesetzt',
+            service3Point2: 'Technische Wartung & Updates',
+            service3Point3: 'Hosting & SSL-Zertifikat inklusive',
             // Pricing packages
             basicTitle: 'Basic',
             basicPrice: '250€',
@@ -88,11 +88,11 @@ function ServicesPage() {
             service2Point1: 'Clear timeline from the start',
             service2Point2: 'Regular updates during development',
             service2Point3: 'On-time launch',
-            service3Title: 'Maintenance on Demand',
-            service3Benefit: 'After launch, you can relax – I take care of updates and changes.',
-            service3Point1: 'Content updates within 24 hours',
-            service3Point2: 'Technical maintenance included',
-            service3Point3: 'Hosting & SSL certificate',
+            service3Title: 'Maintenance & Support',
+            service3Benefit: 'After launch, you can relax – I maintain your website and implement changes within 24 hours (except during vacation, which will be communicated in advance).',
+            service3Point1: 'Changes implemented within 24 hours',
+            service3Point2: 'Technical maintenance & updates',
+            service3Point3: 'Hosting & SSL certificate included',
             // Pricing packages
             basicTitle: 'Basic',
             basicPrice: '€250',
@@ -278,7 +278,7 @@ function ServicesPage() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "max-w-7xl mx-auto mb-32",
+                className: "max-w-7xl mx-auto mb-16",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "text-3xl md:text-4xl font-bold text-white mb-12 text-center",
@@ -289,7 +289,7 @@ function ServicesPage() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid md:grid-cols-3 gap-8",
+                        className: "grid md:grid-cols-3 gap-8 relative z-10",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "group relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300",
@@ -611,7 +611,53 @@ function ServicesPage() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "max-w-7xl mx-auto",
+                className: "max-w-7xl mx-auto -mt-16 mb-16 relative z-0",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative rounded-3xl overflow-hidden",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative w-full overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: "/service.webp",
+                                alt: "Services",
+                                className: "w-full h-auto object-contain"
+                            }, void 0, false, {
+                                fileName: "[project]/app/services/page.tsx",
+                                lineNumber: 263,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/20 to-zinc-950/60 pointer-events-none"
+                            }, void 0, false, {
+                                fileName: "[project]/app/services/page.tsx",
+                                lineNumber: 269,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"
+                            }, void 0, false, {
+                                fileName: "[project]/app/services/page.tsx",
+                                lineNumber: 272,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/services/page.tsx",
+                        lineNumber: 262,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/services/page.tsx",
+                    lineNumber: 260,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/services/page.tsx",
+                lineNumber: 259,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "max-w-7xl mx-auto -mt-16 relative z-10",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid md:grid-cols-3 gap-8",
                     children: [
@@ -626,7 +672,7 @@ function ServicesPage() {
                                     children: num === 1 ? '🎨' : num === 2 ? '⚡' : '🛠️'
                                 }, void 0, false, {
                                     fileName: "[project]/app/services/page.tsx",
-                                    lineNumber: 263,
+                                    lineNumber: 282,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -634,7 +680,7 @@ function ServicesPage() {
                                     children: t[`service${num}Title`]
                                 }, void 0, false, {
                                     fileName: "[project]/app/services/page.tsx",
-                                    lineNumber: 266,
+                                    lineNumber: 285,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -642,7 +688,7 @@ function ServicesPage() {
                                     children: t[`service${num}Benefit`]
                                 }, void 0, false, {
                                     fileName: "[project]/app/services/page.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 286,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -659,41 +705,41 @@ function ServicesPage() {
                                                     children: "→"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/services/page.tsx",
-                                                    lineNumber: 271,
+                                                    lineNumber: 290,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: t[`service${num}Point${point}`]
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/services/page.tsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 291,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, point, true, {
                                             fileName: "[project]/app/services/page.tsx",
-                                            lineNumber: 270,
+                                            lineNumber: 289,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/services/page.tsx",
-                                    lineNumber: 268,
+                                    lineNumber: 287,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, num, true, {
                             fileName: "[project]/app/services/page.tsx",
-                            lineNumber: 262,
+                            lineNumber: 281,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/app/services/page.tsx",
-                    lineNumber: 260,
+                    lineNumber: 279,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/services/page.tsx",
-                lineNumber: 259,
+                lineNumber: 278,
                 columnNumber: 7
             }, this)
         ]

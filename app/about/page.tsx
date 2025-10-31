@@ -15,7 +15,7 @@ export default function AboutPage() {
       aboutMeText2: 'Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte ab- und wiederaufgebaut – das Projekt kannst du dir auf Instagram unter @cabin.kingdom ansehen.',
       aboutMeText3: 'Diese Liebe zum Handwerk und zur Struktur fließt auch in meine Websites:',
       aboutMeText4: 'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist – deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich einzigartig macht.',
-      whyWorkTitle: 'Warum mit mir arbeiten?',
+      whyWorkTitle: 'Warum mit mir arbeiten? ',
       points: [
         { title: 'Ich kenne die Bühne', text: 'Als Artist weiß ich, was zählt: ein Auftritt, der hängen bleibt. Deine Website ist deine digitale Bühne – ich sorge dafür, dass sie wirkt.' },
         { title: 'Schnelle Kommunikation', text: 'WhatsApp, Mail, Call – wie du willst. Ich antworte schnell und unkompliziert. Keine Warteschleifen, kein Agentur-Gedöns.' },
@@ -44,16 +44,61 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="py-32 px-6">
-        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-16 text-center">{t.heroTitle}</h1>
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center px-6 py-20 md:py-24 mb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/About Hero.webp"
+            alt="About Hero"
+            className="w-full h-full object-cover object-center opacity-70"
+          />
+        </div>
+
+        {/* Gradient overlay - lighter for better image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">{t.heroTitle}</h1>
+        </div>
+      </section>
+
+      {/* Why I Code Section - Side by Side with Professional Image */}
+      <section className="py-20 px-6 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Professional Image - Left */}
+            <div className="order-2 md:order-1">
+              <div className="rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
+                <img
+                  src="/professional.webp"
+                  alt="Professional"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Text - Right */}
+            <div className="order-1 md:order-2">
+              <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 md:p-10">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.whyCodeTitle}</h2>
+                <div className="space-y-5 text-base text-zinc-400 leading-relaxed">
+                  <p>{t.whyCodeText1}</p>
+                  <p>{t.whyCodeText2}</p>
+                  <p className="font-medium text-zinc-300 pt-2">{t.whyCodeText3}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Why Work With Me Section */}
-      <section className="py-20 px-6 bg-zinc-950">
+      <section className="py-20 px-6 bg-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-16 text-center">{t.whyWorkTitle}</h2>
 
@@ -72,15 +117,23 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Personal Story Section - Side by Side */}
-      <section className="py-20 px-6 bg-black relative">
+      {/* About Me Section - Side by Side with Personal Image */}
+      <section className="py-20 px-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          {/* Connecting Line - Visual Link */}
-          <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700"></div>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Personal Image - Left */}
+            <div>
+              <div className="rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
+                <img
+                  src="/personal.webp"
+                  alt="Personal"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-            {/* About Me - Left */}
-            <div className="relative">
+            {/* Text - Right */}
+            <div>
               <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 md:p-10">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.aboutMeTitle}</h2>
                 <div className="space-y-5 text-base text-zinc-400 leading-relaxed">
@@ -109,23 +162,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-
-            {/* Why I Code - Right */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.whyCodeTitle}</h2>
-                <div className="space-y-5 text-base text-zinc-400 leading-relaxed">
-                  <p>{t.whyCodeText1}</p>
-                  <p>{t.whyCodeText2}</p>
-                  <p className="font-medium text-zinc-300 pt-2">{t.whyCodeText3}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Connecting Arrow/Icon in the middle */}
-          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 items-center justify-center text-zinc-500">
-            ⚡
           </div>
         </div>
       </section>

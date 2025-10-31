@@ -10,7 +10,7 @@ interface FooterProps {
 export default function Footer({ language }: FooterProps) {
   const translations = {
     de: {
-      home: 'Home',
+      home: 'Home ',
       services: 'Leistungen',
       process: 'Ablauf',
       about: 'Über mich',
