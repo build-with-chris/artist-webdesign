@@ -22,11 +22,11 @@ function Home() {
             ctaSecondary: 'Leistungen ansehen',
             trustIndicator: 'Entwickelt mit React & Next.js',
             seoIntro: 'Als Artist weiß ich, was eine moderne Website braucht: Sie muss schnell online gehen, richtig gut aussehen und mobil funktionieren. Ich entwickle individuelles Design für Künstler, Artisten und kleine Unternehmen – ohne Template, dafür mit echtem Code. Von der ersten Idee bis zum Launch begleite ich dich persönlich. Deine Website wird nicht nur technisch einwandfrei sein, sondern auch deinen Stil perfekt widerspiegeln. Schnelle Ladezeiten, klare Struktur, professioneller Auftritt – genau das, was du brauchst.',
-            // Free Design Teaser
+            // Design Teaser
             freeDesignBadge: 'Besonderes Angebot',
             freeDesignTitle: 'Erst sehen, dann entscheiden',
-            freeDesignText: 'Nach dem Ausfüllen des Fragebogens erstelle ich auf eigene Vorleistung einen ersten Webdesign-Entwurf – ganz unverbindlich. So siehst du direkt, wie deine Website aussehen könnte, bevor du dich entscheidest.',
-            freeDesignCTA: 'Kostenlosen Entwurf anfragen'
+            freeDesignText: 'Nach dem Ausfüllen des Fragebogens erstelle ich einen ersten Webdesign-Entwurf für 40€. Diese 40€ werden dir bei Buchung eines Pakets vollständig angerechnet. So siehst du direkt, wie deine Website aussehen könnte, bevor du dich entscheidest.',
+            freeDesignCTA: 'Design-Entwurf für 40€ anfragen'
         },
         en: {
             heroTitle1: 'High-quality websites',
@@ -36,11 +36,11 @@ function Home() {
             ctaSecondary: 'View services',
             trustIndicator: 'Built with React & Next.js',
             seoIntro: 'As an artist, I know what a modern website needs: it has to go online quickly, look great, and work perfectly on mobile. I create custom design for artists, performers, and small businesses – no templates, just real code. From the first idea to launch, I guide you personally. Your website will not only be technically flawless but also perfectly reflect your style. Fast loading times, clear structure, professional presence – exactly what you need.',
-            // Free Design Teaser
+            // Design Teaser
             freeDesignBadge: 'Special Offer',
             freeDesignTitle: 'See first, decide later',
-            freeDesignText: "After you fill out the questionnaire, I'll create a first web design draft on my own initiative – completely non-binding. This way, you can see what your website could look like before you commit.",
-            freeDesignCTA: 'Request free draft'
+            freeDesignText: "After you fill out the questionnaire, I'll create a first web design draft for €40. These €40 will be fully credited toward any package you book. This way, you can see what your website could look like before you commit.",
+            freeDesignCTA: 'Request design draft for €40'
         }
     };
     const t = translations[language];

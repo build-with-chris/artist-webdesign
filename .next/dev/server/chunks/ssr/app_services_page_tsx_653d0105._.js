@@ -62,12 +62,12 @@ function ServicesPage() {
             hostingFeature2: 'Contentpflege innerhalb von 24 Stunden: Wenn du neue Bilder, Texte oder Termine hast, werden sie blitzschnell aktualisiert',
             hostingFeature3: 'SSL-Zertifikat & regelmäßige Sicherheitsupdates inklusive',
             hostingFeature4: 'Keine Sorge um Technik oder Änderungen – du sagst, was du brauchst, ich kümmere mich.',
-            // Free Design Highlight
-            freeDesignTitle: 'Kostenloser Design-Entwurf',
+            // Design Highlight
+            freeDesignTitle: 'Design-Entwurf für 40€',
             freeDesignBadge: 'Auf Vorleistung',
-            freeDesignText: 'Nach dem Ausfüllen des Fragebogens erstelle ich auf eigene Vorleistung einen ersten Webdesign-Entwurf – komplett unverbindlich und kostenlos. Du siehst direkt, wie deine Website aussehen könnte, und entscheidest dann in Ruhe, ob wir zusammenarbeiten.',
+            freeDesignText: 'Nach dem Ausfüllen des Fragebogens erstelle ich einen ersten Webdesign-Entwurf für 40€. Diese 40€ werden dir bei Buchung eines Pakets vollständig angerechnet. Du siehst direkt, wie deine Website aussehen könnte, und entscheidest dann in Ruhe, ob wir zusammenarbeiten.',
             freeDesignPoint1: 'Erster visueller Entwurf deiner Website',
-            freeDesignPoint2: 'Komplett kostenlos und unverbindlich',
+            freeDesignPoint2: '40€ werden auf das Paket angerechnet',
             freeDesignPoint3: 'Keine Verpflichtung zur Zusammenarbeit',
             freeDesignPoint4: 'Erst sehen, dann entscheiden'
         },
@@ -119,12 +119,12 @@ function ServicesPage() {
             hostingFeature2: 'Content updates within 24 hours: When you have new images, texts, or dates, they will be updated lightning fast',
             hostingFeature3: 'SSL certificate & regular security updates included',
             hostingFeature4: 'No worries about tech or changes – you tell me what you need, I take care of it.',
-            // Free Design Highlight
-            freeDesignTitle: 'Free Design Draft',
+            // Design Highlight
+            freeDesignTitle: 'Design Draft for €40',
             freeDesignBadge: 'On my initiative',
-            freeDesignText: "After you fill out the questionnaire, I'll create a first web design draft on my own initiative – completely non-binding and free. You'll see directly how your website could look, and then decide at your own pace whether we work together.",
+            freeDesignText: "After you fill out the questionnaire, I'll create a first web design draft for €40. These €40 will be fully credited toward any package you book. You'll see directly how your website could look, and then decide at your own pace whether we work together.",
             freeDesignPoint1: 'First visual draft of your website',
-            freeDesignPoint2: 'Completely free and non-binding',
+            freeDesignPoint2: '€40 credited toward the package',
             freeDesignPoint3: 'No obligation to work together',
             freeDesignPoint4: 'See first, decide later'
         }
