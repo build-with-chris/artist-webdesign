@@ -4,8 +4,10 @@
   "/about/page": "/about",
   "/api/contact/route": "/api/contact",
   "/contact/page": "/contact",
+  "/imprint/page": "/imprint",
   "/page": "/",
   "/portfolio/page": "/portfolio",
+  "/privacy/page": "/privacy",
   "/process/page": "/process",
   "/services/page": "/services",
   "/start-project/page": "/start-project"

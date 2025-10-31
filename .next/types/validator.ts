@@ -65,6 +65,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/imprint/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/imprint">> = Specific
+  const handler = {} as typeof import("../../app/imprint/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/">> = Specific
@@ -78,6 +87,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/portfolio">> = Specific
   const handler = {} as typeof import("../../app/portfolio/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/privacy/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/privacy">> = Specific
+  const handler = {} as typeof import("../../app/privacy/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

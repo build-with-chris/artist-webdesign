@@ -34,7 +34,7 @@ export default function CTABlock({ language, variant = 'default' }: CTABlockProp
             {t.text}
           </p>
           <Link
-            href="/contact"
+            href="/start-project"
             className="inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300"
           >
             {t.button}
@@ -55,7 +55,7 @@ export default function CTABlock({ language, variant = 'default' }: CTABlockProp
           {t.text}
         </p>
         <Link
-          href="/contact"
+          href="/start-project"
           className="inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300 group"
         >
           {t.button}

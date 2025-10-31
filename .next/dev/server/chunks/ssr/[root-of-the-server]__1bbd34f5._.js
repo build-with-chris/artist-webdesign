@@ -152,7 +152,7 @@ function Navigation({ language, onLanguageToggle }) {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/contact",
+                                    href: "/start-project",
                                     className: "px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors",
                                     children: t.cta
                                 }, void 0, false, {
@@ -414,7 +414,7 @@ function Navigation({ language, onLanguageToggle }) {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                            href: "/contact",
+                                            href: "/start-project",
                                             onClick: ()=>setMobileMenuOpen(false),
                                             className: "block w-full px-8 py-4 bg-white text-black rounded-full text-base font-semibold hover:bg-zinc-200 transition-all text-center hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]",
                                             children: t.cta
@@ -507,7 +507,7 @@ function CTABlock({ language, variant = 'default' }) {
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/contact",
+                        href: "/start-project",
                         className: "inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300",
                         children: [
                             t.button,
@@ -559,7 +559,7 @@ function CTABlock({ language, variant = 'default' }) {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/contact",
+                    href: "/start-project",
                     className: "inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300 group",
                     children: [
                         t.button,

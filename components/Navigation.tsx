@@ -98,7 +98,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
               {language === 'de' ? 'EN' : 'DE'}
             </button>
             <Link
-              href="/contact"
+              href="/start-project"
               className="px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors"
             >
               {t.cta}
@@ -222,7 +222,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
                     </button>
                   </div>
                   <Link
-                    href="/contact"
+                    href="/start-project"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block w-full px-8 py-4 bg-white text-black rounded-full text-base font-semibold hover:bg-zinc-200 transition-all text-center hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
                   >

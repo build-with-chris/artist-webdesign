@@ -4,8 +4,10 @@
   "/about/page": "app/about/page.js",
   "/api/contact/route": "app/api/contact/route.js",
   "/contact/page": "app/contact/page.js",
+  "/imprint/page": "app/imprint/page.js",
   "/page": "app/page.js",
   "/portfolio/page": "app/portfolio/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/process/page": "app/process/page.js",
   "/services/page": "app/services/page.js",
   "/start-project/page": "app/start-project/page.js"

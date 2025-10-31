@@ -440,6 +440,10 @@ img, video {
   display: grid;
 }
 
+.contents {
+  display: contents;
+}
+
 .hidden {
   display: none;
 }
@@ -732,8 +736,18 @@ img, video {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
 }
 
 .rounded {

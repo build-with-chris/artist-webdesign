@@ -58,10 +58,22 @@
       "namedRegex": "^/contact(?:/)?$"
     },
     {
+      "page": "/imprint",
+      "regex": "^/imprint(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/imprint(?:/)?$"
+    },
+    {
       "page": "/portfolio",
       "regex": "^/portfolio(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/portfolio(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
     },
     {
       "page": "/process",
