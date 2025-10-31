@@ -45,7 +45,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section with Background Image */}
-      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center px-6 py-20 md:py-24 mb-20 overflow-hidden">
+      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-start justify-center px-6 pt-16 md:pt-20 pb-20 md:pb-24 mb-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -62,7 +62,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <div className="relative z-10 max-w-6xl mx-auto text-center -mt-[20%]">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">{t.heroTitle}</h1>
         </div>
       </section>

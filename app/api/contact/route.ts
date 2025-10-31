@@ -5,8 +5,16 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.json()
     
-    // Format the email body
-    const emailBody = `
+    // Determine if it's a project request or general contact
+    const isProjectRequest = formData.contactType !== 'general' && formData.scope
+    
+    let emailBody = ''
+    let subject = ''
+    
+    if (isProjectRequest) {
+      // Project request format
+      subject = `Neue Projektanfrage von ${formData.name}`
+      emailBody = `
 Neue Projektanfrage von ${formData.name} (${formData.email})
 
 === Projekt-Umfang ===
@@ -43,8 +51,21 @@ ${formData.usp || 'Nicht angegeben'}
 ${formData.exampleSites || 'Nicht angegeben'}
 
 ---
+Gesendet über das Projektformular
+`
+    } else {
+      // General contact format
+      subject = `Neue Kontaktnachricht von ${formData.name}`
+      emailBody = `
+Neue Kontaktnachricht von ${formData.name} (${formData.email})
+
+=== Nachricht ===
+${formData.message || 'Nicht angegeben'}
+
+---
 Gesendet über das Kontaktformular
 `
+    }
 
     // Create transporter
     // You can configure this with SMTP credentials via environment variables
@@ -75,7 +96,7 @@ Gesendet über das Kontaktformular
       from: process.env.SMTP_FROM || process.env.EMAIL_USER || formData.email,
       to: 'chris.hermann9397@gmail.com',
       replyTo: formData.email,
-      subject: `Neue Projektanfrage von ${formData.name}`,
+      subject: subject,
       text: emailBody,
       html: emailBody.replace(/\n/g, '<br>'),
     })

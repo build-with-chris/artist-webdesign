@@ -74,6 +74,12 @@
       "regex": "^/services(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/start-project",
+      "regex": "^/start\\-project(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/start\\-project(?:/)?$"
     }
   ],
   "dataRoutes": [],

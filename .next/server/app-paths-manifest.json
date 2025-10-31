@@ -7,5 +7,6 @@
   "/page": "app/page.js",
   "/portfolio/page": "app/portfolio/page.js",
   "/process/page": "app/process/page.js",
-  "/services/page": "app/services/page.js"
+  "/services/page": "app/services/page.js",
+  "/start-project/page": "app/start-project/page.js"
 }

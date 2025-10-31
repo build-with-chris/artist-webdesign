@@ -7,5 +7,6 @@
   "/page": "/",
   "/portfolio/page": "/portfolio",
   "/process/page": "/process",
-  "/services/page": "/services"
+  "/services/page": "/services",
+  "/start-project/page": "/start-project"
 }
