@@ -60,11 +60,6 @@ export default function AboutPage() {
 
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center -mt-[20%]">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">{t.heroTitle}</h1>
-        </div>
       </section>
 
       {/* Why I Code Section - Side by Side with Professional Image */}

@@ -163,7 +163,7 @@ export default function ServicesPage() {
 
             {/* CTA */}
             <a
-              href="/contact"
+              href="/start-project"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-zinc-200 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] group"
             >
               Jetzt Fragebogen ausfüllen
