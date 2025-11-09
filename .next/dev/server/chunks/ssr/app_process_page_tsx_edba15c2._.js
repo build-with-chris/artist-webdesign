@@ -35,6 +35,16 @@ function ProcessPage() {
                     icon: '📋'
                 },
                 {
+                    title: 'Design-Entwurf',
+                    desc: 'Ich erstelle dir einen ersten Design-Entwurf (40€, wird auf das Paket angerechnet). So siehst du schon früh, wie deine Website aussehen wird und ob der Stil zu dir passt.',
+                    icon: '🎨'
+                },
+                {
+                    title: 'Informationssammlung',
+                    desc: 'Nach dem Design-Entwurf brauche ich von dir: Texte, Bilder und weitere Inputs. Wichtige Fragen: Was soll der Betrachter fühlen/mitnehmen? An wen richtet sich die Seite hauptsächlich? Außerdem benötige ich die Angaben für Impressum und Datenschutz.',
+                    icon: '📦'
+                },
+                {
                     title: 'Design & Umsetzung',
                     desc: 'Ich entwickle deine Website und halte dich auf dem Laufenden. Du bekommst Zwischenstände, kannst Feedback geben und siehst, wie alles Form annimmt.',
                     icon: '⚡'
@@ -67,6 +77,16 @@ function ProcessPage() {
                     icon: '📋'
                 },
                 {
+                    title: 'Design Draft',
+                    desc: 'I create a first design draft for you (40€, credited towards the package). This way you can see early on how your website will look and if the style fits you.',
+                    icon: '🎨'
+                },
+                {
+                    title: 'Information Gathering',
+                    desc: 'After the design draft, I need from you: texts, images, and further inputs. Important questions: What should the viewer feel/take away? Who is the site mainly aimed at? I also need the information for the imprint and privacy policy.',
+                    icon: '📦'
+                },
+                {
                     title: 'Design & Development',
                     desc: 'I build your website and keep you updated. You get progress updates, can provide feedback, and see everything take shape.',
                     icon: '⚡'
@@ -93,26 +113,26 @@ function ProcessPage() {
                             className: "w-full h-full object-cover object-center opacity-50"
                         }, void 0, false, {
                             fileName: "[project]/app/process/page.tsx",
-                            lineNumber: 39,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/process/page.tsx",
-                        lineNumber: 38,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"
                     }, void 0, false, {
                         fileName: "[project]/app/process/page.tsx",
-                        lineNumber: 47,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"
                     }, void 0, false, {
                         fileName: "[project]/app/process/page.tsx",
-                        lineNumber: 50,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -123,7 +143,7 @@ function ProcessPage() {
                                 children: t.title
                             }, void 0, false, {
                                 fileName: "[project]/app/process/page.tsx",
-                                lineNumber: 54,
+                                lineNumber: 58,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -131,19 +151,19 @@ function ProcessPage() {
                                 children: t.subtitle
                             }, void 0, false, {
                                 fileName: "[project]/app/process/page.tsx",
-                                lineNumber: 55,
+                                lineNumber: 59,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/process/page.tsx",
-                        lineNumber: 53,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/process/page.tsx",
-                lineNumber: 36,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -158,12 +178,12 @@ function ProcessPage() {
                                     children: step.icon
                                 }, void 0, false, {
                                     fileName: "[project]/app/process/page.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 68,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/process/page.tsx",
-                                lineNumber: 63,
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -181,20 +201,20 @@ function ProcessPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/process/page.tsx",
-                                                lineNumber: 70,
+                                                lineNumber: 74,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "h-px flex-1 bg-zinc-800"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/process/page.tsx",
-                                                lineNumber: 71,
+                                                lineNumber: 75,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/process/page.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 73,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -202,7 +222,7 @@ function ProcessPage() {
                                         children: step.title
                                     }, void 0, false, {
                                         fileName: "[project]/app/process/page.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 77,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -210,30 +230,30 @@ function ProcessPage() {
                                         children: step.desc
                                     }, void 0, false, {
                                         fileName: "[project]/app/process/page.tsx",
-                                        lineNumber: 74,
+                                        lineNumber: 78,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/process/page.tsx",
-                                lineNumber: 68,
+                                lineNumber: 72,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, idx, true, {
                         fileName: "[project]/app/process/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 66,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/process/page.tsx",
-                lineNumber: 60,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/process/page.tsx",
-        lineNumber: 34,
+        lineNumber: 38,
         columnNumber: 5
     }, this);
 }

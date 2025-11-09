@@ -23,7 +23,7 @@ export default function PortfolioPage() {
         ? 'Portfolio-Website für einen vielseitigen Artist – minimalistisch, bildstark, schnell.' 
         : 'Portfolio website for a versatile artist – minimalist, image-focused, fast.',
       tags: ['Portfolio', 'React', 'Vite'],
-      image: '/PepeArts.webp',
+      image: '/Portfolio/pepe-arts.png',
     },
     {
       name: 'Pepe Dome',
@@ -32,7 +32,7 @@ export default function PortfolioPage() {
         ? 'Event-Location-Website mit Fokus auf Atmosphäre und Buchungsanfragen.'
         : 'Event location website focusing on atmosphere and booking inquiries.',
       tags: ['Event', 'Location', 'Booking'],
-      image: '/PepeDome.webp',
+      image: '/Portfolio/pepe-dome.png',
     },
     {
       name: 'No Roots Truck',
@@ -41,7 +41,16 @@ export default function PortfolioPage() {
         ? 'Mobiles Showcase-Konzept, das Storytelling mit edlem Design und interaktiven React-Elementen verbindet.'
         : 'Mobile showcase concept that combines storytelling with elegant design and interactive React elements.',
       tags: ['Showcase', 'React', 'Storytelling'],
-      image: '/NoRootsProject.webp',
+      image: '/Portfolio/no-roots-truck.png',
+    },
+    {
+      name: 'Artist Karlo',
+      url: 'https://karlo-theta.vercel.app/',
+      description: language === 'de'
+        ? 'Portfolio-Website für einen Cyr Wheel & Aerial Artist – moderne Präsentation mit klarer Struktur und visueller Eleganz.'
+        : 'Portfolio website for a Cyr Wheel & Aerial Artist – modern presentation with clear structure and visual elegance.',
+      tags: ['Portfolio', 'Artist', 'Next.js'],
+      image: '/Portfolio/Karlo.png',
     },
   ]
 
@@ -63,11 +72,14 @@ export default function PortfolioPage() {
           >
             <div className="aspect-video bg-gradient-to-br from-dark-accent/20 to-dark-bg overflow-hidden border-b border-dark-text/10 relative">
               {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <>
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-150 group-hover:brightness-125 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500 pointer-events-none"></div>
+                </>
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <span className="text-4xl opacity-50">🌐</span>
