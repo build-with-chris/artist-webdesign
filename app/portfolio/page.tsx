@@ -52,6 +52,15 @@ export default function PortfolioPage() {
       tags: ['Portfolio', 'Artist', 'Next.js'],
       image: '/Portfolio/Karlo.png',
     },
+    {
+      name: 'Julia Mayo Photography',
+      url: 'https://julia-eight-mu.vercel.app/',
+      description: language === 'de'
+        ? 'Fotografie-Website für Paare und Hochzeiten – cinematische und emotionale Präsentation mit eleganter Bildergalerie.'
+        : 'Photography website for couples and weddings – cinematic and emotional presentation with elegant image gallery.',
+      tags: ['Photography', 'Portfolio', 'Next.js'],
+      image: '/Portfolio/julia.png',
+    },
   ]
 
   return (
