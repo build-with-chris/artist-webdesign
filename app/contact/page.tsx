@@ -8,9 +8,11 @@ export default function ContactPage() {
     name: '',
     email: '',
     message: '',
+    website: '', // Honeypot field
   })
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formStartTime] = useState(Date.now()) // Track when form was loaded
 
   const t = {
     de: {
@@ -51,6 +53,20 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Spam protection: Check if honeypot field is filled
+    if (formData.website) {
+      // Bot detected - silently fail
+      return
+    }
+    
+    // Spam protection: Check minimum time (3 seconds) since form load
+    const timeSpent = Date.now() - formStartTime
+    if (timeSpent < 3000) {
+      setSubmitStatus('error')
+      return
+    }
+    
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -65,6 +81,7 @@ export default function ContactPage() {
           email: formData.email,
           message: formData.message,
           contactType: 'general',
+          formStartTime, // Send timestamp for server-side validation
         }),
       })
 
@@ -79,6 +96,7 @@ export default function ContactPage() {
         name: '',
         email: '',
         message: '',
+        website: '',
       })
     } catch (error) {
       console.error('Form submission error:', error)
@@ -187,6 +205,20 @@ export default function ContactPage() {
                   rows={6}
                   required
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all resize-none"
+                />
+              </div>
+
+              {/* Honeypot Field - Hidden from users but visible to bots */}
+              <div className="absolute left-[-9999px] opacity-0 pointer-events-none" aria-hidden="true">
+                <label htmlFor="website">Website (leave blank)</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
               </div>
 

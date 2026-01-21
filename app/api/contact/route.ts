@@ -1,9 +1,81 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+// Simple in-memory rate limiting (in production, use Redis or similar)
+const rateLimitMap = new Map<string, number[]>()
+const RATE_LIMIT_WINDOW = 60 * 1000 // 1 minute
+const RATE_LIMIT_MAX_REQUESTS = 3 // Max 3 requests per minute per IP
+
+function getRateLimitKey(request: NextRequest): string {
+  // Get IP address from request
+  const forwarded = request.headers.get('x-forwarded-for')
+  const ip = forwarded ? forwarded.split(',')[0] : request.headers.get('x-real-ip') || 'unknown'
+  return ip
+}
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const requests = rateLimitMap.get(ip) || []
+  
+  // Remove old requests outside the window
+  const recentRequests = requests.filter(timestamp => now - timestamp < RATE_LIMIT_WINDOW)
+  
+  if (recentRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+    return false // Rate limit exceeded
+  }
+  
+  // Add current request
+  recentRequests.push(now)
+  rateLimitMap.set(ip, recentRequests)
+  
+  // Clean up old entries periodically (every 100 requests)
+  if (rateLimitMap.size > 1000) {
+    for (const [key, timestamps] of rateLimitMap.entries()) {
+      const filtered = timestamps.filter(timestamp => now - timestamp < RATE_LIMIT_WINDOW)
+      if (filtered.length === 0) {
+        rateLimitMap.delete(key)
+      } else {
+        rateLimitMap.set(key, filtered)
+      }
+    }
+  }
+  
+  return true // Rate limit OK
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.json()
+    
+    // Spam protection: Check honeypot field
+    if (formData.website && formData.website.trim() !== '') {
+      // Bot detected - silently reject
+      return NextResponse.json(
+        { success: true, message: 'Email sent successfully' }, // Don't reveal it's spam
+        { status: 200 }
+      )
+    }
+    
+    // Spam protection: Check minimum time (3 seconds) since form load
+    if (formData.formStartTime) {
+      const timeSpent = Date.now() - formData.formStartTime
+      if (timeSpent < 3000) {
+        // Submitted too quickly - likely a bot
+        return NextResponse.json(
+          { success: true, message: 'Email sent successfully' },
+          { status: 200 }
+        )
+      }
+    }
+    
+    // Spam protection: Rate limiting
+    const ip = getRateLimitKey(request)
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        { success: false, message: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      )
+    }
     
     // Determine if it's a project request or general contact
     const isProjectRequest = formData.contactType !== 'general' && formData.scope

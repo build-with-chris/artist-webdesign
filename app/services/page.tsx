@@ -27,8 +27,8 @@ export default function ServicesPage() {
       service3Point3: 'Hosting & SSL-Zertifikat inklusive',
       // Pricing packages
       basicTitle: 'Basic',
-      basicPrice: '250€',
-      basicOriginal: 'statt 690€',
+      basicPrice: '500€',
+      basicOriginal: '',
       basicValidity: '(gilt bis 31.12.2025)',
       basicTagline: 'Der solide Start: ein klarer Onepager, der alles Wichtige zeigt.',
       basicFeature1: 'Startseite, Angebot, Projekte & Kontakt',
@@ -36,7 +36,7 @@ export default function ServicesPage() {
       basicFeature3: 'Saubere Performance',
       basicFeature4: 'Einfacher Austausch von Texten und Bildern',
       advancedTitle: 'Advanced',
-      advancedPrice: 'ab 450€',
+      advancedPrice: '900€',
       advancedOriginal: 'statt 1400€',
       advancedTagline: 'Für mehr Spielraum und Wachstum.',
       advancedFeature1: 'Mehrseitige Website oder CMS-Anbindung',
@@ -84,8 +84,8 @@ export default function ServicesPage() {
       service3Point3: 'Hosting & SSL certificate included',
       // Pricing packages
       basicTitle: 'Basic',
-      basicPrice: '€250',
-      basicOriginal: 'instead of €690',
+      basicPrice: '€500',
+      basicOriginal: '',
       basicValidity: '(valid until Dec 31, 2025)',
       basicTagline: 'The solid start: a clear one-pager that shows everything important.',
       basicFeature1: 'Homepage, services, projects & contact',
@@ -93,7 +93,7 @@ export default function ServicesPage() {
       basicFeature3: 'Clean performance',
       basicFeature4: 'Easy text and image updates',
       advancedTitle: 'Advanced',
-      advancedPrice: 'from €450',
+      advancedPrice: '€900',
       advancedOriginal: 'instead of €1400',
       advancedTagline: 'For more flexibility and growth.',
       advancedFeature1: 'Multi-page website or CMS integration',
@@ -184,7 +184,7 @@ export default function ServicesPage() {
               <h3 className="text-2xl font-bold text-white mb-2">{t.basicTitle}</h3>
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-4xl font-bold text-white">{t.basicPrice}</span>
-                <span className="text-zinc-500 line-through text-sm">{t.basicOriginal}</span>
+                {t.basicOriginal && <span className="text-zinc-500 line-through text-sm">{t.basicOriginal}</span>}
               </div>
               <span className="text-xs text-zinc-600">{t.basicValidity}</span>
             </div>
