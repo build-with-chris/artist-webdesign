@@ -54,7 +54,7 @@ export default function PortfolioPage() {
     },
     {
       name: 'Julia Mayr Photography',
-      url: 'https://julia-eight-mu.vercel.app/',
+      url: 'https://www.juliamayr-photo.com/',
       description: language === 'de'
         ? 'Fotografie-Website für Paare und Hochzeiten – cinematische und emotionale Präsentation mit eleganter Bildergalerie.'
         : 'Photography website for couples and weddings – cinematic and emotional presentation with elegant image gallery.',
