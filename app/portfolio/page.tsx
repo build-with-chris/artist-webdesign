@@ -59,7 +59,7 @@ export default function PortfolioPage() {
         ? 'Fotografie-Website für Paare und Hochzeiten – cinematische und emotionale Präsentation mit eleganter Bildergalerie.'
         : 'Photography website for couples and weddings – cinematic and emotional presentation with elegant image gallery.',
       tags: ['Photography', 'Portfolio', 'Next.js'],
-      image: '/julia-photography.webp',
+      image: '/Portfolio/julia-photography.webp',
     },
   ]
 
