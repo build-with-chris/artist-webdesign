@@ -19,7 +19,7 @@ export default function ClientStrip({ language }: { language: 'de' | 'en' }) {
   ]
 
   return (
-    <section className="border-y border-line-subtle bg-surface-raised/40">
+    <section className="border-y border-line-subtle bg-surface-sunk">
       <div className="mx-auto w-full max-w-6xl px-5 py-9 sm:px-8">
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:gap-10">
           <p className="shrink-0 text-eyebrow font-semibold uppercase text-ink-muted">

@@ -7,9 +7,8 @@
 interface SectionProps {
   children: React.ReactNode
   id?: string
-  /** raised setzt die Flaeche eine Stufe heller ab. */
-  tone?: 'base' | 'raised'
-  /** tight fuer eng aufeinander folgende Abschnitte. */
+  /** sunk setzt die Flaeche eine Stufe tiefer ab, dark kehrt sie um. */
+  tone?: 'base' | 'sunk' | 'dark'
   space?: 'tight' | 'normal' | 'loose'
   className?: string
 }
@@ -18,6 +17,12 @@ const spacing = {
   tight: 'py-14 md:py-20',
   normal: 'py-20 md:py-28',
   loose: 'py-24 md:py-36',
+}
+
+const tones = {
+  base: '',
+  sunk: 'bg-surface-sunk',
+  dark: 'zone-dark grain',
 }
 
 export function Section({
@@ -30,9 +35,9 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${spacing[space]} ${tone === 'raised' ? 'bg-surface-raised/40' : ''} ${className}`}
+      className={`relative ${spacing[space]} ${tones[tone]} ${className}`}
     >
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
+      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
     </section>
   )
 }
@@ -40,7 +45,7 @@ export function Section({
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <p className="mb-4 flex items-center gap-2.5 text-eyebrow font-semibold uppercase text-brand">
-      <span aria-hidden className="h-px w-6 bg-brand/60" />
+      <span aria-hidden className="h-px w-6 bg-brand/50" />
       {children}
     </p>
   )
@@ -70,11 +75,11 @@ export function SectionHeader({
             centered ? 'justify-center' : ''
           }`}
         >
-          <span aria-hidden className="h-px w-6 bg-brand/60" />
+          <span aria-hidden className="h-px w-6 bg-brand/50" />
           {eyebrow}
         </p>
       )}
-      <h2 className="text-display-md font-semibold text-ink">{title}</h2>
+      <h2 className="font-display text-display-md font-normal text-ink">{title}</h2>
       {lead && (
         <p className={`mt-5 text-lead text-ink-secondary ${centered ? 'mx-auto max-w-2xl' : 'max-w-prose'}`}>
           {lead}

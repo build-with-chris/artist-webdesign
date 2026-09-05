@@ -41,12 +41,7 @@ export default function DraftOffer({ language }: { language: 'de' | 'en' }) {
   }[language]
 
   return (
-    <section className="relative overflow-hidden border-y border-line-subtle bg-surface-raised/40 py-20 md:py-28">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-brand/15 blur-[110px]"
-      />
-
+    <section className="grain relative overflow-hidden border-y border-line-subtle bg-surface-sunk py-20 md:py-28">
       <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
           <div>
@@ -54,7 +49,7 @@ export default function DraftOffer({ language }: { language: 'de' | 'en' }) {
               <span aria-hidden className="h-px w-6 bg-brand/60" />
               {t.eyebrow}
             </p>
-            <h2 className="text-display-md font-semibold">{t.title}</h2>
+            <h2 className="font-display text-display-md font-normal">{t.title}</h2>
             <p className="mt-5 max-w-prose text-lead text-ink-secondary">{t.text}</p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -72,7 +67,7 @@ export default function DraftOffer({ language }: { language: 'de' | 'en' }) {
           </div>
 
           {/* Preisschild als ruhiger Blickfang */}
-          <div className="edge-highlight relative rounded-xl border border-brand/30 bg-surface-raised p-10 text-center">
+          <div className="relative rounded-xl border border-brand/30 bg-surface-raised p-10 text-center">
             <p className="font-display text-7xl italic leading-none text-brand">{t.price}</p>
             <p className="mt-4 text-sm uppercase tracking-[0.16em] text-ink-muted">
               {t.priceNote}

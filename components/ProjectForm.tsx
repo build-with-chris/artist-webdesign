@@ -355,10 +355,10 @@ export default function ProjectForm({ language }: ProjectFormProps) {
   if (submitStatus === 'success') {
     return (
       <section className="mx-auto w-full max-w-2xl px-5 py-32 text-center sm:px-8 md:py-40">
-        <span className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-brand/40 bg-brand/10 text-brand">
+        <span className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-brand/40 bg-brand-wash text-brand">
           <Icon name="check" size={30} />
         </span>
-        <h1 className="text-display-md font-semibold">{t.successTitle}</h1>
+        <h1 className="font-display text-display-md font-normal">{t.successTitle}</h1>
         <p className="mx-auto mt-5 max-w-md text-lead text-ink-secondary">{t.successMessage}</p>
         <Button
           variant="secondary"
@@ -378,7 +378,7 @@ export default function ProjectForm({ language }: ProjectFormProps) {
   return (
     <section id="fragebogen" className="mx-auto w-full max-w-3xl px-5 py-28 sm:px-8 md:py-36">
       <header className="mb-12 text-center">
-        <h1 className="text-display-lg font-semibold">{t.title}</h1>
+        <h1 className="font-display text-display-lg font-normal">{t.title}</h1>
         <p className="mx-auto mt-5 max-w-xl text-lead text-ink-secondary">{t.subtitle}</p>
       </header>
 

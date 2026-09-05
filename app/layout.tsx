@@ -1,24 +1,24 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Instrument_Serif } from 'next/font/google'
+import { Fraunces, Karla } from 'next/font/google'
 import './globals.css'
 import ClientLayout from '@/components/ClientLayout'
 import { site } from '@/lib/site'
 
-// Inter traegt saemtliche Lauftexte und die Bedienelemente.
-const inter = Inter({
+// Karla traegt Fliesstext und Bedienelemente. Humanistisch geschnitten,
+// mit eigenen Buchstabenformen statt der ueblichen Standardgrotesk.
+const karla = Karla({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
 })
 
-// Instrument Serif setzt Akzente in Ueberschriften. Bewusst sparsam,
-// damit der Kontrast zur Sans wirkt.
-const instrumentSerif = Instrument_Serif({
+// Fraunces setzt die Ueberschriften. Die SOFT-Achse rundet die Serifen
+// ab, das nimmt den Zeilen die Haerte.
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-display',
+  axes: ['SOFT', 'opsz'],
 })
 
 export const metadata: Metadata = {
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0c0c0e',
-  colorScheme: 'dark',
+  themeColor: '#f6f2ec',
+  colorScheme: 'light',
 }
 
 // Strukturierte Daten. Hilft Suchmaschinen, das Angebot einzuordnen.
@@ -86,7 +86,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} ${instrumentSerif.variable}`}>
+    <html lang="de" className={`${karla.variable} ${fraunces.variable}`}>
       <body className="bg-surface font-sans text-ink antialiased">
         <script
           type="application/ld+json"

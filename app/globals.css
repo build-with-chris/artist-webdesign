@@ -3,44 +3,63 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------
-   Design Tokens
-   Eine einzige Quelle fuer Farben, Radien und Schatten. Alle Seiten
-   greifen ueber Tailwind-Klassen auf diese Variablen zu, damit sich
-   das Erscheinungsbild an einer Stelle steuern laesst.
+   Farben und Masse
+   Eine einzige Quelle. Die Seite steht auf einem warmen Papierton;
+   einzelne Abschnitte kehren das um und stehen auf dunklem Holz. Beide
+   Zustaende benutzen dieselben Namen, deshalb muss keine Komponente
+   wissen, in welcher Zone sie gerade steckt.
    ------------------------------------------------------------------ */
 @layer base {
   :root {
-    /* Flaechen: von tief nach hoch. Leicht warmes Schwarz statt #000,
-       damit Fotos und Haut nicht kalt wirken. */
-    --surface-base: 12 12 14;      /* #0c0c0e Seitenhintergrund */
-    --surface-raised: 20 20 24;    /* #141418 Karten */
-    --surface-overlay: 28 28 33;   /* #1c1c21 Hover, Inputs */
-    --surface-inverted: 245 244 241;
+    /* Helle Zone: Kalkweiss, leicht ins Sandfarbene. */
+    --surface-base: 246 242 236;    /* #f6f2ec */
+    --surface-raised: 255 253 249;  /* #fffdf9 Karten */
+    --surface-sunk: 238 231 221;    /* #eee7dd eingesenkte Flaechen */
 
-    /* Linien */
-    --line-subtle: 255 255 255 / 0.07;
-    --line-strong: 255 255 255 / 0.14;
+    --line-subtle: 43 36 30 / 0.10;
+    --line-strong: 43 36 30 / 0.20;
 
-    /* Text: drei Stufen, alle gegen surface-base geprueft */
-    --text-primary: 250 250 249;   /* 18.4:1 auf der Grundflaeche */
-    --text-secondary: 168 167 172; /*  7.4:1 */
-    /* Der gedaempfte Ton wird auch auf Karten benutzt. Er ist deshalb so
-       hell gewaehlt, dass er selbst gegen die hellste Flaeche noch ueber
-       4.5:1 liegt, nicht nur gegen den Seitenhintergrund. */
-    --text-muted: 145 145 152;     /*  6.2:1 auf base, 4.9:1 auf overlay */
+    /* Schrift in warmem Dunkelbraun statt Schwarz. */
+    --text-primary: 43 36 30;       /* 13.7:1 */
+    --text-secondary: 107 95 84;    /*  5.6:1 */
+    --text-muted: 110 98 88;        /*  4.8:1 auch auf der abgesetzten Flaeche */
 
-    /* Marke: warmes Orange, Buehnenlicht. Schwarze Schrift darauf. */
-    --brand: 255 106 26;
-    --brand-soft: 255 138 71;
-    --brand-dim: 194 74 12;
-    --on-brand: 12 12 14;
+    /* Ziegelrot: das Buehnenlicht des alten Orange, aber gebrannt. */
+    --brand: 169 68 15;             /* #a9440f, 4.9:1 auch auf Sand */
+    --brand-strong: 138 53 10;
+    --brand-wash: 169 68 15 / 0.09;
+    --on-brand: 255 253 249;
 
-    --focus: 255 138 71;
+    --focus: 181 74 24;
 
-    --radius-sm: 0.5rem;
-    --radius-md: 0.875rem;
-    --radius-lg: 1.25rem;
-    --radius-xl: 1.75rem;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.625rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+  }
+
+  /* Dunkle Zone: Nussbaum, so warm wie das Holz im Hero-Bild. */
+  .zone-dark {
+    --surface-base: 36 30 26;       /* #241e1a */
+    --surface-raised: 47 39 33;     /* #2f2721 */
+    --surface-sunk: 28 23 20;
+
+    --line-subtle: 244 238 230 / 0.11;
+    --line-strong: 244 238 230 / 0.22;
+
+    --text-primary: 244 238 230;    /* 14.3:1 */
+    --text-secondary: 196 181 166;  /*  8.2:1 */
+    --text-muted: 156 140 124;      /*  5.1:1 */
+
+    --brand: 232 131 74;            /* #e8834a, hell genug fuer dunkles Holz */
+    --brand-strong: 244 158 110;
+    --brand-wash: 232 131 74 / 0.14;
+    --on-brand: 36 30 26;
+
+    --focus: 232 131 74;
+
+    background-color: rgb(var(--surface-base));
+    color: rgb(var(--text-primary));
   }
 
   html {
@@ -52,7 +71,6 @@
   body {
     background-color: rgb(var(--surface-base));
     color: rgb(var(--text-primary));
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     text-rendering: optimizeLegibility;
   }
 
@@ -60,7 +78,7 @@
   :focus-visible {
     outline: 2px solid rgb(var(--focus));
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 3px;
   }
   :focus:not(:focus-visible) {
     outline: none;
@@ -71,7 +89,6 @@
     color: rgb(var(--on-brand));
   }
 
-  /* Ueberschriften bekommen enge Laufweite, das wirkt gesetzt. */
   h1, h2, h3, h4 {
     text-wrap: balance;
   }
@@ -95,40 +112,24 @@
   /* Sprungmarke fuer Screenreader und Tastatur. */
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200];
-    @apply focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-on-brand;
+    @apply focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-on-brand;
   }
 
-  /* Feines Raster, das dem Dunkel Tiefe gibt ohne aufzufallen. */
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
-    background-size: 72px 72px;
-  }
-
-  /* Haarlinie oben auf Karten, laesst Flaechen erhaben wirken. */
-  .edge-highlight {
-    position: relative;
-  }
-  .edge-highlight::before {
+  /* Sehr feines Korn. Nimmt grossen Flaechen das Glatte, ohne dass man
+     die Struktur bewusst wahrnimmt. Ersetzt das technische Raster, das
+     vorher ueber allem lag. */
+  .grain::after {
     content: '';
     position: absolute;
-    inset: 0 0 auto 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgb(255 255 255 / 0.12) 25%,
-      rgb(255 255 255 / 0.12) 75%,
-      transparent
-    );
+    inset: 0;
     pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
   }
-}
 
-@layer utilities {
-  /* Weiches Auslaufen langer Listen an den Raendern. */
-  .mask-fade-x {
-    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  .zone-dark .grain::after {
+    mix-blend-mode: screen;
+    opacity: 0.28;
   }
 }

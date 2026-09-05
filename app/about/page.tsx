@@ -144,16 +144,16 @@ export default function AboutPage() {
       </Section>
 
       {/* Warum mit mir arbeiten */}
-      <Section tone="raised">
+      <Section tone="sunk">
         <SectionHeader eyebrow={t.whyEyebrow} title={t.whyTitle} align="center" />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {t.points.map((point, idx) => (
             <div
               key={point.title}
-              className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7"
+              className="rounded-lg border border-line-subtle bg-surface-raised p-7"
             >
               <div className="mb-6 flex items-center justify-between">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md border border-line-strong bg-white/[0.04] text-brand">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md border border-line-strong bg-surface-sunk text-brand">
                   <Icon name={point.icon} size={22} />
                 </span>
                 <span className="font-display text-4xl italic text-line-strong">

@@ -81,14 +81,14 @@ export default function Footer({ language }: FooterProps) {
   ]
 
   return (
-    <footer className="border-t border-line-subtle bg-surface">
+    <footer className="zone-dark grain relative border-t border-line-subtle">
       {showCta && <CTABlock language={language} />}
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-12 md:grid-cols-[1.4fr_2fr]">
           {/* Marke und direkte Wege */}
           <div>
-            <p className="flex items-baseline gap-1.5 text-base font-semibold tracking-tight">
+            <p className="flex items-baseline gap-1.5 text-base font-semibold">
               Artist <span className="font-display text-xl italic text-brand">Webdesign</span>
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-secondary">

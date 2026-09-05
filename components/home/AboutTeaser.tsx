@@ -32,7 +32,7 @@ export default function AboutTeaser({ language }: { language: 'de' | 'en' }) {
   }[language]
 
   return (
-    <section className="border-t border-line-subtle bg-surface-raised/40 py-20 md:py-28">
+    <section className="border-t border-line-subtle bg-surface-sunk py-20 md:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
           <div className="relative overflow-hidden rounded-lg border border-line-subtle">
@@ -51,7 +51,7 @@ export default function AboutTeaser({ language }: { language: 'de' | 'en' }) {
               <span aria-hidden className="h-px w-6 bg-brand/60" />
               {t.eyebrow}
             </p>
-            <h2 className="text-display-md font-semibold">{t.title}</h2>
+            <h2 className="font-display text-display-md font-normal">{t.title}</h2>
             <div className="mt-6 space-y-4 text-ink-secondary">
               {t.text.map((paragraph) => (
                 <p key={paragraph} className="leading-relaxed">

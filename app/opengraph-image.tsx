@@ -18,11 +18,11 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#0c0c0e',
+          backgroundColor: '#241e1a',
           backgroundImage:
-            'radial-gradient(circle at 78% 8%, rgba(255,106,26,0.30), transparent 55%)',
+            'radial-gradient(circle at 78% 8%, rgba(232,131,74,0.26), transparent 58%)',
           padding: '72px',
-          color: '#fafaf9',
+          color: '#f4eee6',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -31,11 +31,11 @@ export default function OpengraphImage() {
               width: 44,
               height: 44,
               borderRadius: 12,
-              backgroundColor: '#ff6a1a',
+              backgroundColor: '#e8834a',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#0c0c0e',
+              color: '#241e1a',
               fontSize: 26,
               fontWeight: 700,
             }}
@@ -55,17 +55,17 @@ export default function OpengraphImage() {
               lineHeight: 1.05,
               letterSpacing: -3,
               fontWeight: 700,
-              color: '#ff6a1a',
+              color: '#e8834a',
             }}
           >
             handgebaut.
           </div>
-          <div style={{ marginTop: 28, fontSize: 30, color: '#a8a7ac', maxWidth: 900 }}>
+          <div style={{ marginTop: 28, fontSize: 30, color: '#c4b5a6', maxWidth: 900 }}>
             Individuell entwickelte Websites für Artists und kleine Unternehmen.
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: 40, fontSize: 24, color: '#7a7980' }}>
+        <div style={{ display: 'flex', gap: 40, fontSize: 24, color: '#9c8c7c' }}>
           <div>Onepager ab 500 €</div>
           <div>Entwurf für 40 €</div>
           <div>In 1 bis 3 Wochen online</div>

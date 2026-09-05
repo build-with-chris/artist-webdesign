@@ -1,12 +1,17 @@
 interface CardProps {
   children: React.ReactNode
-  /** Hebt die Karte optisch hervor, etwa das empfohlene Paket. */
+  /** Hebt die Karte hervor, etwa das empfohlene Paket. */
   featured?: boolean
   /** Reagiert auf Hover. Nur setzen, wenn die Karte anklickbar ist. */
   interactive?: boolean
   className?: string
 }
 
+/**
+ * Bewusst zurueckhaltend: eine helle Flaeche mit feiner Linie, ohne
+ * Dauerschatten. Rand und Fuellung sagen "eigenes Objekt", mehr braucht
+ * es nicht, sonst wirkt jede Seite wie ein Kachelbrett.
+ */
 export default function Card({
   children,
   featured = false,
@@ -16,13 +21,11 @@ export default function Card({
   return (
     <div
       className={[
-        'edge-highlight relative overflow-hidden rounded-lg border p-7 sm:p-8',
+        'relative overflow-hidden rounded-lg border p-7 sm:p-8',
         featured
-          ? 'border-brand/35 bg-gradient-to-b from-brand/[0.09] to-surface-raised shadow-lifted'
+          ? 'border-brand/40 bg-brand-wash'
           : 'border-line-subtle bg-surface-raised',
-        interactive
-          ? 'transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-line-strong hover:shadow-lifted'
-          : '',
+        interactive ? 'transition-colors duration-200 ease-out hover:border-line-strong' : '',
         className,
       ].join(' ')}
     >
@@ -31,10 +34,10 @@ export default function Card({
   )
 }
 
-/** Quadratisches Feld fuer ein Icon am Kartenkopf. */
+/** Feld fuer ein Icon am Kartenkopf. */
 export function CardIcon({ children }: { children: React.ReactNode }) {
   return (
-    <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-md border border-line-strong bg-white/[0.04] text-brand">
+    <span className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-wash text-brand">
       {children}
     </span>
   )

@@ -71,7 +71,7 @@ export default function Services({ language }: { language: 'de' | 'en' }) {
             <CardIcon>
               <Icon name={item.icon} size={22} />
             </CardIcon>
-            <h3 className="text-display-sm font-semibold">{item.title}</h3>
+            <h3 className="font-display text-display-sm font-normal">{item.title}</h3>
             <p className="mt-3 text-ink-secondary">{item.text}</p>
             <ul className="mt-6 space-y-2.5 border-t border-line-subtle pt-6">
               {item.points.map((point) => (

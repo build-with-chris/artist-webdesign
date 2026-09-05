@@ -90,7 +90,7 @@ export default function Faq({ language }: { language: 'de' | 'en' }) {
   }
 
   return (
-    <Section id="faq" tone="raised">
+    <Section id="faq" tone="sunk">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

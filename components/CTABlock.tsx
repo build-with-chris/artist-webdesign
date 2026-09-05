@@ -32,36 +32,28 @@ export default function CTABlock({ language }: CTABlockProps) {
   }[language]
 
   return (
-    <section className="border-t border-line-subtle">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 md:py-24">
-        <div className="edge-highlight relative overflow-hidden rounded-xl border border-line-subtle bg-surface-raised px-6 py-14 text-center sm:px-12">
-          {/* Warmer Schein, der den Blick zur Mitte zieht */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand/20 blur-[100px]"
-          />
+    <section className="zone-dark grain relative overflow-hidden">
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="mb-5 text-eyebrow font-semibold uppercase tracking-[0.15em] text-brand">
+            {t.eyebrow}
+          </p>
+          <h2 className="font-display text-display-md font-normal">{t.headline}</h2>
+          <p className="mx-auto mt-5 max-w-xl text-lead text-ink-secondary">{t.text}</p>
 
-          <div className="relative mx-auto max-w-2xl">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-eyebrow font-semibold uppercase text-brand-soft">
-              {t.eyebrow}
-            </p>
-            <h2 className="text-display-md font-semibold">{t.headline}</h2>
-            <p className="mx-auto mt-5 max-w-xl text-lead text-ink-secondary">{t.text}</p>
-
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <ButtonLink href="/start-project" size="lg" arrow>
-                {t.button}
-              </ButtonLink>
-              <ButtonLink href="/contact" variant="secondary" size="lg">
-                {t.secondary}
-              </ButtonLink>
-            </div>
-
-            <p className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-muted">
-              <Icon name="check" size={16} className="text-brand" />
-              {t.note}
-            </p>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <ButtonLink href="/start-project" size="lg" arrow>
+              {t.button}
+            </ButtonLink>
+            <ButtonLink href="/contact" variant="secondary" size="lg">
+              {t.secondary}
+            </ButtonLink>
           </div>
+
+          <p className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-muted">
+            <Icon name="check" size={16} className="text-brand" />
+            {t.note}
+          </p>
         </div>
       </div>
     </section>

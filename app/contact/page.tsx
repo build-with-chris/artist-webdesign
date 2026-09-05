@@ -153,8 +153,8 @@ export default function ContactPage() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           {/* Direkte Wege */}
           <div className="space-y-5">
-            <div className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7">
-              <h2 className="text-display-sm font-semibold">{t.directTitle}</h2>
+            <div className="rounded-lg border border-line-subtle bg-surface-raised p-7">
+              <h2 className="font-display text-display-sm font-normal">{t.directTitle}</h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.directText}</p>
 
               <div className="mt-7 space-y-5">
@@ -186,7 +186,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-brand/25 bg-brand/[0.06] p-7">
+            <div className="rounded-lg border border-brand/25 bg-brand-wash p-7">
               <h2 className="text-lg font-semibold tracking-tight">{t.projectTitle}</h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.projectText}</p>
               <ButtonLink href="/start-project" size="md" arrow className="mt-5">
@@ -196,8 +196,8 @@ export default function ContactPage() {
           </div>
 
           {/* Formular */}
-          <div className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7 sm:p-9">
-            <h2 className="text-display-sm font-semibold">{t.formTitle}</h2>
+          <div className="rounded-lg border border-line-subtle bg-surface-raised p-7 sm:p-9">
+            <h2 className="font-display text-display-sm font-normal">{t.formTitle}</h2>
 
             <form onSubmit={handleSubmit} noValidate className="mt-7 space-y-5">
               <TextField

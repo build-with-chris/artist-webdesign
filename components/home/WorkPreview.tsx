@@ -24,7 +24,7 @@ export default function WorkPreview({ language }: { language: 'de' | 'en' }) {
   const featured = projects.filter((project) => project.featured)
 
   return (
-    <Section id="projekte" tone="raised">
+    <Section id="projekte" tone="sunk">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
         <ButtonLink

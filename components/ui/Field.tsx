@@ -11,11 +11,11 @@ import { useId } from 'react'
  * woran es lag.
  */
 const control =
-  'w-full rounded-md border bg-surface-overlay px-4 py-3 text-ink placeholder:text-ink-muted ' +
+  'w-full rounded-md border bg-surface-sunk px-4 py-3 text-ink placeholder:text-ink-muted ' +
   'transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand/60 focus:border-brand/50'
 
 const stateClass = (error?: string) =>
-  error ? 'border-red-500/60' : 'border-line-strong hover:border-white/20'
+  error ? 'border-red-500/60' : 'border-line-strong hover:border-line-strong'
 
 interface BaseProps {
   label: string
@@ -159,7 +159,7 @@ export function SelectField({
         }}
       >
         {options.map((option) => (
-          <option key={option.value} value={option.value} className="bg-surface-overlay">
+          <option key={option.value} value={option.value} className="bg-surface-sunk">
             {option.label}
           </option>
         ))}
@@ -191,8 +191,8 @@ export function ChoiceTile({
       className={[
         'rounded-md border p-4 text-left transition-all duration-200',
         selected
-          ? 'border-brand bg-brand/10 text-ink shadow-[0_0_0_1px_rgb(var(--brand)/0.5)]'
-          : 'border-line-strong bg-surface-overlay text-ink-secondary hover:border-white/25 hover:bg-white/[0.06]',
+          ? 'border-brand bg-brand-wash text-ink'
+          : 'border-line-strong bg-surface-sunk text-ink-secondary hover:border-line-strong hover:bg-brand-wash',
         className,
       ].join(' ')}
     >

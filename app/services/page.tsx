@@ -167,11 +167,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Der Entwurf als eigener Block */}
-      <section className="relative overflow-hidden border-y border-line-subtle bg-surface-raised/40 py-20 md:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-brand/15 blur-[110px]"
-        />
+      <section className="grain relative overflow-hidden border-y border-line-subtle bg-surface-sunk py-20 md:py-24">
         <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
@@ -179,7 +175,7 @@ export default function ServicesPage() {
                 <span aria-hidden className="h-px w-6 bg-brand/60" />
                 {t.draftEyebrow}
               </p>
-              <h2 className="text-display-md font-semibold">{t.draftTitle}</h2>
+              <h2 className="font-display text-display-md font-normal">{t.draftTitle}</h2>
               <p className="mt-5 max-w-prose text-lead text-ink-secondary">{t.draftText}</p>
               <ButtonLink href="/start-project" size="lg" arrow className="mt-8">
                 {t.draftCta}

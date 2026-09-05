@@ -47,6 +47,11 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
   // Beim Seitenwechsel schliessen.
   useEffect(() => setMobileMenuOpen(false), [pathname])
 
+  // Nur die Startseite beginnt mit einem dunklen Hero. Ueber ihm laeuft
+  // die Leiste hell und transparent, ueberall sonst steht sie auf der
+  // hellen Grundflaeche und braucht dunkle Schrift.
+  const overDarkHero = pathname === '/'
+
   const t = {
     de: {
       home: 'Start',
@@ -88,10 +93,12 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out ${
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-out ${
           scrolled
-            ? 'border-b border-line-subtle bg-surface/85 backdrop-blur-xl'
-            : 'border-b border-transparent'
+            ? 'border-b border-line-subtle bg-surface/90 backdrop-blur-md'
+            : overDarkHero
+              ? 'zone-dark border-b border-transparent bg-transparent'
+              : 'border-b border-transparent bg-transparent'
         }`}
       >
       <nav
@@ -101,10 +108,10 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
         {/* Wortmarke */}
         <Link
           href="/"
-          className="group flex items-baseline gap-1.5 text-[0.95rem] font-semibold tracking-tight text-ink"
+          className="group flex items-baseline gap-1.5 text-[0.95rem] font-semibold text-ink"
         >
           Artist
-          <span className="font-display text-lg italic text-brand transition-colors group-hover:text-brand-soft">
+          <span className="font-display text-lg italic text-brand transition-colors group-hover:text-brand-strong">
             Webdesign
           </span>
         </Link>
@@ -151,7 +158,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
             onClick={() => setMobileMenuOpen(true)}
             aria-label={t.menu}
             aria-expanded={mobileMenuOpen}
-            className="-mr-1 flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-white/5 md:hidden"
+            className="-mr-1 flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-brand-wash md:hidden"
           >
             <Icon name="menu" />
           </button>
@@ -171,16 +178,16 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
             role="dialog"
             aria-modal="true"
             aria-label={language === 'de' ? 'Navigation' : 'Navigation'}
-            className="fixed inset-0 z-[100] flex flex-col bg-surface md:hidden"
+            className="grain fixed inset-0 z-[100] flex flex-col bg-surface md:hidden"
           >
             <div className="flex h-16 items-center justify-between px-5">
-              <span className="text-[0.95rem] font-semibold tracking-tight">
+              <span className="text-[0.95rem] font-semibold">
                 Artist <span className="font-display text-lg italic text-brand">Webdesign</span>
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label={t.close}
-                className="-mr-1 flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-white/5"
+                className="-mr-1 flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-brand-wash"
               >
                 <Icon name="close" />
               </button>
@@ -200,8 +207,8 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
                       aria-current={isActive(link.href) ? 'page' : undefined}
-                      className={`flex items-center justify-between py-4 text-2xl font-medium tracking-tight transition-colors ${
-                        isActive(link.href) ? 'text-brand' : 'text-ink hover:text-brand-soft'
+                      className={`flex items-center justify-between py-4 font-display text-2xl transition-colors ${
+                        isActive(link.href) ? 'text-brand' : 'text-ink hover:text-brand'
                       }`}
                     >
                       {link.label}

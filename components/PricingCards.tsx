@@ -22,7 +22,7 @@ export default function PricingCards({ language, variant = 'full' }: PricingCard
         <div
           key={pkg.id}
           className={[
-            'edge-highlight relative flex flex-col rounded-lg border p-7 sm:p-8',
+            'relative flex flex-col rounded-lg border p-7 sm:p-8',
             pkg.featured
               ? 'border-brand/40 bg-gradient-to-b from-brand/[0.1] to-surface-raised shadow-lifted'
               : 'border-line-subtle bg-surface-raised',
@@ -34,7 +34,7 @@ export default function PricingCards({ language, variant = 'full' }: PricingCard
             </span>
           )}
           {pkg.addon && (
-            <span className="absolute -top-3 left-7 rounded-full border border-line-strong bg-surface-overlay px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide text-ink-secondary">
+            <span className="absolute -top-3 left-7 rounded-full border border-line-strong bg-surface-sunk px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide text-ink-secondary">
               {label.addon}
             </span>
           )}

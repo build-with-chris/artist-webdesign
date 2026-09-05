@@ -37,29 +37,29 @@ export default function ProjectCard({
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group edge-highlight flex flex-col overflow-hidden rounded-lg border border-line-subtle bg-surface-raised transition-all duration-300 ease-out hover:-translate-y-1 hover:border-line-strong hover:shadow-lifted"
+      className="group flex flex-col overflow-hidden rounded-lg border border-line-subtle bg-surface-raised transition-all duration-300 ease-out hover:-translate-y-1 hover:border-line-strong hover:shadow-lifted"
     >
-      <div className="border-b border-line-subtle bg-surface-overlay p-3 pb-0">
+      <div className="border-b border-line-subtle bg-surface-sunk p-3 pb-0">
         {/* Fensterleiste */}
         <div className="mb-3 flex items-center gap-2 px-1">
           <span aria-hidden className="flex gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-white/15" />
-            <span className="h-2 w-2 rounded-full bg-white/15" />
-            <span className="h-2 w-2 rounded-full bg-white/15" />
+            <span className="h-2 w-2 rounded-full bg-line-strong" />
+            <span className="h-2 w-2 rounded-full bg-line-strong" />
+            <span className="h-2 w-2 rounded-full bg-line-strong" />
           </span>
-          <span className="ml-1 truncate rounded-full bg-white/[0.04] px-2.5 py-0.5 text-[0.68rem] text-ink-muted">
+          <span className="ml-1 truncate rounded-full bg-surface-sunk px-2.5 py-0.5 text-[0.68rem] text-ink-muted">
             {displayDomain(project.url)}
           </span>
         </div>
 
-        <div className="relative aspect-[16/10] overflow-hidden rounded-t-sm">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-t-sm">
           <Image
             src={project.image}
             alt={project.alt[language]}
             fill
             sizes={sizes}
             priority={priority}
-            className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function ProjectCard({
           {project.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full border border-line-subtle bg-white/[0.03] px-2.5 py-1 text-xs text-ink-muted"
+              className="rounded-full border border-line-subtle bg-surface-sunk px-2.5 py-1 text-xs text-ink-muted"
             >
               {tag}
             </li>

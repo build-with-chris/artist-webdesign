@@ -5,21 +5,18 @@ type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'md' | 'lg'
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-semibold ' +
-  'transition-all duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-45'
+  'group inline-flex items-center justify-center gap-2 rounded-md font-semibold ' +
+  'transition-colors duration-200 ease-out disabled:cursor-not-allowed disabled:opacity-45'
 
 const variants: Record<Variant, string> = {
-  primary:
-    'bg-brand text-on-brand hover:bg-brand-soft hover:shadow-glow active:scale-[0.985]',
-  secondary:
-    'border border-line-strong bg-white/[0.03] text-ink backdrop-blur-sm ' +
-    'hover:border-white/25 hover:bg-white/[0.07]',
-  ghost: 'text-ink-secondary hover:text-ink',
+  primary: 'bg-brand text-on-brand hover:bg-brand-strong',
+  secondary: 'border border-line-strong text-ink hover:border-ink-muted hover:bg-brand-wash',
+  ghost: 'text-ink-secondary hover:text-brand',
 }
 
 const sizes: Record<Size, string> = {
-  md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3.5 text-base',
+  md: 'px-4.5 py-2.5 text-sm',
+  lg: 'px-6 py-3 text-base',
 }
 
 interface CommonProps {
@@ -46,7 +43,7 @@ export function ButtonLink({
         <Icon
           name={external ? 'arrow-up-right' : 'arrow-right'}
           size={18}
-          className="transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+          className="transition-transform duration-200 ease-out group-hover:translate-x-0.5"
         />
       )}
     </>
@@ -84,7 +81,7 @@ export function Button({
         <Icon
           name="arrow-right"
           size={18}
-          className="transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+          className="transition-transform duration-200 ease-out group-hover:translate-x-0.5"
         />
       )}
     </button>

@@ -28,16 +28,10 @@ export default function NotFound() {
   }[language]
 
   return (
-    <section className="relative flex min-h-[80svh] items-center overflow-hidden px-5 py-32 sm:px-8">
-      <div aria-hidden className="bg-grid absolute inset-0 opacity-50" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-96 -translate-x-1/2 rounded-full bg-brand/12 blur-[110px]"
-      />
-
+    <section className="grain relative flex min-h-[80svh] items-center overflow-hidden bg-surface-sunk px-5 py-32 sm:px-8">
       <div className="relative mx-auto max-w-xl text-center">
         <p className="font-display text-7xl italic text-brand">{t.code}</p>
-        <h1 className="mt-6 text-display-md font-semibold">{t.title}</h1>
+        <h1 className="mt-6 font-display text-display-md font-normal">{t.title}</h1>
         <p className="mx-auto mt-5 max-w-md text-lead text-ink-secondary">{t.text}</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
           <ButtonLink href="/" size="lg" arrow>

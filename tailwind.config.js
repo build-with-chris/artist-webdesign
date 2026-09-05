@@ -16,8 +16,7 @@ module.exports = {
           DEFAULT: withOpacity('--surface-base'),
           base: withOpacity('--surface-base'),
           raised: withOpacity('--surface-raised'),
-          overlay: withOpacity('--surface-overlay'),
-          inverted: withOpacity('--surface-inverted'),
+          sunk: withOpacity('--surface-sunk'),
         },
         ink: {
           DEFAULT: withOpacity('--text-primary'),
@@ -27,8 +26,8 @@ module.exports = {
         },
         brand: {
           DEFAULT: withOpacity('--brand'),
-          soft: withOpacity('--brand-soft'),
-          dim: withOpacity('--brand-dim'),
+          strong: withOpacity('--brand-strong'),
+          wash: 'rgb(var(--brand-wash))',
         },
         'on-brand': withOpacity('--on-brand'),
         line: {
@@ -38,18 +37,22 @@ module.exports = {
         },
       },
       fontFamily: {
+        // Karla traegt Fliesstext und Bedienelemente: humanistisch
+        // geschnitten, mit eigenen Formen statt der ueblichen Grotesk.
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Fraunces setzt die Ueberschriften. Weiche, leicht eigenwillige
+        // Serifen, das Gegenteil des technischen Eindrucks.
         display: ['var(--font-display)', 'Georgia', 'serif'],
       },
       fontSize: {
         // Fliessende Groessen: skalieren mit der Viewportbreite, ohne
         // dass pro Breakpoint eine eigene Klasse noetig ist.
-        'display-xl': ['clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem)', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
-        'display-lg': ['clamp(2.25rem, 1.5rem + 3.4vw, 4rem)', { lineHeight: '1.03', letterSpacing: '-0.03em' }],
-        'display-md': ['clamp(1.75rem, 1.3rem + 2.1vw, 2.75rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
-        'display-sm': ['clamp(1.375rem, 1.15rem + 1.1vw, 1.875rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
-        'lead': ['clamp(1.0625rem, 1rem + 0.4vw, 1.25rem)', { lineHeight: '1.6' }],
-        'eyebrow': ['0.75rem', { lineHeight: '1', letterSpacing: '0.16em' }],
+        'display-xl': ['clamp(2.6rem, 1.6rem + 4.6vw, 5rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
+        'display-lg': ['clamp(2.1rem, 1.5rem + 2.9vw, 3.6rem)', { lineHeight: '1.06', letterSpacing: '-0.018em' }],
+        'display-md': ['clamp(1.7rem, 1.3rem + 1.9vw, 2.6rem)', { lineHeight: '1.14', letterSpacing: '-0.015em' }],
+        'display-sm': ['clamp(1.3rem, 1.15rem + 0.8vw, 1.7rem)', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+        'lead': ['clamp(1.0625rem, 1rem + 0.4vw, 1.2rem)', { lineHeight: '1.65' }],
+        'eyebrow': ['0.75rem', { lineHeight: '1', letterSpacing: '0.15em' }],
       },
       borderRadius: {
         sm: 'var(--radius-sm)',
@@ -58,29 +61,24 @@ module.exports = {
         xl: 'var(--radius-xl)',
       },
       boxShadow: {
-        raised: '0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6)',
-        lifted: '0 2px 4px rgb(0 0 0 / 0.4), 0 20px 48px -24px rgb(0 0 0 / 0.8)',
-        glow: '0 0 0 1px rgb(var(--brand) / 0.35), 0 12px 40px -12px rgb(var(--brand) / 0.35)',
+        // Weiche, warme Schatten statt harter schwarzer Kanten.
+        raised: '0 1px 2px rgb(43 36 30 / .05), 0 6px 16px -10px rgb(43 36 30 / .22)',
+        lifted: '0 2px 4px rgb(43 36 30 / .06), 0 18px 40px -22px rgb(43 36 30 / .35)',
       },
       maxWidth: {
-        prose: '68ch',
+        prose: '66ch',
       },
       transitionTimingFunction: {
         out: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
       keyframes: {
         'fade-up': {
-          from: { opacity: '0', transform: 'translateY(14px)' },
+          from: { opacity: '0', transform: 'translateY(12px)' },
           to: { opacity: '1', transform: 'none' },
-        },
-        'scroll-hint': {
-          '0%, 100%': { transform: 'translateY(0)', opacity: '0.5' },
-          '50%': { transform: 'translateY(6px)', opacity: '1' },
         },
       },
       animation: {
         'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
-        'scroll-hint': 'scroll-hint 2s ease-in-out infinite',
       },
     },
   },
