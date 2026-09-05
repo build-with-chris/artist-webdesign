@@ -1,5 +1,7 @@
 'use client'
 import { useLanguage } from '@/components/LanguageProvider'
+import PageHeader from '@/components/ui/PageHeader'
+import { Section } from '@/components/ui/Section'
 
 export default function PrivacyPage() {
   const { language } = useLanguage()
@@ -72,90 +74,73 @@ export default function PrivacyPage() {
   }[language]
 
   return (
-    <div className="min-h-screen bg-black text-white py-32 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
-          {content.title}
-        </h1>
+    <>
+      <PageHeader title={content.title} />
 
-        <div className="space-y-10 text-zinc-300">
-          {/* Section 1 */}
+      <Section>
+        <div className="max-w-prose space-y-10">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section1.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section1.content}
             </div>
           </section>
-
-          {/* Section 2 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section2.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section2.content}
             </div>
           </section>
-
-          {/* Section 3 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section3.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section3.content}
             </div>
           </section>
-
-          {/* Section 4 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section4.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section4.content}
             </div>
           </section>
-
-          {/* Section 5 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section5.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section5.content}
             </div>
           </section>
-
-          {/* Section 6 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section6.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section6.content}
             </div>
           </section>
-
-          {/* Section 7 */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-display-sm font-semibold text-ink">
               {content.section7.title}
             </h2>
-            <div className="whitespace-pre-line leading-relaxed">
+            <div className="whitespace-pre-line leading-relaxed text-ink-secondary">
               {content.section7.content}
             </div>
           </section>
 
-          {/* Last Updated */}
-          <div className="mt-12 pt-8 border-t border-zinc-800 text-zinc-500 text-sm">
+          <p className="border-t border-line-subtle pt-8 text-sm text-ink-muted">
             {content.lastUpdated}
-          </div>
+          </p>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   )
 }
-

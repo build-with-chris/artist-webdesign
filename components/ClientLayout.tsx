@@ -10,8 +10,11 @@ function LayoutContent({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <a href="#main" className="skip-link">
+        {language === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}
+      </a>
       <Navigation language={language} onLanguageToggle={toggleLanguage} />
-      <div className="pt-16">{children}</div>
+      <main id="main">{children}</main>
       <Footer language={language} />
     </>
   )

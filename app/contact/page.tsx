@@ -1,6 +1,15 @@
 'use client'
-import { useLanguage } from '@/components/LanguageProvider'
+
 import { useState } from 'react'
+import { useLanguage } from '@/components/LanguageProvider'
+import PageHeader from '@/components/ui/PageHeader'
+import { Section } from '@/components/ui/Section'
+import { Button, ButtonLink } from '@/components/ui/Button'
+import { TextField, TextAreaField } from '@/components/ui/Field'
+import Icon from '@/components/ui/Icon'
+import { site } from '@/lib/site'
+
+type Errors = Partial<Record<'name' | 'email' | 'message', string>>
 
 export default function ContactPage() {
   const { language } = useLanguage()
@@ -8,96 +17,115 @@ export default function ContactPage() {
     name: '',
     email: '',
     message: '',
-    website: '', // Honeypot field
+    website: '', // Honigtopf gegen Bots
   })
+  const [errors, setErrors] = useState<Errors>({})
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formStartTime] = useState(Date.now()) // Track when form was loaded
+  const [formStartTime] = useState(Date.now())
 
   const t = {
     de: {
-      title: 'Kontakt',
-      subtitle: 'Schreib mir gerne eine Nachricht oder ruf mich an.',
+      eyebrow: 'Kontakt',
+      title: 'Schreib mir',
+      lead: 'Eine kurze Nachricht reicht. Ich antworte in der Regel am selben Tag.',
+      formTitle: 'Nachricht',
       nameLabel: 'Dein Name',
       namePlaceholder: 'Max Mustermann',
       emailLabel: 'E-Mail',
       emailPlaceholder: 'max@beispiel.de',
       messageLabel: 'Deine Nachricht',
-      messagePlaceholder: 'Schreib mir, was auf dem Herzen liegt...',
-      phoneLabel: 'Telefon',
-      phone: '0049 159 04891419',
+      messagePlaceholder: 'Worum geht es? Ein paar Sätze genügen.',
       submitButton: 'Nachricht senden',
-      submitting: 'Wird gesendet...',
-      successMessage: 'Danke! Ich melde mich schnell zurück.',
-      errorMessage: 'Da hat was nicht geklappt. Versuch es nochmal oder ruf mich an.',
-      requiredField: 'Pflichtfelder',
+      submitting: 'Wird gesendet',
+      successMessage: 'Danke, deine Nachricht ist angekommen. Ich melde mich schnell zurück.',
+      errorMessage: 'Da hat etwas nicht geklappt. Versuch es noch einmal oder ruf mich an.',
+      required: 'Pflichtfelder sind mit einem Stern gekennzeichnet.',
+      directTitle: 'Direkter Draht',
+      directText: 'Lieber telefonieren oder per WhatsApp schreiben? Beides geht.',
+      phoneLabel: 'Telefon und WhatsApp',
+      emailLabelShort: 'E-Mail',
+      projectTitle: 'Schon konkret?',
+      projectText: 'Wenn du weißt, was du brauchst, spar dir den Umweg: Der Fragebogen fragt alles ab, was ich für einen Entwurf brauche.',
+      projectCta: 'Fragebogen ausfüllen',
+      errName: 'Bitte trag deinen Namen ein.',
+      errEmail: 'Bitte trag eine gültige E-Mail-Adresse ein.',
+      errMessage: 'Bitte schreib ein paar Sätze zu deinem Anliegen.',
     },
     en: {
-      title: 'Contact',
-      subtitle: 'Feel free to send me a message or give me a call.',
+      eyebrow: 'Contact',
+      title: 'Write to me',
+      lead: 'A short message is enough. I usually answer the same day.',
+      formTitle: 'Message',
       nameLabel: 'Your name',
       namePlaceholder: 'John Doe',
       emailLabel: 'Email',
       emailPlaceholder: 'john@example.com',
       messageLabel: 'Your message',
-      messagePlaceholder: 'Tell me what\'s on your mind...',
-      phoneLabel: 'Phone',
-      phone: '0049 159 04891419',
+      messagePlaceholder: 'What is it about? A few sentences are enough.',
       submitButton: 'Send message',
-      submitting: 'Sending...',
-      successMessage: 'Thanks! I\'ll get back to you quickly.',
+      submitting: 'Sending',
+      successMessage: 'Thanks, your message arrived. I will get back to you soon.',
       errorMessage: 'Something went wrong. Try again or give me a call.',
-      requiredField: 'Required fields',
+      required: 'Required fields are marked with a star.',
+      directTitle: 'Direct line',
+      directText: 'Prefer a call or WhatsApp? Both work.',
+      phoneLabel: 'Phone and WhatsApp',
+      emailLabelShort: 'Email',
+      projectTitle: 'Already specific?',
+      projectText: 'If you know what you need, skip the detour: the questionnaire asks everything I need for a draft.',
+      projectCta: 'Fill out questionnaire',
+      errName: 'Please enter your name.',
+      errEmail: 'Please enter a valid email address.',
+      errMessage: 'Please write a few sentences about your request.',
     },
   }[language]
 
+  const validate = (): Errors => {
+    const next: Errors = {}
+    if (!formData.name.trim()) next.name = t.errName
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim())) next.email = t.errEmail
+    if (formData.message.trim().length < 10) next.message = t.errMessage
+    return next
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Spam protection: Check if honeypot field is filled
-    if (formData.website) {
-      // Bot detected - silently fail
-      return
-    }
-    
-    // Spam protection: Check minimum time (3 seconds) since form load
-    const timeSpent = Date.now() - formStartTime
-    if (timeSpent < 3000) {
+
+    // Bot erkannt: still abbrechen, ohne Hinweis.
+    if (formData.website) return
+
+    const found = validate()
+    setErrors(found)
+    if (Object.keys(found).length > 0) return
+
+    // Zu schnell abgeschickt, um echt getippt zu sein.
+    if (Date.now() - formStartTime < 3000) {
       setSubmitStatus('error')
       return
     }
-    
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.message,
           contactType: 'general',
-          formStartTime, // Send timestamp for server-side validation
+          formStartTime,
         }),
       })
 
       const data = await response.json()
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Failed to send message')
-      }
+      if (!response.ok || !data.success) throw new Error(data.message || 'Failed to send message')
 
       setSubmitStatus('success')
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
-        website: '',
-      })
+      setFormData({ name: '', email: '', message: '', website: '' })
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
@@ -106,114 +134,110 @@ export default function ContactPage() {
     }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    // Fehler verschwindet, sobald der Nutzer nachbessert.
+    if (errors[name as keyof Errors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
   }
 
   return (
-    <div className="min-h-screen bg-black text-white py-32 px-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            {t.title}
-          </h1>
-          <p className="text-xl text-zinc-400">
-            {t.subtitle}
-          </p>
-        </div>
+    <>
+      <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {t.phoneLabel}
-              </h2>
-              <a
-                href={`tel:${t.phone.replace(/\s/g, '')}`}
-                className="text-xl text-zinc-300 hover:text-white transition-colors inline-block"
-              >
-                {t.phone}
-              </a>
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+          {/* Direkte Wege */}
+          <div className="space-y-5">
+            <div className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7">
+              <h2 className="text-display-sm font-semibold">{t.directTitle}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.directText}</p>
+
+              <div className="mt-7 space-y-5">
+                <div>
+                  <p className="mb-1.5 text-eyebrow font-semibold uppercase text-ink-muted">
+                    {t.phoneLabel}
+                  </p>
+                  <a
+                    href={`tel:${site.phone}`}
+                    className="inline-flex items-center gap-2.5 text-lg text-ink transition-colors hover:text-brand"
+                  >
+                    <Icon name="phone" size={20} className="text-brand" />
+                    {site.phoneDisplay}
+                  </a>
+                </div>
+
+                <div>
+                  <p className="mb-1.5 text-eyebrow font-semibold uppercase text-ink-muted">
+                    {t.emailLabelShort}
+                  </p>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="inline-flex items-center gap-2.5 break-all text-lg text-ink transition-colors hover:text-brand"
+                  >
+                    <Icon name="mail" size={20} className="shrink-0 text-brand" />
+                    {site.email}
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {t.emailLabel}
-              </h2>
-              <a
-                href="mailto:chris.hermann9397@gmail.com"
-                className="text-xl text-zinc-300 hover:text-white transition-colors inline-block"
-              >
-                chris.hermann9397@gmail.com
-              </a>
+            <div className="rounded-lg border border-brand/25 bg-brand/[0.06] p-7">
+              <h2 className="text-lg font-semibold tracking-tight">{t.projectTitle}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.projectText}</p>
+              <ButtonLink href="/start-project" size="md" arrow className="mt-5">
+                {t.projectCta}
+              </ButtonLink>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-zinc-400 mb-2">
-                  {t.nameLabel} *
-                </label>
+          {/* Formular */}
+          <div className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7 sm:p-9">
+            <h2 className="text-display-sm font-semibold">{t.formTitle}</h2>
+
+            <form onSubmit={handleSubmit} noValidate className="mt-7 space-y-5">
+              <TextField
+                label={t.nameLabel}
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder={t.namePlaceholder}
+                autoComplete="name"
+                error={errors.name}
+                required
+              />
+              <TextField
+                label={t.emailLabel}
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder={t.emailPlaceholder}
+                autoComplete="email"
+                error={errors.email}
+                required
+              />
+              <TextAreaField
+                label={t.messageLabel}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={t.messagePlaceholder}
+                rows={6}
+                error={errors.message}
+                required
+              />
+
+              {/* Honigtopf: fuer Menschen unsichtbar, Bots fuellen ihn aus. */}
+              <div className="absolute left-[-9999px] opacity-0" aria-hidden="true">
+                <label htmlFor="contact-website">Website (leave blank)</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder={t.namePlaceholder}
-                  required
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-zinc-400 mb-2">
-                  {t.emailLabel} *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder={t.emailPlaceholder}
-                  required
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">
-                  {t.messageLabel} *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder={t.messagePlaceholder}
-                  rows={6}
-                  required
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all resize-none"
-                />
-              </div>
-
-              {/* Honeypot Field - Hidden from users but visible to bots */}
-              <div className="absolute left-[-9999px] opacity-0 pointer-events-none" aria-hidden="true">
-                <label htmlFor="website">Website (leave blank)</label>
-                <input
-                  type="text"
-                  id="website"
+                  id="contact-website"
                   name="website"
                   value={formData.website}
                   onChange={handleChange}
@@ -222,42 +246,34 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
-                className="w-full px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <Button type="submit" size="lg" arrow disabled={isSubmitting} className="w-full">
                 {isSubmitting ? t.submitting : t.submitButton}
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </button>
+              </Button>
 
-              {/* Success Message */}
+              <p className="text-xs text-ink-muted">{t.required}</p>
+
               {submitStatus === 'success' && (
-                <div className="mt-6 p-4 bg-green-900/20 border border-green-700/50 rounded-lg">
-                  <p className="text-green-400 text-center font-medium">
-                    ✓ {t.successMessage}
-                  </p>
-                </div>
+                <p
+                  role="status"
+                  className="flex items-start gap-2.5 rounded-md border border-green-600/40 bg-green-500/10 p-4 text-sm text-green-300"
+                >
+                  <Icon name="check" size={18} className="mt-0.5 shrink-0" />
+                  {t.successMessage}
+                </p>
               )}
 
-              {/* Error Message */}
               {submitStatus === 'error' && (
-                <div className="mt-6 p-4 bg-red-900/20 border border-red-700/50 rounded-lg">
-                  <p className="text-red-400 text-center">
-                    {t.errorMessage}
-                  </p>
-                </div>
+                <p
+                  role="alert"
+                  className="rounded-md border border-red-600/40 bg-red-500/10 p-4 text-sm text-red-300"
+                >
+                  {t.errorMessage}
+                </p>
               )}
             </form>
-
-            {/* Required Field Helper Text */}
-            <p className="text-sm text-zinc-500 text-center mt-6">
-              * {t.requiredField}
-            </p>
           </div>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   )
 }

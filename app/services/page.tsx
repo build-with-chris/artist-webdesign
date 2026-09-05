@@ -1,250 +1,196 @@
 'use client'
+
 import { useLanguage } from '@/components/LanguageProvider'
+import PageHeader from '@/components/ui/PageHeader'
+import { Section, SectionHeader } from '@/components/ui/Section'
+import Card, { CardIcon } from '@/components/ui/Card'
+import PricingCards from '@/components/PricingCards'
+import { ButtonLink } from '@/components/ui/Button'
+import Icon, { type IconName } from '@/components/ui/Icon'
 
 export default function ServicesPage() {
   const { language } = useLanguage()
-  
+
   const t = {
     de: {
+      eyebrow: 'Leistungen',
       title: 'Was du bekommst',
-      subtitle: 'Echte Handarbeit für deinen digitalen Auftritt.',
-      pricingTitle: 'Pakete',
-      popularBadge: 'Beliebt',
-      service1Title: 'Individuelles Design',
-      service1Benefit: 'Deine Website wird von Grund auf für dich entwickelt – kein Template, keine Kompromisse.',
-      service1Point1: 'Design, das zu dir passt',
-      service1Point2: 'Optimiert für deine Zielgruppe',
-      service1Point3: 'Flexibel erweiterbar',
-      service2Title: 'Schnelle Umsetzung',
-      service2Benefit: 'Du brauchst deine Website schnell? Ich liefere in 1-3 Wochen – ohne Qualitätsverlust.',
-      service2Point1: 'Klare Timeline von Anfang an',
-      service2Point2: 'Regelmäßige Updates während der Entwicklung',
-      service2Point3: 'Pünktlicher Launch',
-      service3Title: 'Pflege & Betreuung',
-      service3Benefit: 'Nach dem Launch kannst du entspannen – ich pflege deine Website und setze Änderungen innerhalb von 24h um (Urlaub ausgenommen, wird vorher kommuniziert).',
-      service3Point1: 'Änderungen innerhalb von 24h umgesetzt',
-      service3Point2: 'Technische Wartung & Updates',
-      service3Point3: 'Hosting & SSL-Zertifikat inklusive',
-      // Pricing packages
-      basicTitle: 'Basic',
-      basicPrice: '500€',
-      basicOriginal: '',
-      basicValidity: '(gilt bis 31.12.2025)',
-      basicTagline: 'Der solide Start: ein klarer Onepager, der alles Wichtige zeigt.',
-      basicFeature1: 'Startseite, Angebot, Projekte & Kontakt',
-      basicFeature2: 'Mobilfreundlich & suchmaschinenoptimiert',
-      basicFeature3: 'Saubere Performance',
-      basicFeature4: 'Einfacher Austausch von Texten und Bildern',
-      advancedTitle: 'Advanced',
-      advancedPrice: '900€',
-      advancedOriginal: 'statt 1400€',
-      advancedTagline: 'Für mehr Spielraum und Wachstum.',
-      advancedFeature1: 'Mehrseitige Website oder CMS-Anbindung',
-      advancedFeature2: 'Blog, Galerie, Video- oder Buchungssektionen',
-      advancedFeature3: 'Formulare mit Validierung',
-      advancedFeature4: 'Extras wie Analytics, SEO-Finetuning & Hosting',
-      // Hosting & Maintenance
-      hostingTitle: 'Hosting & Pflege',
-      hostingPrice: '20€ / Monat',
-      hostingNote: '(muss dazu gebucht werden)',
-      hostingSubtitle: 'Domain enthalten',
-      hostingTagline: 'Darin enthalten:',
-      hostingFeature1: 'Hosting auf einem schnellen, zuverlässigen Server',
-      hostingFeature2: 'Contentpflege innerhalb von 24 Stunden: Wenn du neue Bilder, Texte oder Termine hast, werden sie blitzschnell aktualisiert',
-      hostingFeature3: 'SSL-Zertifikat & regelmäßige Sicherheitsupdates inklusive',
-      hostingFeature4: 'Keine Sorge um Technik oder Änderungen – du sagst, was du brauchst, ich kümmere mich.',
-      // Design Highlight
-      freeDesignTitle: 'Design-Entwurf für 40€',
-      freeDesignBadge: 'Auf Vorleistung',
-      freeDesignText: 'Nach dem Ausfüllen des Fragebogens erstelle ich einen ersten Webdesign-Entwurf für 40€. Diese 40€ werden dir bei Buchung eines Pakets vollständig angerechnet. Du siehst direkt, wie deine Website aussehen könnte, und entscheidest dann in Ruhe, ob wir zusammenarbeiten.',
-      freeDesignPoint1: 'Erster visueller Entwurf deiner Website',
-      freeDesignPoint2: '40€ werden auf das Paket angerechnet',
-      freeDesignPoint3: 'Keine Verpflichtung zur Zusammenarbeit',
-      freeDesignPoint4: 'Erst sehen, dann entscheiden',
+      lead: 'Feste Pakete, klare Preise, echte Handarbeit. Was nicht drinsteht, kostet auch nichts.',
+      ctaPrimary: 'Projekt starten',
+      ctaSecondary: 'Ablauf ansehen',
+
+      pricingEyebrow: 'Pakete',
+      pricingTitle: 'Preise auf einen Blick',
+      pricingLead: 'Hosting und Pflege sind zusätzlich buchbar und enthalten die Domain.',
+
+      draftEyebrow: 'Vor der Entscheidung',
+      draftTitle: 'Design-Entwurf für 40 €',
+      draftText: 'Nach dem Fragebogen baue ich einen ersten Entwurf deiner Website. Die 40 Euro werden dir bei Buchung eines Pakets voll angerechnet. Du siehst also das Ergebnis, bevor du dich festlegst.',
+      draftPoints: [
+        'Erster sichtbarer Entwurf deiner Website',
+        '40 Euro werden auf das Paket angerechnet',
+        'Keine Verpflichtung zur Zusammenarbeit',
+        'Du entscheidest in Ruhe',
+      ],
+      draftCta: 'Fragebogen ausfüllen',
+
+      featuresEyebrow: 'Im Detail',
+      featuresTitle: 'Was in jedem Projekt steckt',
+      features: [
+        {
+          icon: 'palette' as IconName,
+          title: 'Individuelles Design',
+          text: 'Deine Website wird von Grund auf für dich entwickelt. Kein Template, keine Kompromisse.',
+          points: ['Design, das zu dir passt', 'Optimiert für deine Zielgruppe', 'Flexibel erweiterbar'],
+        },
+        {
+          icon: 'bolt' as IconName,
+          title: 'Schnelle Umsetzung',
+          text: 'Du brauchst deine Website schnell? Ich liefere in ein bis drei Wochen, ohne an der Qualität zu sparen.',
+          points: ['Klare Timeline von Anfang an', 'Regelmäßige Updates während der Entwicklung', 'Pünktlicher Launch'],
+        },
+        {
+          icon: 'wrench' as IconName,
+          title: 'Pflege und Betreuung',
+          text: 'Nach dem Launch kannst du entspannen. Änderungen setze ich innerhalb von 24 Stunden um, Urlaubszeiten kündige ich vorher an.',
+          points: ['Änderungen innerhalb von 24 Stunden', 'Technische Wartung und Updates', 'Hosting und SSL-Zertifikat inklusive'],
+        },
+        {
+          icon: 'gauge' as IconName,
+          title: 'Technik, die trägt',
+          text: 'Gebaut mit React und Next.js. Schnelle Ladezeiten, saubere Struktur, keine Plugin-Abhängigkeiten.',
+          points: ['Kurze Ladezeiten', 'Für Suchmaschinen aufbereitet', 'Sicher ohne Plugin-Wildwuchs'],
+        },
+        {
+          icon: 'phone-mobile' as IconName,
+          title: 'Zuerst fürs Handy',
+          text: 'Die meisten Besucher kommen vom Telefon. Deshalb entsteht das Layout dort zuerst und wächst dann nach oben.',
+          points: ['Bedienbar mit einer Hand', 'Bilder in passender Größe', 'Getestet auf echten Geräten'],
+        },
+        {
+          icon: 'shield' as IconName,
+          title: 'Rechtliches mitgedacht',
+          text: 'Impressum, Datenschutz und Formulare mit Spamschutz gehören dazu. Die Inhalte stimmen wir gemeinsam ab.',
+          points: ['Impressum und Datenschutz eingebunden', 'Formulare mit Spamschutz', 'SSL-Verschlüsselung'],
+        },
+      ],
     },
     en: {
+      eyebrow: 'Services',
       title: 'What you get',
-      subtitle: 'Real craftsmanship for your digital presence.',
-      pricingTitle: 'Packages',
-      popularBadge: 'Popular',
-      service1Title: 'Custom Design',
-      service1Benefit: 'Your website is built from scratch for you – no templates, no compromises.',
-      service1Point1: 'Design that fits you',
-      service1Point2: 'Optimized for your audience',
-      service1Point3: 'Flexibly expandable',
-      service2Title: 'Fast Delivery',
-      service2Benefit: 'Need your website quickly? I deliver in 1-3 weeks – without sacrificing quality.',
-      service2Point1: 'Clear timeline from the start',
-      service2Point2: 'Regular updates during development',
-      service2Point3: 'On-time launch',
-      service3Title: 'Maintenance & Support',
-      service3Benefit: 'After launch, you can relax – I maintain your website and implement changes within 24 hours (except during vacation, which will be communicated in advance).',
-      service3Point1: 'Changes implemented within 24 hours',
-      service3Point2: 'Technical maintenance & updates',
-      service3Point3: 'Hosting & SSL certificate included',
-      // Pricing packages
-      basicTitle: 'Basic',
-      basicPrice: '€500',
-      basicOriginal: '',
-      basicValidity: '(valid until Dec 31, 2025)',
-      basicTagline: 'The solid start: a clear one-pager that shows everything important.',
-      basicFeature1: 'Homepage, services, projects & contact',
-      basicFeature2: 'Mobile-friendly & SEO-optimized',
-      basicFeature3: 'Clean performance',
-      basicFeature4: 'Easy text and image updates',
-      advancedTitle: 'Advanced',
-      advancedPrice: '€900',
-      advancedOriginal: 'instead of €1400',
-      advancedTagline: 'For more flexibility and growth.',
-      advancedFeature1: 'Multi-page website or CMS integration',
-      advancedFeature2: 'Blog, gallery, video, or booking sections',
-      advancedFeature3: 'Forms with validation',
-      advancedFeature4: 'Extras like analytics, SEO fine-tuning & hosting',
-      // Hosting & Maintenance
-      hostingTitle: 'Hosting & Maintenance',
-      hostingPrice: '€20 / month',
-      hostingNote: '(must be added separately)',
-      hostingSubtitle: 'Domain included',
-      hostingTagline: 'Included:',
-      hostingFeature1: 'Hosting on a fast, reliable server',
-      hostingFeature2: 'Content updates within 24 hours: When you have new images, texts, or dates, they will be updated lightning fast',
-      hostingFeature3: 'SSL certificate & regular security updates included',
-      hostingFeature4: 'No worries about tech or changes – you tell me what you need, I take care of it.',
-      // Design Highlight
-      freeDesignTitle: 'Design Draft for €40',
-      freeDesignBadge: 'On my initiative',
-      freeDesignText: "After you fill out the questionnaire, I'll create a first web design draft for €40. These €40 will be fully credited toward any package you book. You'll see directly how your website could look, and then decide at your own pace whether we work together.",
-      freeDesignPoint1: 'First visual draft of your website',
-      freeDesignPoint2: '€40 credited toward the package',
-      freeDesignPoint3: 'No obligation to work together',
-      freeDesignPoint4: 'See first, decide later',
-    }
+      lead: 'Fixed packages, clear prices, real craftsmanship. What is not listed does not cost anything either.',
+      ctaPrimary: 'Start a project',
+      ctaSecondary: 'See the process',
+
+      pricingEyebrow: 'Packages',
+      pricingTitle: 'Prices at a glance',
+      pricingLead: 'Hosting and maintenance can be added and include the domain.',
+
+      draftEyebrow: 'Before you decide',
+      draftTitle: 'Design draft for €40',
+      draftText: 'After the questionnaire I build a first draft of your website. The 40 euros are fully credited when you book a package. So you see the result before you commit.',
+      draftPoints: [
+        'A first visible draft of your website',
+        '40 euros credited towards the package',
+        'No obligation to work together',
+        'You decide at your own pace',
+      ],
+      draftCta: 'Fill out questionnaire',
+
+      featuresEyebrow: 'In detail',
+      featuresTitle: 'What every project includes',
+      features: [
+        {
+          icon: 'palette' as IconName,
+          title: 'Custom design',
+          text: 'Your website is built from scratch for you. No template, no compromises.',
+          points: ['Design that fits you', 'Optimised for your audience', 'Room to grow'],
+        },
+        {
+          icon: 'bolt' as IconName,
+          title: 'Fast delivery',
+          text: 'Need your website quickly? I deliver in one to three weeks without cutting quality.',
+          points: ['Clear timeline from the start', 'Regular updates during development', 'On-time launch'],
+        },
+        {
+          icon: 'wrench' as IconName,
+          title: 'Maintenance and support',
+          text: 'After launch you can relax. I make changes within 24 hours and announce holidays in advance.',
+          points: ['Changes within 24 hours', 'Technical maintenance and updates', 'Hosting and SSL certificate included'],
+        },
+        {
+          icon: 'gauge' as IconName,
+          title: 'Technology that holds up',
+          text: 'Built with React and Next.js. Fast loading, clean structure, no plugin dependencies.',
+          points: ['Short loading times', 'Prepared for search engines', 'Safe without plugin sprawl'],
+        },
+        {
+          icon: 'phone-mobile' as IconName,
+          title: 'Mobile first',
+          text: 'Most visitors arrive on a phone. So the layout starts there and grows upwards from it.',
+          points: ['Usable with one hand', 'Images at the right size', 'Tested on real devices'],
+        },
+        {
+          icon: 'shield' as IconName,
+          title: 'Legal basics covered',
+          text: 'Imprint, privacy policy and forms with spam protection are part of it. We agree on the content together.',
+          points: ['Imprint and privacy policy included', 'Forms with spam protection', 'SSL encryption'],
+        },
+      ],
+    },
   }[language]
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white py-32 px-6">
-      {/* Header */}
-      <div className="max-w-6xl mx-auto mb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t.title}</h1>
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto">{t.subtitle}</p>
-      </div>
-
-      {/* Free Design Highlight - First */}
-      <section className="max-w-7xl mx-auto mb-32">
-        <div className="relative bg-gradient-to-br from-zinc-900 via-black to-zinc-900 border-2 border-orange-900/30 rounded-3xl p-10 md:p-12 overflow-hidden">
-          {/* Glow effect */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
-
-          {/* Badge */}
-          <div className="relative mb-6">
-            <span className="inline-block px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full text-sm text-orange-400 font-medium">
-              {t.freeDesignBadge}
-            </span>
-          </div>
-
-          {/* Content */}
-          <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              {t.freeDesignTitle}
-            </h2>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-8 max-w-3xl">
-              {t.freeDesignText}
-            </p>
-
-            {/* Features in 2 columns on desktop */}
-            <ul className="grid md:grid-cols-2 gap-3 mb-8">
-              {[1, 2, 3, 4].map((num) => (
-                <li key={num} className="flex items-start gap-3 text-zinc-300">
-                  <span className="text-orange-500 mt-0.5">✓</span>
-                  <span>{t[`freeDesignPoint${num}` as keyof typeof t]}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <a
-              href="/start-project"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-zinc-200 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] group"
-            >
-              Jetzt Fragebogen ausfüllen
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-          </div>
+    <>
+      <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead}>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/start-project" size="lg" arrow>
+            {t.ctaPrimary}
+          </ButtonLink>
+          <ButtonLink href="/process" variant="secondary" size="lg">
+            {t.ctaSecondary}
+          </ButtonLink>
         </div>
-      </section>
+      </PageHeader>
 
-      {/* Pricing Packages */}
-      <section className="max-w-7xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">{t.pricingTitle}</h2>
+      {/* Pakete zuerst: Preise sind die haeufigste Frage. */}
+      <Section id="pakete">
+        <SectionHeader
+          eyebrow={t.pricingEyebrow}
+          title={t.pricingTitle}
+          lead={t.pricingLead}
+          align="center"
+        />
+        <div className="mt-14">
+          <PricingCards language={language} />
+        </div>
+      </Section>
 
-        <div className="grid md:grid-cols-3 gap-8 relative z-10">
-          {/* Basic Package */}
-          <div className="group relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">{t.basicTitle}</h3>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">{t.basicPrice}</span>
-                {t.basicOriginal && <span className="text-zinc-500 line-through text-sm">{t.basicOriginal}</span>}
-              </div>
-              <span className="text-xs text-zinc-600">{t.basicValidity}</span>
+      {/* Der Entwurf als eigener Block */}
+      <section className="relative overflow-hidden border-y border-line-subtle bg-surface-raised/40 py-20 md:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-brand/15 blur-[110px]"
+        />
+        <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+            <div>
+              <p className="mb-4 flex items-center gap-2.5 text-eyebrow font-semibold uppercase text-brand">
+                <span aria-hidden className="h-px w-6 bg-brand/60" />
+                {t.draftEyebrow}
+              </p>
+              <h2 className="text-display-md font-semibold">{t.draftTitle}</h2>
+              <p className="mt-5 max-w-prose text-lead text-ink-secondary">{t.draftText}</p>
+              <ButtonLink href="/start-project" size="lg" arrow className="mt-8">
+                {t.draftCta}
+              </ButtonLink>
             </div>
 
-            <p className="text-zinc-400 mb-6 leading-relaxed">{t.basicTagline}</p>
-
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <li key={num} className="flex items-start gap-3 text-zinc-400 text-sm">
-                  <span className="text-green-500 mt-0.5">✓</span>
-                  <span>{t[`basicFeature${num}` as keyof typeof t]}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Advanced Package */}
-          <div className="group relative bg-gradient-to-br from-zinc-900 to-black border-2 border-orange-900/50 rounded-3xl p-8 hover:border-orange-800/70 transition-all duration-300">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-600 text-white text-xs font-medium rounded-full">
-              {t.popularBadge}
-            </div>
-
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">{t.advancedTitle}</h3>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">{t.advancedPrice}</span>
-                <span className="text-zinc-500 line-through text-sm">{t.advancedOriginal}</span>
-              </div>
-            </div>
-
-            <p className="text-zinc-400 mb-6 leading-relaxed">{t.advancedTagline}</p>
-
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <li key={num} className="flex items-start gap-3 text-zinc-400 text-sm">
-                  <span className="text-orange-500 mt-0.5">✓</span>
-                  <span>{t[`advancedFeature${num}` as keyof typeof t]}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Hosting & Maintenance Package */}
-          <div className="group relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">{t.hostingTitle}</h3>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">{t.hostingPrice}</span>
-              </div>
-              <span className="text-xs text-zinc-600 block mb-1">{t.hostingNote}</span>
-              <span className="text-xs text-green-500">{t.hostingSubtitle}</span>
-            </div>
-
-            <p className="text-zinc-400 mb-4 leading-relaxed font-medium">{t.hostingTagline}</p>
-
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <li key={num} className="flex items-start gap-3 text-zinc-400 text-sm">
-                  <span className="text-blue-500 mt-0.5">✓</span>
-                  <span>{t[`hostingFeature${num}` as keyof typeof t]}</span>
+            <ul className="space-y-3 rounded-lg border border-line-subtle bg-surface-raised p-7">
+              {t.draftPoints.map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                  <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
+                  {point}
                 </li>
               ))}
             </ul>
@@ -252,50 +198,29 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Free Design Highlight */}
-      {/* Entfällt! Entfernt, da doppelt. */}
-
-      {/* Image Break Section - Smooth Transition with Overlap */}
-      <section className="max-w-7xl mx-auto -mt-16 mb-16 relative z-0">
-        <div className="relative rounded-3xl overflow-hidden">
-          {/* Background Image - Maintains original aspect ratio */}
-          <div className="relative w-full overflow-hidden">
-            <img
-              src="/service.webp"
-              alt="Services"
-              className="w-full h-auto object-contain"
-            />
-            {/* Gradient overlay for smooth transition */}
-            <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/20 to-zinc-950/60 pointer-events-none"></div>
-            
-            {/* Subtle grid pattern overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Features */}
-      <section className="max-w-7xl mx-auto -mt-16 relative z-10">
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((num) => (
-            <div key={num} className="group relative bg-gradient-to-b from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all duration-300">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl mb-6 group-hover:bg-white/10 transition-all duration-300">
-                {num === 1 ? '🎨' : num === 2 ? '⚡' : '🛠️'}
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">{t[`service${num}Title` as keyof typeof t]}</h3>
-              <p className="text-zinc-400 mb-6 leading-relaxed">{t[`service${num}Benefit` as keyof typeof t]}</p>
-              <ul className="space-y-3">
-                {[1, 2, 3].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-zinc-400">
-                    <span className="text-zinc-600 mt-1">→</span>
-                    <span>{t[`service${num}Point${point}` as keyof typeof t]}</span>
+      {/* Alle Leistungsbausteine */}
+      <Section>
+        <SectionHeader eyebrow={t.featuresEyebrow} title={t.featuresTitle} />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {t.features.map((feature) => (
+            <Card key={feature.title} interactive>
+              <CardIcon>
+                <Icon name={feature.icon} size={22} />
+              </CardIcon>
+              <h3 className="text-lg font-semibold tracking-tight">{feature.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{feature.text}</p>
+              <ul className="mt-6 space-y-2.5 border-t border-line-subtle pt-6">
+                {feature.points.map((point) => (
+                  <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                    <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
+                    {point}
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
-      </section>
-    </div>
+      </Section>
+    </>
   )
 }

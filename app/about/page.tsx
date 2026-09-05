@@ -1,165 +1,212 @@
 'use client'
+
+import Image from 'next/image'
 import { useLanguage } from '@/components/LanguageProvider'
+import PageHeader from '@/components/ui/PageHeader'
+import { Section, SectionHeader } from '@/components/ui/Section'
+import { ButtonLink } from '@/components/ui/Button'
+import Icon, { type IconName } from '@/components/ui/Icon'
 
 export default function AboutPage() {
   const { language } = useLanguage()
+
   const t = {
     de: {
-      heroTitle: 'Über mich',
-      whyCodeTitle: 'Warum ich code',
-      whyCodeText1: 'Seit November 2024 beschäftige ich mich täglich mindestens 6 Stunden mit Webentwicklung.',
-      whyCodeText2: 'Coden ist für mich das beste und effizienteste Werkzeug für Ideen – es gibt mir die Power, Projekte eigenständig umzusetzen.',
-      whyCodeText3: 'Ich liebe es, wenn aus einem Gedanken in kurzer Zeit etwas Reales, Klickbares entsteht und die Menschen es auch checken und nutzen.',
-      aboutMeTitle: '⚡ Über mich',
-      aboutMeText1: 'Ich bin ein leidenschaftlicher Macher, der Projekte liebt – von der Almhütte bis zur Web-App.',
-      aboutMeText2: 'Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte ab- und wiederaufgebaut – das Projekt kannst du dir auf Instagram unter @cabin.kingdom ansehen.',
-      aboutMeText3: 'Diese Liebe zum Handwerk und zur Struktur fließt auch in meine Websites:',
-      aboutMeText4: 'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist – deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich einzigartig macht.',
-      whyWorkTitle: 'Warum mit mir arbeiten? ',
-      points: [
-        { title: 'Ich kenne die Bühne', text: 'Als Artist weiß ich, was zählt: ein Auftritt, der hängen bleibt. Deine Website ist deine digitale Bühne – ich sorge dafür, dass sie wirkt.' },
-        { title: 'Schnelle Kommunikation', text: 'WhatsApp, Mail, Call – wie du willst. Ich antworte schnell und unkompliziert. Keine Warteschleifen, kein Agentur-Gedöns.' },
-        { title: 'Design first', text: 'Bei mir steht Design an erster Stelle. Deine Seite soll nicht nur funktionieren, sondern richtig gut aussehen – auf allen Geräten.' },
+      eyebrow: 'Über mich',
+      title: 'Artist, Handwerker, Entwickler',
+      lead: 'Ich baue Websites, weil ich weiß, wie es sich anfühlt, sich vor Publikum zu behaupten. Deine Seite ist deine Bühne.',
+      cta: 'Projekt starten',
+      contact: 'Direkt schreiben',
+
+      codeEyebrow: 'Warum ich code',
+      codeTitle: 'Aus einem Gedanken wird etwas Klickbares',
+      codeText: [
+        'Seit November 2024 beschäftige ich mich täglich mindestens sechs Stunden mit Webentwicklung.',
+        'Coden ist für mich das effizienteste Werkzeug für Ideen. Es gibt mir die Möglichkeit, Projekte eigenständig umzusetzen, ohne auf jemanden zu warten.',
+        'Ich liebe es, wenn aus einem Gedanken in kurzer Zeit etwas Reales entsteht, das Menschen verstehen und benutzen.',
       ],
+      codeAlt: 'Chris im dunklen Mantel vor einer Glasfassade, seitlich blickend',
+
+      whyEyebrow: 'Zusammenarbeit',
+      whyTitle: 'Warum mit mir arbeiten',
+      points: [
+        {
+          icon: 'star' as IconName,
+          title: 'Ich kenne die Bühne',
+          text: 'Als Artist weiß ich, was zählt: ein Auftritt, der hängen bleibt. Deine Website ist deine digitale Bühne, ich sorge dafür, dass sie wirkt.',
+        },
+        {
+          icon: 'chat' as IconName,
+          title: 'Kurze Wege',
+          text: 'WhatsApp, Mail oder Anruf, ganz wie du magst. Ich antworte schnell und unkompliziert. Keine Warteschleifen, keine Agentur dazwischen.',
+        },
+        {
+          icon: 'palette' as IconName,
+          title: 'Design zuerst',
+          text: 'Deine Seite soll nicht nur funktionieren, sondern gut aussehen. Auf dem Telefon genauso wie auf dem großen Bildschirm.',
+        },
+      ],
+
+      makerEyebrow: 'Neben dem Rechner',
+      makerTitle: 'Von der Almhütte zur Web-App',
+      makerText: [
+        'Ich bin ein Macher, der Projekte liebt. Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte abgebaut und wieder aufgebaut. Das Projekt ist auf Instagram unter @cabin.kingdom zu sehen.',
+        'Diese Liebe zum Handwerk steckt auch in meinen Websites. Sauber gebaut, ohne unnötige Teile, und so, dass es hält.',
+        'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist. Deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich ausmacht.',
+      ],
+      makerAlt: 'Chris am Wasser im Gegenlicht, hält seinen Husky auf den Schultern',
     },
     en: {
-      heroTitle: 'About me',
-      whyCodeTitle: 'Why I code',
-      whyCodeText1: "I've been dedicating at least 6 hours daily to web development since November 2024.",
-      whyCodeText2: 'Coding is the best and most efficient tool for ideas – it gives me the power to implement projects independently.',
-      whyCodeText3: 'I love it when a thought becomes something real and clickable in a short time, and people actually check it out and use it.',
-      aboutMeTitle: '⚡ About me',
-      aboutMeText1: "I'm a passionate maker who loves projects – from alpine cabins to web apps.",
-      aboutMeText2: 'One of my favorite experiences: I dismantled and rebuilt an old alpine cabin – you can check out the project on Instagram at @cabin.kingdom.',
-      aboutMeText3: 'This love for craftsmanship and structure also flows into my websites:',
-      aboutMeText4: "As an artist, I know how important a strong first impression is – that's why I build sites that load fast, look good, and show what makes you unique.",
-      whyWorkTitle: 'Why work with me?',
-      points: [
-        { title: 'I know the stage', text: 'As an artist, I know what counts: a performance that sticks. Your website is your digital stage – I make sure it delivers.' },
-        { title: 'Fast communication', text: 'WhatsApp, email, call – however you prefer. I respond quickly and straightforwardly. No queues, no agency nonsense.' },
-        { title: 'Design first', text: 'Design comes first for me. Your site should not only work but look really good – on all devices.' },
+      eyebrow: 'About me',
+      title: 'Artist, maker, developer',
+      lead: 'I build websites because I know how it feels to hold an audience. Your site is your stage.',
+      cta: 'Start a project',
+      contact: 'Write to me',
+
+      codeEyebrow: 'Why I code',
+      codeTitle: 'A thought turns into something you can click',
+      codeText: [
+        'Since November 2024 I have spent at least six hours a day on web development.',
+        'Coding is the most efficient tool I have for ideas. It lets me carry out projects on my own without waiting for anyone.',
+        'I love it when a thought becomes something real in a short time, something people understand and use.',
       ],
-    }
+      codeAlt: 'Chris in a dark coat in front of a glass facade, looking to the side',
+
+      whyEyebrow: 'Working together',
+      whyTitle: 'Why work with me',
+      points: [
+        {
+          icon: 'star' as IconName,
+          title: 'I know the stage',
+          text: 'As an artist I know what counts: a performance that sticks. Your website is your digital stage and I make sure it lands.',
+        },
+        {
+          icon: 'chat' as IconName,
+          title: 'Short paths',
+          text: 'WhatsApp, email or a call, whatever suits you. I answer quickly and plainly. No queues, no agency in between.',
+        },
+        {
+          icon: 'palette' as IconName,
+          title: 'Design first',
+          text: 'Your site should not only work but look good. On the phone just as much as on a large screen.',
+        },
+      ],
+
+      makerEyebrow: 'Away from the screen',
+      makerTitle: 'From an alpine cabin to a web app',
+      makerText: [
+        'I am a maker who loves projects. One of my favourites: I took an old alpine cabin apart and rebuilt it. You can see the project on Instagram at @cabin.kingdom.',
+        'That love for craft goes into my websites too. Built cleanly, without unnecessary parts, and made to last.',
+        'As an artist I know how much a strong first impression matters. So I build sites that load fast, look good and show what sets you apart.',
+      ],
+      makerAlt: 'Chris by the water in backlight, holding his husky over his shoulders',
+    },
   }[language]
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section with Background Image */}
-      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-start justify-center px-6 pt-16 md:pt-20 pb-20 md:pb-24 mb-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/About Hero.webp"
-            alt="About Hero"
-            className="w-full h-full object-cover object-center opacity-70"
-          />
+    <>
+      <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead}>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/start-project" size="lg" arrow>
+            {t.cta}
+          </ButtonLink>
+          <ButtonLink href="/contact" variant="secondary" size="lg">
+            {t.contact}
+          </ButtonLink>
         </div>
+      </PageHeader>
 
-        {/* Gradient overlay - lighter for better image visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+      {/* Warum ich code */}
+      <Section>
+        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+          <div className="order-2 overflow-hidden rounded-lg border border-line-subtle md:order-1">
+            <Image
+              src="/professional.webp"
+              alt={t.codeAlt}
+              width={864}
+              height={1080}
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-      </section>
-
-      {/* Why I Code Section - Side by Side with Professional Image */}
-      <section className="py-20 px-6 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Professional Image - Left */}
-            <div className="order-2 md:order-1">
-              <div className="rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
-                <img
-                  src="/professional.webp"
-                  alt="Professional"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Text - Right */}
-            <div className="order-1 md:order-2">
-              <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.whyCodeTitle}</h2>
-                <div className="space-y-5 text-base text-zinc-400 leading-relaxed">
-                  <p>{t.whyCodeText1}</p>
-                  <p>{t.whyCodeText2}</p>
-                  <p className="font-medium text-zinc-300 pt-2">{t.whyCodeText3}</p>
-                </div>
-              </div>
+          <div className="order-1 md:order-2">
+            <SectionHeader eyebrow={t.codeEyebrow} title={t.codeTitle} />
+            <div className="mt-6 space-y-4 text-ink-secondary">
+              {t.codeText.map((paragraph) => (
+                <p key={paragraph} className="leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Why Work With Me Section */}
-      <section className="py-20 px-6 bg-black">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-16 text-center">{t.whyWorkTitle}</h2>
-
-          <div className="space-y-12">
-            {t.points.map((point, idx) => (
-              <div key={idx} className="group">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-3">
-                  <span className="text-zinc-600 group-hover:text-zinc-500 transition-colors">0{idx + 1}</span>
-                  {point.title}
-                </h3>
-                <p className="text-lg text-zinc-400 leading-relaxed pl-12">{point.text}</p>
-                {idx < t.points.length - 1 && <div className="h-px bg-zinc-900 mt-12"></div>}
+      {/* Warum mit mir arbeiten */}
+      <Section tone="raised">
+        <SectionHeader eyebrow={t.whyEyebrow} title={t.whyTitle} align="center" />
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {t.points.map((point, idx) => (
+            <div
+              key={point.title}
+              className="edge-highlight rounded-lg border border-line-subtle bg-surface-raised p-7"
+            >
+              <div className="mb-6 flex items-center justify-between">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md border border-line-strong bg-white/[0.04] text-brand">
+                  <Icon name={point.icon} size={22} />
+                </span>
+                <span className="font-display text-4xl italic text-line-strong">
+                  0{idx + 1}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Me Section - Side by Side with Personal Image */}
-      <section className="py-20 px-6 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Personal Image - Left */}
-            <div>
-              <div className="rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
-                <img
-                  src="/personal.webp"
-                  alt="Personal"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+              <h3 className="text-lg font-semibold tracking-tight">{point.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{point.text}</p>
             </div>
+          ))}
+        </div>
+      </Section>
 
-            {/* Text - Right */}
-            <div>
-              <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t.aboutMeTitle}</h2>
-                <div className="space-y-5 text-base text-zinc-400 leading-relaxed">
-                  <p>{t.aboutMeText1}</p>
-                  <p>
-                    {t.aboutMeText2.split('@cabin.kingdom').map((part, idx) => (
-                      idx === 0 ? (
-                        <span key={idx}>{part}</span>
-                      ) : (
-                        <span key={idx}>
-                          <a
-                            href="https://instagram.com/cabin.kingdom"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-zinc-300 hover:text-white transition-colors underline decoration-zinc-600 hover:decoration-white"
-                          >
-                            @cabin.kingdom
-                          </a>
-                          {part}
-                        </span>
-                      )
-                    ))}
-                  </p>
-                  <p>{t.aboutMeText3}</p>
-                  <p className="font-medium text-zinc-300 pt-2">{t.aboutMeText4}</p>
-                </div>
-              </div>
+      {/* Der private Teil */}
+      <Section>
+        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+          <div className="overflow-hidden rounded-lg border border-line-subtle">
+            <Image
+              src="/personal.webp"
+              alt={t.makerAlt}
+              width={864}
+              height={1080}
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div>
+            <SectionHeader eyebrow={t.makerEyebrow} title={t.makerTitle} />
+            <div className="mt-6 space-y-4 text-ink-secondary">
+              {t.makerText.map((paragraph) => (
+                <p key={paragraph} className="leading-relaxed">
+                  {paragraph.split('@cabin.kingdom').map((part, idx, parts) => (
+                    <span key={idx}>
+                      {part}
+                      {idx < parts.length - 1 && (
+                        <a
+                          href="https://instagram.com/cabin.kingdom"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand underline decoration-brand/40 underline-offset-4 transition-colors hover:decoration-brand"
+                        >
+                          @cabin.kingdom
+                        </a>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              ))}
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </Section>
+    </>
   )
 }

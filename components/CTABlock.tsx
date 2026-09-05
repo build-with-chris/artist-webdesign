@@ -1,66 +1,68 @@
 'use client'
 
-import Link from 'next/link'
+import { ButtonLink } from './ui/Button'
+import Icon from './ui/Icon'
 
 interface CTABlockProps {
   language: 'de' | 'en'
-  variant?: 'default' | 'footer'
 }
 
-export default function CTABlock({ language, variant = 'default' }: CTABlockProps) {
-  const translations = {
+/**
+ * Schlussaufruf ueber dem Footer. Steht auf jeder Seite und ist damit der
+ * verlaessliche Weg in den Fragebogen.
+ */
+export default function CTABlock({ language }: CTABlockProps) {
+  const t = {
     de: {
-      headline: 'Lass uns dein Projekt starten',
-      text: 'Erzähl mir in ein paar Minuten von deiner Idee – ich melde mich schnell mit einem Vorschlag.',
+      eyebrow: 'Nächster Schritt',
+      headline: 'Sieh deine Website, bevor du dich entscheidest',
+      text: 'Fülle den Fragebogen aus. Du wählst Stil, Farben und Schrift, ich baue daraus einen ersten Entwurf für 40 Euro. Der Betrag wird auf dein Paket angerechnet.',
       button: 'Fragebogen ausfüllen',
+      secondary: 'Lieber erst schreiben',
+      note: 'Dauert etwa 5 Minuten',
     },
     en: {
-      headline: "Let's start your project",
-      text: "Tell me about your idea in a few minutes – I will get back to you quickly with a proposal.",
+      eyebrow: 'Next step',
+      headline: 'See your website before you decide',
+      text: 'Fill out the questionnaire. You pick style, colours and type, I turn it into a first draft for 40 euros. The amount is credited towards your package.',
       button: 'Fill out questionnaire',
-    }
-  }
-
-  const t = translations[language]
-
-  if (variant === 'footer') {
-    return (
-      <div className="bg-dark-surface border-t border-dark-text/10 py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-dark-text mb-4">
-            {t.headline}
-          </h3>
-          <p className="text-lg text-dark-text/60 mb-8 max-w-2xl mx-auto">
-            {t.text}
-          </p>
-          <Link
-            href="/start-project"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300"
-          >
-            {t.button}
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
-        </div>
-      </div>
-    )
-  }
+      secondary: 'Rather write first',
+      note: 'Takes about 5 minutes',
+    },
+  }[language]
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto bg-gradient-to-br from-dark-surface to-dark-bg rounded-3xl p-12 border border-dark-accent/20 shadow-dark-xl text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-dark-text mb-6">
-          {t.headline}
-        </h2>
-        <p className="text-xl text-dark-text/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-          {t.text}
-        </p>
-        <Link
-          href="/start-project"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-dark-accent text-white rounded-full font-medium hover:bg-dark-accent-hover hover:shadow-dark-lg transition-all duration-300 group"
-        >
-          {t.button}
-          <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+    <section className="border-t border-line-subtle">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 md:py-24">
+        <div className="edge-highlight relative overflow-hidden rounded-xl border border-line-subtle bg-surface-raised px-6 py-14 text-center sm:px-12">
+          {/* Warmer Schein, der den Blick zur Mitte zieht */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand/20 blur-[100px]"
+          />
+
+          <div className="relative mx-auto max-w-2xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-eyebrow font-semibold uppercase text-brand-soft">
+              {t.eyebrow}
+            </p>
+            <h2 className="text-display-md font-semibold">{t.headline}</h2>
+            <p className="mx-auto mt-5 max-w-xl text-lead text-ink-secondary">{t.text}</p>
+
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <ButtonLink href="/start-project" size="lg" arrow>
+                {t.button}
+              </ButtonLink>
+              <ButtonLink href="/contact" variant="secondary" size="lg">
+                {t.secondary}
+              </ButtonLink>
+            </div>
+
+            <p className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-muted">
+              <Icon name="check" size={16} className="text-brand" />
+              {t.note}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )

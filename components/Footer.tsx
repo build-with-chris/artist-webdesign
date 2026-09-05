@@ -1,182 +1,147 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Icon from './ui/Icon'
 import CTABlock from './CTABlock'
+import { site } from '@/lib/site'
 
 interface FooterProps {
   language: 'de' | 'en'
 }
 
 export default function Footer({ language }: FooterProps) {
-  const translations = {
+  const pathname = usePathname()
+  // Auf dem Fragebogen und der Kontaktseite steht der Aufruf schon im
+  // Seiteninhalt. Ein zweiter direkt darunter wirkt draengend.
+  const showCta = !['/start-project', '/contact'].includes(pathname)
+
+  const t = {
     de: {
-      home: 'Home ',
+      tagline:
+        'Individuell entwickelte Websites für Artists und kleine Unternehmen. Schlank, schnell, mobil.',
+      sitemap: 'Seiten',
+      home: 'Start',
       services: 'Leistungen',
+      portfolio: 'Projekte',
       process: 'Ablauf',
       about: 'Über mich',
-      contact: 'Kontakt',
+      getInTouch: 'Kontakt',
+      contact: 'Nachricht schreiben',
+      startProject: 'Projekt starten',
       legal: 'Rechtliches',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
-      copyright: 'Artist Webdesign – schlank, schnell, mobil.',
+      builtWith: 'Gebaut mit Next.js und React',
     },
     en: {
+      tagline:
+        'Custom-built websites for artists and small businesses. Lean, fast, mobile.',
+      sitemap: 'Pages',
       home: 'Home',
       services: 'Services',
+      portfolio: 'Work',
       process: 'Process',
       about: 'About',
-      contact: 'Contact',
+      getInTouch: 'Contact',
+      contact: 'Send a message',
+      startProject: 'Start a project',
       legal: 'Legal',
       imprint: 'Imprint',
       privacy: 'Privacy',
-      copyright: 'Artist Web Design – lean, fast, mobile.',
-    }
-  }
-
-  const t = translations[language]
-
-  const navLinks = [
-    { href: '/', label: t.home },
-    { href: '/services', label: t.services },
-    { href: '/process', label: t.process },
-  ]
-
-  const contactLinks = [
-    { href: '/about', label: t.about },
-    { href: '/contact', label: t.contact },
-  ]
-
-  const translationsWithProject = {
-    de: {
-      ...translations.de,
-      startProject: 'Projekt starten',
-      email: 'E-Mail',
+      builtWith: 'Built with Next.js and React',
     },
-    en: {
-      ...translations.en,
-      startProject: 'Start Project',
-      email: 'Email',
-    }
-  }
+  }[language]
 
-  const t2 = translationsWithProject[language]
+  const columns = [
+    {
+      heading: t.sitemap,
+      links: [
+        { href: '/', label: t.home },
+        { href: '/services', label: t.services },
+        { href: '/portfolio', label: t.portfolio },
+        { href: '/process', label: t.process },
+        { href: '/about', label: t.about },
+      ],
+    },
+    {
+      heading: t.getInTouch,
+      links: [
+        { href: '/start-project', label: t.startProject },
+        { href: '/contact', label: t.contact },
+      ],
+    },
+    {
+      heading: t.legal,
+      links: [
+        { href: '/imprint', label: t.imprint },
+        { href: '/privacy', label: t.privacy },
+      ],
+    },
+  ]
 
   return (
-    <footer className="bg-dark-bg border-t border-dark-text/10">
-      {/* CTA Section */}
-      <CTABlock language={language} variant="footer" />
+    <footer className="border-t border-line-subtle bg-surface">
+      {showCta && <CTABlock language={language} />}
 
-      {/* Footer Links */}
-      <div className="py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-
-            {/* Left Column */}
-            <div className="space-y-8">
-              {/* Brand */}
-              <div>
-                <h3 className="text-xl font-bold text-dark-text mb-4">
-                  Artist Webdesign
-                </h3>
-                <p className="text-dark-text/60 leading-relaxed mb-4">
-                  {t.copyright}
-                </p>
-                {/* Email */}
-                <div className="mt-4">
-                  <h4 className="text-sm font-semibold text-dark-text/80 uppercase tracking-wider mb-2">
-                    {t2.email}
-                  </h4>
-                  <a
-                    href="mailto:chris.hermann9397@gmail.com"
-                    className="text-dark-text/60 hover:text-dark-accent transition-colors"
-                  >
-                    chris.hermann9397@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Navigation */}
-              <div>
-                <h4 className="text-sm font-semibold text-dark-text/80 uppercase tracking-wider mb-4">
-                  Navigation
-                </h4>
-                <ul className="space-y-2">
-                  {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-dark-text/60 hover:text-dark-accent transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Contact/About */}
-              <div>
-                <h4 className="text-sm font-semibold text-dark-text/80 uppercase tracking-wider mb-4">
-                  {t.contact}
-                </h4>
-                <ul className="space-y-2">
-                  {contactLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-dark-text/60 hover:text-dark-accent transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                  <li>
-                    <Link
-                      href="/start-project"
-                      className="text-dark-text/60 hover:text-dark-accent transition-colors font-medium"
-                    >
-                      {t2.startProject}
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <h4 className="text-sm font-semibold text-dark-text/80 uppercase tracking-wider mb-4">
-                  {t.legal}
-                </h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/imprint"
-                      className="text-dark-text/60 hover:text-dark-accent transition-colors"
-                    >
-                      {t.imprint}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/privacy"
-                      className="text-dark-text/60 hover:text-dark-accent transition-colors"
-                    >
-                      {t.privacy}
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="mt-12 pt-8 border-t border-dark-text/10 text-center">
-            <p className="text-dark-text/40 text-sm">
-              © {new Date().getFullYear()} {t.copyright}
+      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_2fr]">
+          {/* Marke und direkte Wege */}
+          <div>
+            <p className="flex items-baseline gap-1.5 text-base font-semibold tracking-tight">
+              Artist <span className="font-display text-xl italic text-brand">Webdesign</span>
             </p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-secondary">
+              {t.tagline}
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 text-sm">
+              <a
+                href={`mailto:${site.email}`}
+                className="group inline-flex w-fit items-center gap-2.5 text-ink-secondary transition-colors hover:text-ink"
+              >
+                <Icon name="mail" size={18} className="text-brand" />
+                {site.email}
+              </a>
+              <a
+                href={`tel:${site.phone}`}
+                className="group inline-flex w-fit items-center gap-2.5 text-ink-secondary transition-colors hover:text-ink"
+              >
+                <Icon name="phone" size={18} className="text-brand" />
+                {site.phoneDisplay}
+              </a>
+            </div>
           </div>
+
+          {/* Linkspalten */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {columns.map((column) => (
+              <div key={column.heading}>
+                <h2 className="mb-4 text-eyebrow font-semibold uppercase text-ink-muted">
+                  {column.heading}
+                </h2>
+                <ul className="space-y-2.5">
+                  {column.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-ink-secondary transition-colors hover:text-brand"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-line-subtle pt-7 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {site.owner} · {site.name}
+          </p>
+          <p>{t.builtWith}</p>
         </div>
       </div>
     </footer>

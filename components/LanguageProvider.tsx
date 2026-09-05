@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 
 type Language = 'de' | 'en'
 
@@ -12,12 +12,31 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
+const STORAGE_KEY = 'aw-language'
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('de')
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'de' ? 'en' : 'de')
-  }
+  // Erst nach dem Mounten lesen, sonst weicht der Server-HTML vom Client ab.
+  useEffect(() => {
+    const stored = window.localStorage.getItem(STORAGE_KEY)
+    if (stored === 'de' || stored === 'en') {
+      setLanguage(stored)
+      return
+    }
+    if (navigator.language.toLowerCase().startsWith('en')) {
+      setLanguage('en')
+    }
+  }, [])
+
+  // Die Wahl merken und das lang-Attribut mitziehen, damit Screenreader
+  // und Suchmaschinen die richtige Sprache annehmen.
+  useEffect(() => {
+    window.localStorage.setItem(STORAGE_KEY, language)
+    document.documentElement.lang = language
+  }, [language])
+
+  const toggleLanguage = () => setLanguage((prev) => (prev === 'de' ? 'en' : 'de'))
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
