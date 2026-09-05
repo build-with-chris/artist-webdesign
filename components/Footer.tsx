@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 import Icon from './ui/Icon'
 import CTABlock from './CTABlock'
 import { site } from '@/lib/site'
@@ -88,9 +89,13 @@ export default function Footer({ language }: FooterProps) {
         <div className="grid gap-12 md:grid-cols-[1.4fr_2fr]">
           {/* Marke und direkte Wege */}
           <div>
-            <p className="flex items-baseline gap-1.5 text-base font-semibold">
-              Artist <span className="font-display text-xl italic text-brand">Webdesign</span>
-            </p>
+            <Image
+              src="/logos/artist-webdesign-full-light.webp"
+              alt="Artist Webdesign"
+              width={481}
+              height={480}
+              className="h-28 w-auto"
+            />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-secondary">
               {t.tagline}
             </p>

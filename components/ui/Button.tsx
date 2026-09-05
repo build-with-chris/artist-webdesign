@@ -14,9 +14,12 @@ const variants: Record<Variant, string> = {
   ghost: 'text-ink-secondary hover:text-brand',
 }
 
+// Tailwind kennt in der Abstandsskala kein 4.5. Die frueher hier
+// stehende Klasse px-4.5 wurde nie erzeugt, der Knopf in der Navigation
+// hatte deshalb gar kein seitliches Polster.
 const sizes: Record<Size, string> = {
-  md: 'px-4.5 py-2.5 text-sm',
-  lg: 'px-6 py-3 text-base',
+  md: 'px-5 py-2.5 text-sm',
+  lg: 'px-7 py-3.5 text-base',
 }
 
 interface CommonProps {

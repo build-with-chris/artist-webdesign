@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Icon from './ui/Icon'
+import Wordmark from './ui/Wordmark'
 import { ButtonLink } from './ui/Button'
 
 interface NavigationProps {
@@ -106,14 +107,8 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
         className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8 md:h-[4.5rem]"
       >
         {/* Wortmarke */}
-        <Link
-          href="/"
-          className="group flex items-baseline gap-1.5 text-[0.95rem] font-semibold text-ink"
-        >
-          Artist
-          <span className="font-display text-lg italic text-brand transition-colors group-hover:text-brand-strong">
-            Webdesign
-          </span>
+        <Link href="/" aria-label="Artist Webdesign, zur Startseite">
+          <Wordmark onDark={overDarkHero && !scrolled} />
         </Link>
 
         {/* Links, ab Tablet */}
@@ -181,9 +176,7 @@ export default function Navigation({ language, onLanguageToggle }: NavigationPro
             className="grain fixed inset-0 z-[100] flex flex-col bg-surface md:hidden"
           >
             <div className="flex h-16 items-center justify-between px-5">
-              <span className="text-[0.95rem] font-semibold">
-                Artist <span className="font-display text-lg italic text-brand">Webdesign</span>
-              </span>
+              <Wordmark />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label={t.close}

@@ -46,7 +46,7 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
   }[language]
 
   return (
-    <header className="zone-dark relative isolate flex min-h-[88svh] items-end overflow-hidden pb-16 pt-28 sm:pb-20 md:min-h-[86vh] md:items-center md:pb-24 md:pt-32">
+    <section className="zone-dark relative isolate flex min-h-[88svh] items-end overflow-hidden pb-16 pt-28 sm:pb-20 md:min-h-[86vh] md:items-center md:pb-24 md:pt-32">
       <picture className="absolute inset-0 -z-10">
         <source media="(min-width: 1024px)" srcSet="/hero-desktop.webp" />
         <source media="(min-width: 640px)" srcSet="/hero-tablet.webp" />
@@ -114,6 +114,6 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
           </ul>
         </div>
       </div>
-    </header>
+    </section>
   )
 }
