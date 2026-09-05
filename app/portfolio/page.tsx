@@ -4,6 +4,7 @@ import { useLanguage } from '@/components/LanguageProvider'
 import PageHeader from '@/components/ui/PageHeader'
 import { Section } from '@/components/ui/Section'
 import ProjectCard from '@/components/ProjectCard'
+import MobileShowcase from '@/components/MobileShowcase'
 import { ButtonLink } from '@/components/ui/Button'
 import { projects } from '@/lib/projects'
 
@@ -50,6 +51,8 @@ export default function PortfolioPage() {
           ))}
         </div>
       </Section>
+
+      <MobileShowcase language={language} />
     </>
   )
 }

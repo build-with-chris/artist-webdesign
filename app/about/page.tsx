@@ -147,19 +147,14 @@ export default function AboutPage() {
       <Section tone="sunk">
         <SectionHeader eyebrow={t.whyEyebrow} title={t.whyTitle} align="center" />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {t.points.map((point, idx) => (
+          {t.points.map((point) => (
             <div
               key={point.title}
               className="rounded-lg border border-line-subtle bg-surface-raised p-7"
             >
-              <div className="mb-6 flex items-center justify-between">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-md border border-line-strong bg-surface-sunk text-brand">
-                  <Icon name={point.icon} size={22} />
-                </span>
-                <span className="font-display text-4xl italic text-line-strong">
-                  0{idx + 1}
-                </span>
-              </div>
+              <span className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-md bg-brand-wash text-brand">
+                <Icon name={point.icon} size={22} />
+              </span>
               <h3 className="text-lg font-semibold tracking-tight">{point.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{point.text}</p>
             </div>

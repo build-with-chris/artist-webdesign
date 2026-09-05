@@ -15,6 +15,19 @@ export interface Project {
   image: string
   width: number
   height: number
+  /** Handy-Ansicht derselben Seite, 780 px breit. */
+  mobileImage: string
+  mobileWidth: number
+  mobileHeight: number
+  /**
+   * Freigestelltes Kundenlogo. Fehlt es, wird der Name gesetzt gezeigt.
+   * Fuer No Roots Truck liegt keines vor.
+   */
+  logo?: string
+  logoWidth?: number
+  logoHeight?: number
+  /** Darstellungshoehe in px, ausgeglichen nach Flaeche. */
+  logoDisplayHeight?: number
   /** Auf der Startseite zeigen. */
   featured?: boolean
 }
@@ -35,6 +48,13 @@ export const projects: Project[] = [
     image: '/Portfolio/pepe-arts.webp',
     width: 1600,
     height: 889,
+    mobileImage: '/Portfolio/mobil/pepe-arts.webp',
+    mobileWidth: 780,
+    mobileHeight: 1788,
+    logo: '/logos/pepearts.webp',
+    logoWidth: 452,
+    logoHeight: 240,
+    logoDisplayHeight: 28,
     featured: true,
   },
   {
@@ -52,6 +72,13 @@ export const projects: Project[] = [
     image: '/Portfolio/pepe-dome.webp',
     width: 1600,
     height: 889,
+    mobileImage: '/Portfolio/mobil/pepe-dome.webp',
+    mobileWidth: 780,
+    mobileHeight: 1774,
+    logo: '/logos/pepe-dome.webp',
+    logoWidth: 401,
+    logoHeight: 240,
+    logoDisplayHeight: 30,
     featured: true,
   },
   {
@@ -69,6 +96,9 @@ export const projects: Project[] = [
     image: '/Portfolio/no-roots-truck.webp',
     width: 1600,
     height: 889,
+    mobileImage: '/Portfolio/mobil/no-roots-truck.webp',
+    mobileWidth: 780,
+    mobileHeight: 1780,
     featured: true,
   },
   {
@@ -86,6 +116,13 @@ export const projects: Project[] = [
     image: '/Portfolio/julia-mayr.webp',
     width: 1600,
     height: 889,
+    mobileImage: '/Portfolio/mobil/julia-mayr.webp',
+    mobileWidth: 780,
+    mobileHeight: 1766,
+    logo: '/logos/julia-mayr.webp',
+    logoWidth: 824,
+    logoHeight: 240,
+    logoDisplayHeight: 25,
   },
   {
     name: 'Artist Karlo',
@@ -102,5 +139,12 @@ export const projects: Project[] = [
     image: '/Portfolio/karlo.webp',
     width: 1600,
     height: 889,
+    mobileImage: '/Portfolio/mobil/karlo.webp',
+    mobileWidth: 780,
+    mobileHeight: 1800,
+    logo: '/logos/karlo.webp',
+    logoWidth: 378,
+    logoHeight: 240,
+    logoDisplayHeight: 32,
   },
 ]
