@@ -117,19 +117,19 @@
 
   /* Sehr feines Korn. Nimmt grossen Flaechen das Glatte, ohne dass man
      die Struktur bewusst wahrnimmt. Ersetzt das technische Raster, das
-     vorher ueber allem lag. */
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
+     vorher ueber allem lag.
+
+     Bewusst als Hintergrundbild und nicht als darueberliegendes
+     Pseudoelement: Ein ::after ohne z-index legt sich ueber alle nicht
+     positionierten Geschwister, also auch ueber Knoepfe und Karten. Die
+     wirkten dadurch koernig und unsauber gerendert. Als Hintergrund
+     liegt das Korn dort, wo es hingehoert, naemlich hinter dem Inhalt. */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+    background-repeat: repeat;
   }
 
-  .zone-dark .grain::after {
-    mix-blend-mode: screen;
-    opacity: 0.28;
+  .zone-dark.grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.11'/%3E%3C/svg%3E");
   }
 }
