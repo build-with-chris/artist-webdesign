@@ -57,7 +57,7 @@ export default function ProcessPreview({ language }: { language: 'de' | 'en' }) 
               </span>
             </div>
             <h3 className="text-lg font-semibold tracking-tight">{step.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-secondary">{step.text}</p>
+            <p className="mt-2 leading-relaxed text-ink-secondary">{step.text}</p>
           </li>
         ))}
       </ol>

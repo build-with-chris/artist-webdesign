@@ -51,7 +51,7 @@ export default function PricingCards({ language, variant = 'full' }: PricingCard
             )}
           </p>
 
-          <p className="mt-4 text-sm leading-relaxed text-ink-secondary">
+          <p className="mt-4 leading-relaxed text-ink-secondary">
             {pkg.tagline[language]}
           </p>
 
@@ -59,7 +59,7 @@ export default function PricingCards({ language, variant = 'full' }: PricingCard
             {pkg.features.map((feature) => (
               <li
                 key={feature.de}
-                className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-secondary"
+                className="flex items-start gap-2.5 leading-relaxed text-ink-secondary"
               >
                 <Icon
                   name="check"

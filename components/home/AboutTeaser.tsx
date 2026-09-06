@@ -14,7 +14,7 @@ export default function AboutTeaser({ language }: { language: 'de' | 'en' }) {
       title: 'Ich bin Chris und stehe selbst auf der Bühne',
       text: [
         'Als Artist weiß ich, wie viel ein erster Eindruck entscheidet. Genau das übertrage ich auf Websites: Die Seite muss in den ersten Sekunden zeigen, worum es geht.',
-        'Seit November 2024 arbeite ich täglich mehrere Stunden an Webentwicklung. Ich baue jede Seite selbst, ohne Baukasten und ohne Zwischenstellen. Du schreibst mir, ich antworte, wir setzen es um.',
+        'Seit November 2024 arbeite ich täglich mehrere Stunden an Webentwicklung. Kein Baukasten, keine Zwischenstellen: Du schreibst mir, ich antworte, und ich stehe für das gerade, was am Ende online geht.',
       ],
       cta: 'Mehr über mich',
       alt: 'Chris im dunklen Mantel vor einer Glasfassade, seitlich blickend',
@@ -24,7 +24,7 @@ export default function AboutTeaser({ language }: { language: 'de' | 'en' }) {
       title: 'I am Chris and I perform on stage myself',
       text: [
         'As an artist I know how much a first impression decides. I carry that over to websites: the page has to show what it is about within seconds.',
-        'Since November 2024 I have been working on web development for several hours every day. I build every site myself, no page builder and no middlemen. You write to me, I answer, we get it done.',
+        'Since November 2024 I have been working on web development for several hours every day. No page builder, no middlemen: you write to me, I answer, and I stand behind what goes live.',
       ],
       cta: 'More about me',
       alt: 'Chris in a dark coat in front of a glass facade, looking to the side',

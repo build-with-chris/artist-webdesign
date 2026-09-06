@@ -54,7 +54,7 @@ export default function DraftOffer({ language }: { language: 'de' | 'en' }) {
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {t.points.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                <li key={point} className="flex items-start gap-2.5 text-ink-secondary">
                   <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
                   {point}
                 </li>
@@ -73,7 +73,7 @@ export default function DraftOffer({ language }: { language: 'de' | 'en' }) {
               {t.priceNote}
             </p>
             <div className="mt-8 border-t border-line-subtle pt-8">
-              <p className="text-sm leading-relaxed text-ink-secondary">
+              <p className="leading-relaxed text-ink-secondary">
                 {language === 'de'
                   ? 'Buchst du danach ein Paket, zahlst du die 40 Euro faktisch nicht.'
                   : 'Book a package afterwards and the 40 euros effectively cost you nothing.'}

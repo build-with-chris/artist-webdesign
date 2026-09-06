@@ -10,13 +10,13 @@ export default function WorkPreview({ language }: { language: 'de' | 'en' }) {
     de: {
       eyebrow: 'Projekte',
       title: 'Seiten, die schon live sind',
-      lead: 'Jedes Projekt ist von Hand gebaut. Klick dich rein, die Links führen auf die echten Websites.',
+      lead: 'Jedes Projekt ist mit dem Kunden zusammen entstanden. Klick dich rein, die Links führen auf die echten Websites.',
       link: 'Alle Projekte',
     },
     en: {
       eyebrow: 'Work',
       title: 'Sites that are already live',
-      lead: 'Every project is hand built. Click through, the links lead to the real websites.',
+      lead: 'Every project came out of working with the client. Click through, the links lead to the real websites.',
       link: 'All projects',
     },
   }[language]

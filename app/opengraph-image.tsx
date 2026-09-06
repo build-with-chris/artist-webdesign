@@ -47,7 +47,7 @@ export default function OpengraphImage() {
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontSize: 82, lineHeight: 1.05, letterSpacing: -3, fontWeight: 700 }}>
-            Deine Website,
+            Erst zuhören,
           </div>
           <div
             style={{
@@ -58,7 +58,7 @@ export default function OpengraphImage() {
               color: '#e8834a',
             }}
           >
-            handgebaut.
+            dann bauen.
           </div>
           <div style={{ marginTop: 28, fontSize: 30, color: '#c4b5a6', maxWidth: 900 }}>
             Individuell entwickelte Websites für Artists und kleine Unternehmen.

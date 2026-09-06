@@ -65,9 +65,13 @@ export default function Services({ language }: { language: 'de' | 'en' }) {
     <Section id="leistungen">
       <SectionHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
-      <div className="mt-14 grid gap-5 md:grid-cols-3">
+      <div className="mt-14 grid gap-5 md:grid-cols-3 md:grid-rows-[auto_auto_1fr_auto]">
         {t.items.map((item) => (
-          <Card key={item.title} interactive>
+          <Card
+            key={item.title}
+            interactive
+            className="md:row-span-4 md:grid md:grid-rows-subgrid"
+          >
             <CardIcon>
               <Icon name={item.icon} size={22} />
             </CardIcon>
@@ -75,7 +79,7 @@ export default function Services({ language }: { language: 'de' | 'en' }) {
             <p className="mt-3 text-ink-secondary">{item.text}</p>
             <ul className="mt-6 space-y-2.5 border-t border-line-subtle pt-6">
               {item.points.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                <li key={point} className="flex items-start gap-2.5 text-ink-secondary">
                   <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
                   {point}
                 </li>

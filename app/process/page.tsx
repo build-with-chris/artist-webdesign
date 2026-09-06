@@ -149,7 +149,7 @@ export default function ProcessPage() {
               <h2 className="font-display text-display-sm font-normal">{step.title}</h2>
               <p className="mt-3 leading-relaxed text-ink-secondary">{step.desc}</p>
 
-              <p className="mt-4 inline-flex items-start gap-2 rounded-md border border-line-subtle bg-surface-raised px-3.5 py-2 text-sm text-ink-secondary">
+              <p className="mt-4 inline-flex items-start gap-2 rounded-md border border-line-subtle bg-surface-raised px-3.5 py-2 text-ink-secondary">
                 <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
                 <span>
                   <span className="text-ink-muted">{t.youNeed}: </span>

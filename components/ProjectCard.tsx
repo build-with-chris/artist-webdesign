@@ -68,7 +68,7 @@ export default function ProjectCard({
         <h3 className="text-xl font-semibold tracking-tight transition-colors group-hover:text-brand">
           {project.name}
         </h3>
-        <p className="mt-2.5 flex-1 text-sm leading-relaxed text-ink-secondary">
+        <p className="mt-2.5 flex-1 leading-relaxed text-ink-secondary">
           {project.description[language]}
         </p>
 

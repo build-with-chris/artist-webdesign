@@ -155,7 +155,7 @@ export default function ContactPage() {
           <div className="space-y-5">
             <div className="rounded-lg border border-line-subtle bg-surface-raised p-7">
               <h2 className="font-display text-display-sm font-normal">{t.directTitle}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.directText}</p>
+              <p className="mt-3 leading-relaxed text-ink-secondary">{t.directText}</p>
 
               <div className="mt-7 space-y-5">
                 <div>
@@ -188,7 +188,7 @@ export default function ContactPage() {
 
             <div className="rounded-lg border border-brand/25 bg-brand-wash p-7">
               <h2 className="text-lg font-semibold tracking-tight">{t.projectTitle}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{t.projectText}</p>
+              <p className="mt-3 leading-relaxed text-ink-secondary">{t.projectText}</p>
               <ButtonLink href="/start-project" size="md" arrow className="mt-5">
                 {t.projectCta}
               </ButtonLink>

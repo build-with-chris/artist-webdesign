@@ -13,7 +13,7 @@ export default function AboutPage() {
   const t = {
     de: {
       eyebrow: 'Über mich',
-      title: 'Artist, Handwerker, Entwickler',
+      title: 'Artist, Zuhörer, Entwickler',
       lead: 'Ich baue Websites, weil ich weiß, wie es sich anfühlt, sich vor Publikum zu behaupten. Deine Seite ist deine Bühne.',
       cta: 'Projekt starten',
       contact: 'Direkt schreiben',
@@ -51,14 +51,14 @@ export default function AboutPage() {
       makerTitle: 'Von der Almhütte zur Web-App',
       makerText: [
         'Ich bin ein Macher, der Projekte liebt. Eine meiner liebsten Erfahrungen: Ich habe eine alte Almhütte abgebaut und wieder aufgebaut. Das Projekt ist auf Instagram unter @cabin.kingdom zu sehen.',
-        'Diese Liebe zum Handwerk steckt auch in meinen Websites. Sauber gebaut, ohne unnötige Teile, und so, dass es hält.',
+        'Dieselbe Sorgfalt steckt in meinen Websites. Sauber gebaut, ohne unnötige Teile, und so, dass es hält.',
         'Als Artist weiß ich, wie wichtig ein starker erster Eindruck ist. Deshalb baue ich Seiten, die schnell laden, gut aussehen und zeigen, was dich ausmacht.',
       ],
       makerAlt: 'Chris am Wasser im Gegenlicht, hält seinen Husky auf den Schultern',
     },
     en: {
       eyebrow: 'About me',
-      title: 'Artist, maker, developer',
+      title: 'Artist, listener, developer',
       lead: 'I build websites because I know how it feels to hold an audience. Your site is your stage.',
       cta: 'Start a project',
       contact: 'Write to me',
@@ -96,7 +96,7 @@ export default function AboutPage() {
       makerTitle: 'From an alpine cabin to a web app',
       makerText: [
         'I am a maker who loves projects. One of my favourites: I took an old alpine cabin apart and rebuilt it. You can see the project on Instagram at @cabin.kingdom.',
-        'That love for craft goes into my websites too. Built cleanly, without unnecessary parts, and made to last.',
+        'The same care goes into my websites. Built cleanly, without unnecessary parts, and made to last.',
         'As an artist I know how much a strong first impression matters. So I build sites that load fast, look good and show what sets you apart.',
       ],
       makerAlt: 'Chris by the water in backlight, holding his husky over his shoulders',
@@ -156,7 +156,7 @@ export default function AboutPage() {
                 <Icon name={point.icon} size={22} />
               </span>
               <h3 className="text-lg font-semibold tracking-tight">{point.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{point.text}</p>
+              <p className="mt-3 leading-relaxed text-ink-secondary">{point.text}</p>
             </div>
           ))}
         </div>

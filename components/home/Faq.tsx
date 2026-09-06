@@ -35,6 +35,10 @@ export default function Faq({ language }: { language: 'de' | 'en' }) {
           a: 'Kleine Änderungen zeige ich dir nach dem Launch. Wenn du magst, übernehme ich sie im Rahmen der Pflege: Du schickst mir das neue Bild oder den neuen Text, ich setze es innerhalb von 24 Stunden um. Ausgenommen sind Urlaubszeiten, die ich vorher ankündige.',
         },
         {
+          q: 'Schreibst du jede Zeile selbst?',
+          a: 'Ich nutze moderne Entwicklungswerkzeuge, deshalb bin ich schnell. Entscheidend ist etwas anderes: Ich verstehe, was ich baue, ich stehe dafür gerade und ich pflege es danach weiter. Die Zeit, die ich beim Tippen spare, steckt in der Abstimmung mit dir.',
+        },
+        {
           q: 'Nutzt du WordPress oder einen Baukasten?',
           a: 'Nein. Ich schreibe die Seiten mit React und Next.js. Das macht sie schneller, sicherer und unabhängig von Plugins, die irgendwann nicht mehr gepflegt werden. Wenn du Inhalte selbst pflegen willst, binde ich ein passendes CMS an.',
         },
@@ -65,6 +69,10 @@ export default function Faq({ language }: { language: 'de' | 'en' }) {
         {
           q: 'Can I change content myself later?',
           a: 'I show you the small edits after launch. If you prefer, I handle them as part of the maintenance: you send the new image or text and I put it live within 24 hours. Holidays are excluded and announced in advance.',
+        },
+        {
+          q: 'Do you write every line yourself?',
+          a: 'I use modern development tools, which is why I am fast. What matters is something else: I understand what I build, I stand behind it, and I keep it running afterwards. The time I save typing goes into working things out with you.',
         },
         {
           q: 'Do you use WordPress or a page builder?',
@@ -113,7 +121,7 @@ export default function Faq({ language }: { language: 'de' | 'en' }) {
                   <Icon name="plus" size={20} />
                 </span>
               </summary>
-              <p className="max-w-prose pb-6 pr-10 text-sm leading-relaxed text-ink-secondary">
+              <p className="max-w-prose pb-6 pr-10 leading-relaxed text-ink-secondary">
                 {item.a}
               </p>
             </details>

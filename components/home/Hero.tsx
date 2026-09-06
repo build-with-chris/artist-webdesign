@@ -17,10 +17,10 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
   const t = {
     de: {
       badge: 'Plätze für 2026 frei',
-      title1: 'Deine Website,',
-      titleAccent: 'handgebaut',
-      title2: 'statt Baukasten.',
-      lead: 'Ich entwickle Websites für Artists und kleine Unternehmen. Individuell im Design, schnell im Laden, sauber auf dem Handy. Persönlich betreut vom ersten Gespräch bis nach dem Launch.',
+      title1: 'Erst',
+      titleAccent: 'zuhören,',
+      title2: 'dann bauen.',
+      lead: 'Ich entwickle Websites für Artists und kleine Unternehmen. Bevor die erste Seite steht, klären wir, wen sie ansprechen soll und was sie leisten muss. Danach setze ich es um und bleibe auch nach dem Launch dein Ansprechpartner.',
       primary: 'Projekt starten',
       secondary: 'Projekte ansehen',
       proof: [
@@ -31,10 +31,10 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
     },
     en: {
       badge: 'Slots open for 2026',
-      title1: 'Your website,',
-      titleAccent: 'hand built',
-      title2: 'not assembled.',
-      lead: 'I build websites for artists and small businesses. Custom in design, quick to load, clean on mobile. Personally handled from the first call to well after launch.',
+      title1: 'Listen first,',
+      titleAccent: 'then build.',
+      title2: '',
+      lead: 'I build websites for artists and small businesses. Before the first page exists, we settle who it speaks to and what it has to do. Then I build it, and stay your contact well after launch.',
       primary: 'Start a project',
       secondary: 'See the work',
       proof: [
@@ -67,7 +67,7 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            'linear-gradient(96deg, rgb(var(--surface-base) / 0.96) 0%, rgb(var(--surface-base) / 0.93) 34%, rgb(var(--surface-base) / 0.66) 56%, rgb(var(--surface-base) / 0.22) 100%)',
+            'linear-gradient(96deg, rgb(var(--surface-base) / 0.96) 0%, rgb(var(--surface-base) / 0.93) 40%, rgb(var(--surface-base) / 0.68) 62%, rgb(var(--surface-base) / 0.24) 100%)',
         }}
       />
       {/* Zweiter Verlauf von oben und unten: daempft die Lampe und den
@@ -88,8 +88,12 @@ export default function Hero({ language }: { language: 'de' | 'en' }) {
           <h1 className="font-display text-display-xl font-normal">
             {t.title1}{' '}
             <span className="italic text-brand">{t.titleAccent}</span>
-            <br />
-            {t.title2}
+            {t.title2 && (
+              <>
+                <br />
+                {t.title2}
+              </>
+            )}
           </h1>
 
           <p className="mt-7 max-w-xl text-lead text-ink-secondary">{t.lead}</p>

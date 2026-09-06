@@ -15,7 +15,7 @@ export default function ServicesPage() {
     de: {
       eyebrow: 'Leistungen',
       title: 'Was du bekommst',
-      lead: 'Feste Pakete, klare Preise, echte Handarbeit. Was nicht drinsteht, kostet auch nichts.',
+      lead: 'Feste Pakete, klare Preise, nichts von der Stange. Was nicht drinsteht, kostet auch nichts.',
       ctaPrimary: 'Projekt starten',
       ctaSecondary: 'Ablauf ansehen',
 
@@ -78,7 +78,7 @@ export default function ServicesPage() {
     en: {
       eyebrow: 'Services',
       title: 'What you get',
-      lead: 'Fixed packages, clear prices, real craftsmanship. What is not listed does not cost anything either.',
+      lead: 'Fixed packages, clear prices, nothing off the shelf. What is not listed does not cost anything either.',
       ctaPrimary: 'Start a project',
       ctaSecondary: 'See the process',
 
@@ -184,7 +184,7 @@ export default function ServicesPage() {
 
             <ul className="space-y-3 rounded-lg border border-line-subtle bg-surface-raised p-7">
               {t.draftPoints.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                <li key={point} className="flex items-start gap-2.5 text-ink-secondary">
                   <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
                   {point}
                 </li>
@@ -197,17 +197,21 @@ export default function ServicesPage() {
       {/* Alle Leistungsbausteine */}
       <Section>
         <SectionHeader eyebrow={t.featuresEyebrow} title={t.featuresTitle} />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 sm:grid-rows-[auto_auto_1fr_auto] lg:grid-cols-3">
           {t.features.map((feature) => (
-            <Card key={feature.title} interactive>
+            <Card
+              key={feature.title}
+              interactive
+              className="sm:row-span-4 sm:grid sm:grid-rows-subgrid"
+            >
               <CardIcon>
                 <Icon name={feature.icon} size={22} />
               </CardIcon>
               <h3 className="text-lg font-semibold tracking-tight">{feature.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{feature.text}</p>
+              <p className="mt-3 leading-relaxed text-ink-secondary">{feature.text}</p>
               <ul className="mt-6 space-y-2.5 border-t border-line-subtle pt-6">
                 {feature.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                  <li key={point} className="flex items-start gap-2.5 text-ink-secondary">
                     <Icon name="check" size={16} className="mt-0.5 shrink-0 text-brand" />
                     {point}
                   </li>
