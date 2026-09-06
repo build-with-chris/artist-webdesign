@@ -126,7 +126,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Artist Karlo',
-    url: 'https://karlo-theta.vercel.app/',
+    url: 'https://karlojanke.com/',
     alt: {
       de: 'Startseite von Artist Karlo mit einer Aufnahme im rotierenden Cyr Wheel',
       en: 'Artist Karlo homepage showing a performance inside a spinning Cyr Wheel',
